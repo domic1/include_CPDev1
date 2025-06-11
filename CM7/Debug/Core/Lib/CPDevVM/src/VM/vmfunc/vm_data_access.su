@@ -1,0 +1,13 @@
+../Core/Lib/CPDevVM/src/VM/vmfunc/vm_data_access.cpp:26:9:WM_WORD VMTaskClass16::GetProgramWord()	24	static
+../Core/Lib/CPDevVM/src/VM/vmfunc/vm_data_access.cpp:56:10:WM_DWORD VMTaskClass16::GetProgramDWord()	24	static
+../Core/Lib/CPDevVM/src/VM/vmfunc/vm_data_access.cpp:104:12:WM_WORD VMTaskClass16::GetProgramAddress()	16	static
+../Core/Lib/CPDevVM/src/VM/vmfunc/vm_data_access.cpp:188:9:WM_REAL VMTaskClass16::getREAL(WM_WORD)	24	static
+../Core/Lib/CPDevVM/src/VM/vmfunc/vm_data_access.cpp:193:6:void VMTaskClass16::setREAL(WM_WORD, WM_REAL)	24	static
+../Core/Lib/CPDevVM/src/VM/vmfunc/vm_data_access.cpp:198:10:WM_LREAL VMTaskClass16::getLREAL(WM_WORD)	24	static
+../Core/Lib/CPDevVM/src/VM/vmfunc/vm_data_access.cpp:203:6:void VMTaskClass16::setLREAL(WM_WORD, WM_LREAL)	24	static
+../Core/Lib/CPDevVM/src/VM/vmfunc/vm_data_access.cpp:208:8:WM_INT VMTaskClass16::getINT(WM_WORD)	24	static
+../Core/Lib/CPDevVM/src/VM/vmfunc/vm_data_access.cpp:213:6:void VMTaskClass16::setINT(WM_WORD, WM_INT)	16	static
+../Core/Lib/CPDevVM/src/VM/vmfunc/vm_data_access.cpp:218:9:WM_DINT VMTaskClass16::getDINT(WM_WORD)	24	static
+../Core/Lib/CPDevVM/src/VM/vmfunc/vm_data_access.cpp:223:6:void VMTaskClass16::setDINT(WM_WORD, WM_DINT)	24	static
+../Core/Lib/CPDevVM/src/VM/vmfunc/vm_data_access.cpp:228:9:WM_LINT VMTaskClass16::getLINT(WM_WORD)	24	static
+../Core/Lib/CPDevVM/src/VM/vmfunc/vm_data_access.cpp:233:6:void VMTaskClass16::setLINT(WM_WORD, WM_LINT)	24	static

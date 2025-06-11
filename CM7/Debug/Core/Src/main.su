@@ -1,0 +1,26 @@
+../Core/Src/../lib/CPDevVM/src/VM\vmtaskclass.h:12:2:VMTaskClass16::VMTaskClass16()	16	static
+../Core/Src/../lib/CPDevVM/src/VM\vmtaskclass.h:42:15:virtual void VMTaskClass16::VMP_PostCycle()	16	static
+../Core/Src/../lib/CPDevVM/src/VM\vmtaskclass.h:43:15:virtual void VMTaskClass16::VMP_PreCycle()	16	static
+../Core/Src/../lib/CPDevVM/src/VM\vmtaskclass.h:44:15:virtual void VMTaskClass16::VMP_Debug(WM_BYTE, WM_WORD)	16	static
+../Core/Src/../lib/CPDevVM/src/VM\vmtaskclass.h:45:15:virtual void VMTaskClass16::VMP_PreNextCommand()	16	static
+../Core/Src/../lib/CPDevVM/src/VM\vmtaskclass.h:51:15:virtual void VMTaskClass16::VMP_PreProgram()	16	static
+../Core/Src/../lib/CPDevVM/src/VM\vmtaskclass.h:57:15:virtual void VMTaskClass16::VMP_PostProgram()	16	static
+../Core/Src/../lib/CPDevVM/src/VM\vmtaskclass.h:59:18:virtual WM_BYTE VMTaskClass16::VMP_FlashDataRead(WM_WORD, WM_WORD)	16	static
+../Core/Src/../lib/CPDevVM/src/VM\vmtaskclass.h:60:18:virtual WM_BYTE VMTaskClass16::VMP_FlashDataWrite(WM_WORD, WM_WORD)	16	static
+../Core/Src/../lib/CPDevVM/src/VM\vmtaskclass.h:61:18:virtual WM_WORD VMTaskClass16::VMP_FlashDataControl(WM_WORD)	16	static
+../Core/Src/../lib/CPDevVM/src/VM\vmtaskclass.h:75:15:virtual void VMTaskClass16::VMP_ReadRTC(WM_DATE_AND_TIME*)	16	static
+../Core/Src/../lib/CPDevVM/src/VM\vmtaskclass.h:82:18:virtual WM_BOOL VMTaskClass16::VMP_WriteRTC(WM_DATE_AND_TIME*)	16	static
+../Core/Src/../lib/CPDevVM/src/VM\vmtaskclass.h:90:14:virtual int VMTaskClass16::VMP_ExecNativeBlock(WM_WORD, WM_WORD)	16	static
+../Core/Src/../lib/CPDevVM/src/VM\vmtaskclass.h:91:14:virtual int VMTaskClass16::VMP_InitNativeBlock(WM_WORD, WM_WORD)	16	static
+../Core/Src/../lib/CPDevVM/src/vm_arduino.h:20:7:VMArduino::VMArduino()	16	static
+../Core/Src/main.cpp:69:6:void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef*)	16	static
+../Core/Src/main.cpp:96:5:int main()	16	static
+../Core/Src/main.cpp:186:6:void SystemClock_Config()	120	static
+../Core/Src/main.cpp:249:6:void PeriphCommonClock_Config()	208	static
+../Core/Src/main.cpp:276:13:void MX_TIM7_Init()	24	static
+../Core/Src/main.cpp:314:13:void MX_USART1_UART_Init()	8	static
+../Core/Src/main.cpp:362:13:void MX_USART2_UART_Init()	8	static
+../Core/Src/main.cpp:412:13:void MX_GPIO_Init()	56	static
+../Core/Src/main.cpp:466:6:void Error_Handler()	4	static,ignoring_inline_asm
+../Core/Src/main.cpp:475:1:void __static_initialization_and_destruction_0()	8	static
+../Core/Src/main.cpp:475:1:cpp)	8	static
