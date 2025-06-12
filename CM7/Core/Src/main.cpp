@@ -18,12 +18,13 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+
+/* Private includes ----------------------------------------------------------*/
+/* USER CODE BEGIN Includes */
 #include "../Lib/CPDevVM/src/vm_arduino.h"
 
 #include <../Lib/CPDev_XCPcodes/2021/mach16b/8b/cpyMem.h>
 
-/* Private includes ----------------------------------------------------------*/
-/* USER CODE BEGIN Includes */
 #include <cstdio>
 #include <cstring>
 #include <iostream>
@@ -55,6 +56,8 @@ TIM_HandleTypeDef htim7;
 
 UART_HandleTypeDef huart1;
 UART_HandleTypeDef huart2;
+DMA_HandleTypeDef hdma_usart1_rx;
+DMA_HandleTypeDef hdma_usart1_tx;
 
 /* USER CODE BEGIN PV */
 VMArduino cpdev;
@@ -65,6 +68,7 @@ VMArduino cpdev;
 void SystemClock_Config(void);
 void PeriphCommonClock_Config(void);
 static void MX_GPIO_Init(void);
+static void MX_DMA_Init(void);
 static void MX_USART1_UART_Init(void);
 static void MX_TIM7_Init(void);
 static void MX_USART2_UART_Init(void);
@@ -106,7 +110,12 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 int main(void)
 {
 	HAL_GPIO_TogglePin(LED2_GPIO_Port, LED2_Pin);
-	  printf("Start");
+		  printf("Start");
+		  uint8_t UART1_rxBuffer[12] = {0};
+
+		      HAL_UART_Receive (&huart1, UART1_rxBuffer, 12, 5000);
+		      HAL_UART_Transmit(&huart1, UART1_rxBuffer, 12, 100);
+
 
   /* USER CODE BEGIN 1 */
 
@@ -162,28 +171,29 @@ Error_Handler();
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();
   MX_USART1_UART_Init();
   MX_TIM7_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
   printf("Landing");
 
-  if (cpdev.VMP_LoadProgramFromArray(xcp_code) != 0)
-    	{
-	  HAL_GPIO_WritePin(LED3_GPIO_Port, LED3_Pin, GPIO_PIN_SET);
-	  printf("Cannot load program into VM");
-	           HAL_Delay(1000);
+   if (cpdev.VMP_LoadProgramFromArray(xcp_code) != 0)
+     	{
+ 	  HAL_GPIO_WritePin(LED3_GPIO_Port, LED3_Pin, GPIO_PIN_SET);
+ 	  printf("Cannot load program into VM");
+ 	           HAL_Delay(1000);
 
-    		while (1)
-    			;
-    	}
-    	else
-    	{
-    		cpdev.task_cycle = 100;
-    		cpdev.WM_Initialize(WM_MODE_FIRST_START | WM_MODE_NORMAL);
-    		HAL_TIM_Base_Start_IT(&htim7);
-    	}
-  HAL_GPIO_WritePin(LED3_GPIO_Port, LED3_Pin, GPIO_PIN_RESET);
+     		while (1)
+     			;
+     	}
+     	else
+     	{
+     		cpdev.task_cycle = 100;
+     		cpdev.WM_Initialize(WM_MODE_FIRST_START | WM_MODE_NORMAL);
+     		HAL_TIM_Base_Start_IT(&htim7);
+     	}
+   HAL_GPIO_WritePin(LED3_GPIO_Port, LED3_Pin, GPIO_PIN_RESET);
 
   /* USER CODE END 2 */
 
@@ -424,6 +434,25 @@ static void MX_USART2_UART_Init(void)
 }
 
 /**
+  * Enable DMA controller clock
+  */
+static void MX_DMA_Init(void)
+{
+
+  /* DMA controller clock enable */
+  __HAL_RCC_DMA1_CLK_ENABLE();
+
+  /* DMA interrupt init */
+  /* DMA1_Stream0_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA1_Stream0_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Stream0_IRQn);
+  /* DMA1_Stream1_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA1_Stream1_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Stream1_IRQn);
+
+}
+
+/**
   * @brief GPIO Initialization Function
   * @param None
   * @retval None
@@ -475,30 +504,6 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-
-#ifdef __GNUC__
-  /* With GCC, small printf (option LD Linker->Libraries->Small printf
-     set to 'Yes') calls __io_putchar() */
-  #define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
-#else
-  #define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)
-#endif /* __GNUC__ */
-
-/**
-  * @brief  Retargets the C library printf function to the USART.
-  * @param  None
-  * @retval None
-  */
-PUTCHAR_PROTOTYPE
-{
-  /* Place your implementation of fputc here */
-  /* e.g. write a character to the USART1 and Loop until the end of transmission */
-  HAL_UART_Transmit(&huart1, (uint8_t *)&ch, 1, 0xFFFF);
-
-  return ch;
-}
-
-
 
 /* USER CODE END 4 */
 
