@@ -21,6 +21,7 @@
 #include "../Lib/CPDevVM/src/vm_arduino.h"
 
 #include <../Lib/CPDev_XCPcodes/2021/mach16b/8b/cpyMem.h>
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -96,7 +97,6 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 int main(void)
 {
 
-
   /* USER CODE BEGIN 1 */
 
   /* USER CODE END 1 */
@@ -156,17 +156,17 @@ Error_Handler();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
   if (cpdev.VMP_LoadProgramFromArray(xcp_code) != 0)
-  	{
-  		//Serial.print("Cannot load program into VM");
-  		while (1)
-  			;
-  	}
-  	else
-  	{
-  		cpdev.task_cycle = 100;
-  		cpdev.WM_Initialize(WM_MODE_FIRST_START | WM_MODE_NORMAL);
-  		HAL_TIM_Base_Start_IT(&htim7);
-  	}
+    	{
+    		//Serial.print("Cannot load program into VM");
+    		while (1)
+    			;
+    	}
+    	else
+    	{
+    		cpdev.task_cycle = 100;
+    		cpdev.WM_Initialize(WM_MODE_FIRST_START | WM_MODE_NORMAL);
+    		HAL_TIM_Base_Start_IT(&htim7);
+    	}
   /* USER CODE END 2 */
 
   /* Infinite loop */

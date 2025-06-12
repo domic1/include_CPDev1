@@ -13,8 +13,8 @@
 ../Core/Src/../Lib/CPDevVM/src/VM\vmtaskclass.h:90:14:virtual int VMTaskClass16::VMP_ExecNativeBlock(WM_WORD, WM_WORD)	16	static
 ../Core/Src/../Lib/CPDevVM/src/VM\vmtaskclass.h:91:14:virtual int VMTaskClass16::VMP_InitNativeBlock(WM_WORD, WM_WORD)	16	static
 ../Core/Src/../Lib/CPDevVM/src/vm_arduino.h:20:7:VMArduino::VMArduino()	16	static
-../Core/Src/main.cpp:69:6:void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef*)	16	static
-../Core/Src/main.cpp:96:5:int main()	16	static
+../Core/Src/main.cpp:70:6:void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef*)	16	static
+../Core/Src/main.cpp:97:5:int main()	16	static
 ../Core/Src/main.cpp:187:6:void SystemClock_Config()	120	static
 ../Core/Src/main.cpp:250:6:void PeriphCommonClock_Config()	208	static
 ../Core/Src/main.cpp:277:13:void MX_TIM7_Init()	24	static

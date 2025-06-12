@@ -161,7 +161,25 @@ SECTIONS
     . = ALIGN(8);
   } >RAM
 
+/* CPDev VM dedicated RAM  */
+  .ram_vm (NOLOAD) :
+  {
+    . = ALIGN(8);
+    *(.ram_vm)
+    . = . + 0x20000; 
+    PROVIDE(__ram_vm_start__ = ADDR(.ram_vm));
+    PROVIDE(__ram_vm_end__ = ADDR(.ram_vm) + SIZEOF(.ram_vm));
+  } >RAM_D1
 
+  /* Shared RAM dla komunikacji między CM7/CM4 */
+  .shared_ram (NOLOAD) :
+  {
+    . = ALIGN(8);
+    *(.shared_ram)
+    . = . + 0x1000;  
+    PROVIDE(__shared_ram_start__ = ADDR(.shared_ram));
+    PROVIDE(__shared_ram_end__ = ADDR(.shared_ram) + SIZEOF(.shared_ram));
+  } >RAM_D3
 
   /* Remove information from the standard libraries */
   /DISCARD/ :
