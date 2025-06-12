@@ -1,18 +1,18 @@
-../Core/Src/../lib/CPDevVM/src/VM\vmtaskclass.h:12:2:VMTaskClass16::VMTaskClass16()	1
-../Core/Src/../lib/CPDevVM/src/VM\vmtaskclass.h:42:15:virtual void VMTaskClass16::VMP_PostCycle()	1
-../Core/Src/../lib/CPDevVM/src/VM\vmtaskclass.h:43:15:virtual void VMTaskClass16::VMP_PreCycle()	1
-../Core/Src/../lib/CPDevVM/src/VM\vmtaskclass.h:44:15:virtual void VMTaskClass16::VMP_Debug(WM_BYTE, WM_WORD)	1
-../Core/Src/../lib/CPDevVM/src/VM\vmtaskclass.h:45:15:virtual void VMTaskClass16::VMP_PreNextCommand()	1
-../Core/Src/../lib/CPDevVM/src/VM\vmtaskclass.h:51:15:virtual void VMTaskClass16::VMP_PreProgram()	1
-../Core/Src/../lib/CPDevVM/src/VM\vmtaskclass.h:57:15:virtual void VMTaskClass16::VMP_PostProgram()	1
-../Core/Src/../lib/CPDevVM/src/VM\vmtaskclass.h:59:18:virtual WM_BYTE VMTaskClass16::VMP_FlashDataRead(WM_WORD, WM_WORD)	1
-../Core/Src/../lib/CPDevVM/src/VM\vmtaskclass.h:60:18:virtual WM_BYTE VMTaskClass16::VMP_FlashDataWrite(WM_WORD, WM_WORD)	1
-../Core/Src/../lib/CPDevVM/src/VM\vmtaskclass.h:61:18:virtual WM_WORD VMTaskClass16::VMP_FlashDataControl(WM_WORD)	1
-../Core/Src/../lib/CPDevVM/src/VM\vmtaskclass.h:75:15:virtual void VMTaskClass16::VMP_ReadRTC(WM_DATE_AND_TIME*)	1
-../Core/Src/../lib/CPDevVM/src/VM\vmtaskclass.h:82:18:virtual WM_BOOL VMTaskClass16::VMP_WriteRTC(WM_DATE_AND_TIME*)	1
-../Core/Src/../lib/CPDevVM/src/VM\vmtaskclass.h:90:14:virtual int VMTaskClass16::VMP_ExecNativeBlock(WM_WORD, WM_WORD)	1
-../Core/Src/../lib/CPDevVM/src/VM\vmtaskclass.h:91:14:virtual int VMTaskClass16::VMP_InitNativeBlock(WM_WORD, WM_WORD)	1
-../Core/Src/../lib/CPDevVM/src/vm_arduino.h:20:7:VMArduino::VMArduino()	1
+../Core/Src/../Lib/CPDevVM/src/VM\vmtaskclass.h:12:2:VMTaskClass16::VMTaskClass16()	1
+../Core/Src/../Lib/CPDevVM/src/VM\vmtaskclass.h:42:15:virtual void VMTaskClass16::VMP_PostCycle()	1
+../Core/Src/../Lib/CPDevVM/src/VM\vmtaskclass.h:43:15:virtual void VMTaskClass16::VMP_PreCycle()	1
+../Core/Src/../Lib/CPDevVM/src/VM\vmtaskclass.h:44:15:virtual void VMTaskClass16::VMP_Debug(WM_BYTE, WM_WORD)	1
+../Core/Src/../Lib/CPDevVM/src/VM\vmtaskclass.h:45:15:virtual void VMTaskClass16::VMP_PreNextCommand()	1
+../Core/Src/../Lib/CPDevVM/src/VM\vmtaskclass.h:51:15:virtual void VMTaskClass16::VMP_PreProgram()	1
+../Core/Src/../Lib/CPDevVM/src/VM\vmtaskclass.h:57:15:virtual void VMTaskClass16::VMP_PostProgram()	1
+../Core/Src/../Lib/CPDevVM/src/VM\vmtaskclass.h:59:18:virtual WM_BYTE VMTaskClass16::VMP_FlashDataRead(WM_WORD, WM_WORD)	1
+../Core/Src/../Lib/CPDevVM/src/VM\vmtaskclass.h:60:18:virtual WM_BYTE VMTaskClass16::VMP_FlashDataWrite(WM_WORD, WM_WORD)	1
+../Core/Src/../Lib/CPDevVM/src/VM\vmtaskclass.h:61:18:virtual WM_WORD VMTaskClass16::VMP_FlashDataControl(WM_WORD)	1
+../Core/Src/../Lib/CPDevVM/src/VM\vmtaskclass.h:75:15:virtual void VMTaskClass16::VMP_ReadRTC(WM_DATE_AND_TIME*)	1
+../Core/Src/../Lib/CPDevVM/src/VM\vmtaskclass.h:82:18:virtual WM_BOOL VMTaskClass16::VMP_WriteRTC(WM_DATE_AND_TIME*)	1
+../Core/Src/../Lib/CPDevVM/src/VM\vmtaskclass.h:90:14:virtual int VMTaskClass16::VMP_ExecNativeBlock(WM_WORD, WM_WORD)	1
+../Core/Src/../Lib/CPDevVM/src/VM\vmtaskclass.h:91:14:virtual int VMTaskClass16::VMP_InitNativeBlock(WM_WORD, WM_WORD)	1
+../Core/Src/../Lib/CPDevVM/src/vm_arduino.h:20:7:VMArduino::VMArduino()	1
 ../Core/Src/main.cpp:69:6:void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef*)	3
 ../Core/Src/main.cpp:96:5:int main()	10
 ../Core/Src/main.cpp:187:6:void SystemClock_Config()	4

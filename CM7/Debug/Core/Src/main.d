@@ -31,14 +31,14 @@ Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/main.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h \
- ../Core/Src/../lib/CPDevVM/src/vm_arduino.h \
- ../Core/Src/../lib/CPDevVM/src/VM\vmtaskclass.h \
- ../Core/Src/../lib/CPDevVM/src/VM\vm.h \
- ../Core/Src/../lib/CPDevVM/src/VM\vm_cfg.h \
- ../Core/Src/../lib/CPDevVM/src/VM\vmtaskclass.h \
- ../Core/Src/../lib/CPDevVM/src/VM\vmplatform.h \
- ../Core/Src/../lib/CPDevVM/src/VM\vmregisters.h \
- ../Core/Inc/../lib/CPDev_XCPcodes/2021/mach16b/8b/cpyMem.h
+ ../Core/Src/../Lib/CPDevVM/src/vm_arduino.h \
+ ../Core/Src/../Lib/CPDevVM/src/VM\vmtaskclass.h \
+ ../Core/Src/../Lib/CPDevVM/src/VM\vm.h \
+ ../Core/Src/../Lib/CPDevVM/src/VM\vm_cfg.h \
+ ../Core/Src/../Lib/CPDevVM/src/VM\vmtaskclass.h \
+ ../Core/Src/../Lib/CPDevVM/src/VM\vmplatform.h \
+ ../Core/Src/../Lib/CPDevVM/src/VM\vmregisters.h \
+ ../Core/Inc/../Lib/CPDev_XCPcodes/2021/mach16b/8b/cpyMem.h
 ../Core/Inc/main.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
 ../Core/Inc/stm32h7xx_hal_conf.h:
@@ -72,11 +72,11 @@ Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/main.h \
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h:
-../Core/Src/../lib/CPDevVM/src/vm_arduino.h:
-../Core/Src/../lib/CPDevVM/src/VM\vmtaskclass.h:
-../Core/Src/../lib/CPDevVM/src/VM\vm.h:
-../Core/Src/../lib/CPDevVM/src/VM\vm_cfg.h:
-../Core/Src/../lib/CPDevVM/src/VM\vmtaskclass.h:
-../Core/Src/../lib/CPDevVM/src/VM\vmplatform.h:
-../Core/Src/../lib/CPDevVM/src/VM\vmregisters.h:
-../Core/Inc/../lib/CPDev_XCPcodes/2021/mach16b/8b/cpyMem.h:
+../Core/Src/../Lib/CPDevVM/src/vm_arduino.h:
+../Core/Src/../Lib/CPDevVM/src/VM\vmtaskclass.h:
+../Core/Src/../Lib/CPDevVM/src/VM\vm.h:
+../Core/Src/../Lib/CPDevVM/src/VM\vm_cfg.h:
+../Core/Src/../Lib/CPDevVM/src/VM\vmtaskclass.h:
+../Core/Src/../Lib/CPDevVM/src/VM\vmplatform.h:
+../Core/Src/../Lib/CPDevVM/src/VM\vmregisters.h:
+../Core/Inc/../Lib/CPDev_XCPcodes/2021/mach16b/8b/cpyMem.h:

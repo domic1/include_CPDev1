@@ -18,9 +18,9 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "../lib/CPDevVM/src/vm_arduino.h"
+#include "../Lib/CPDevVM/src/vm_arduino.h"
 
-#include <../lib/CPDev_XCPcodes/2021/mach16b/8b/cpyMem.h>
+#include <../Lib/CPDev_XCPcodes/2021/mach16b/8b/cpyMem.h>
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
