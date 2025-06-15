@@ -21,13 +21,14 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include <cstdio>
+#include <cstring>
+#include <iostream>
 #include "../Lib/CPDevVM/src/vm_arduino.h"
 
 #include <../Lib/CPDev_XCPcodes/2021/mach16b/8b/cpyMem.h>
 
-#include <cstdio>
-#include <cstring>
-#include <iostream>
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -78,10 +79,13 @@ static void MX_USART2_UART_Init(void);
 #else
 #define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)
 #endif /* __GNUC__ */
+
+
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
 	if (htim->Instance == TIM7)
 	{
+//		static uint32_t counter = 0;
 		  printf("Timer");
 
 		HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_SET);
@@ -100,7 +104,32 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+extern "C" void VM_digitalWrite(uint8_t pin, uint8_t val)
+{
+    printf("digitalWrite: pin=%d, val=%d\n", pin, val);
 
+    if (pin == 13) {
+        HAL_GPIO_WritePin(LED3_GPIO_Port, LED3_Pin, val ? GPIO_PIN_SET : GPIO_PIN_RESET);
+        printf("LED3 set to %s\n", val ? "HIGH" : "LOW");
+    }
+}
+
+extern "C" void VM_pinMode(uint8_t pin, uint8_t mode)
+{
+    printf("pinMode: pin=%d, mode=%d\n", pin, mode);
+}
+
+extern "C" unsigned long VM_millis(void)
+{
+    unsigned long ms = HAL_GetTick();
+    // Wypisz tylko co 1000ms żeby nie zaśmiecać
+    static unsigned long last_print = 0;
+    if (ms - last_print > 1000) {
+        last_print = ms;
+        printf("Mills() called, returning %lu\n", ms);
+    }
+    return ms;
+}
 /* USER CODE END 0 */
 
 /**
@@ -109,15 +138,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
   */
 int main(void)
 {
-	HAL_GPIO_TogglePin(LED2_GPIO_Port, LED2_Pin);
-		  printf("Start");
-		  uint8_t UART1_rxBuffer[12] = {0};
 
-		      HAL_UART_Receive (&huart1, UART1_rxBuffer, 12, 5000);
-		      HAL_UART_Transmit(&huart1, UART1_rxBuffer, 12, 100);
-
-
-  /* USER CODE BEGIN 1 */
 
   /* USER CODE END 1 */
 /* USER CODE BEGIN Boot_Mode_Sequence_0 */
@@ -176,24 +197,57 @@ Error_Handler();
   MX_TIM7_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-  printf("Landing");
+  printf("Testing all LEDs...\n");
 
-   if (cpdev.VMP_LoadProgramFromArray(xcp_code) != 0)
-     	{
- 	  HAL_GPIO_WritePin(LED3_GPIO_Port, LED3_Pin, GPIO_PIN_SET);
- 	  printf("Cannot load program into VM");
- 	           HAL_Delay(1000);
+  // Zgaś wszystkie
+  HAL_GPIO_WritePin(GPIOI, LED1_Pin|LED3_Pin|LED4_Pin, GPIO_PIN_RESET);
+  HAL_Delay(1000);
 
-     		while (1)
-     			;
-     	}
-     	else
-     	{
-     		cpdev.task_cycle = 100;
-     		cpdev.WM_Initialize(WM_MODE_FIRST_START | WM_MODE_NORMAL);
-     		HAL_TIM_Base_Start_IT(&htim7);
-     	}
-   HAL_GPIO_WritePin(LED3_GPIO_Port, LED3_Pin, GPIO_PIN_RESET);
+  // Test LED1
+  printf("LED1 ON\n");
+  HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_SET);
+  HAL_Delay(1000);
+  HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_RESET);
+  printf("LED1 OFF\n");
+  HAL_Delay(500);
+
+
+  // Test LED3
+  printf("LED3 ON\n");
+  HAL_GPIO_WritePin(LED3_GPIO_Port, LED3_Pin, GPIO_PIN_SET);
+  HAL_Delay(1000);
+  HAL_GPIO_WritePin(LED3_GPIO_Port, LED3_Pin, GPIO_PIN_RESET);
+  printf("LED3 OFF\n");
+  HAL_Delay(500);
+
+  // Test LED4
+  printf("LED4 ON\n");
+  HAL_GPIO_WritePin(LED4_GPIO_Port, LED4_Pin, GPIO_PIN_SET);
+  HAL_Delay(1000);
+  HAL_GPIO_WritePin(LED4_GPIO_Port, LED4_Pin, GPIO_PIN_RESET);
+  printf("LED4 OFF\n");
+  HAL_Delay(500);
+
+  printf("LED test complete\n");
+
+  HAL_UART_Transmit(&huart1, (uint8_t*)"CM7 Started\r\n", 13, 100);
+    if (cpdev.VMP_LoadProgramFromArray(xcp_code) != 0)
+      	{
+  	  HAL_GPIO_WritePin(LED4_GPIO_Port, LED4_Pin, GPIO_PIN_SET);
+  	  printf("Cannot load program into VM");
+  	           HAL_Delay(1000);
+
+      		while (1)
+      			;
+      	}
+      	else
+      	{
+      		printf("VM loaded successfully\n");
+      		cpdev.task_cycle = 100;
+      		cpdev.WM_Initialize(WM_MODE_FIRST_START | WM_MODE_NORMAL);
+      		HAL_TIM_Base_Start_IT(&htim7);
+      	}
+    HAL_GPIO_WritePin(LED4_GPIO_Port, LED4_Pin, GPIO_PIN_RESET);
 
   /* USER CODE END 2 */
 
@@ -201,13 +255,30 @@ Error_Handler();
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    /* USER CODE END WHILE */
 
+
+	      static uint32_t test_time = 0;
+	      static uint8_t test_state = 0;
+
+	      // Co 2 sekundy testuj bezpośrednio
+	      if (HAL_GetTick() - test_time > 2000) {
+	          test_time = HAL_GetTick();
+	          test_state = !test_state;
+
+	          printf("\n=== Direct LED test ===\n");
+	          VM_digitalWrite(13, test_state);
+	          printf("=== End test ===\n\n");
+
+
+	      HAL_Delay(10);
+
+    /* USER CODE END WHILE */
+  }
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
-}
 
+}
 /**
   * @brief System Clock Configuration
   * @retval None
@@ -315,9 +386,9 @@ static void MX_TIM7_Init(void)
 
   /* USER CODE END TIM7_Init 1 */
   htim7.Instance = TIM7;
-  htim7.Init.Prescaler = 8399;
+  htim7.Init.Prescaler = 63;
   htim7.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim7.Init.Period = 9999;
+  htim7.Init.Period = 999;
   htim7.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_ENABLE;
   if (HAL_TIM_Base_Init(&htim7) != HAL_OK)
   {
@@ -473,7 +544,7 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOH_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOI, LED1_Pin|LED2_Pin|LED3_Pin|LED4_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOI, LED1_Pin|LED3_Pin|LED4_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : JOY_RIGHT_Pin JOY_LEFT_Pin JOY_UP_Pin JOY_DOWN_Pin
                            JOY_SEL_Pin */
@@ -491,8 +562,8 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Alternate = GPIO_AF0_MCO;
   HAL_GPIO_Init(CEC_CK_MCO1_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : LED1_Pin LED2_Pin LED3_Pin LED4_Pin */
-  GPIO_InitStruct.Pin = LED1_Pin|LED2_Pin|LED3_Pin|LED4_Pin;
+  /*Configure GPIO pins : LED1_Pin LED3_Pin LED4_Pin */
+  GPIO_InitStruct.Pin = LED1_Pin|LED3_Pin|LED4_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -504,7 +575,13 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-
+extern "C" {
+    PUTCHAR_PROTOTYPE
+    {
+        HAL_UART_Transmit(&huart1, (uint8_t *)&ch, 1, HAL_MAX_DELAY);
+        return ch;
+    }
+}
 /* USER CODE END 4 */
 
 /**

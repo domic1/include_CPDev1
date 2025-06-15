@@ -162,6 +162,8 @@ void MX_USART1_UART_Init(void);
 #define FMC_A0_GPIO_Port GPIOF
 #define QSPI_BK1_NCS_Pin GPIO_PIN_6
 #define QSPI_BK1_NCS_GPIO_Port GPIOG
+#define LED2_Pin GPIO_PIN_13
+#define LED2_GPIO_Port GPIOI
 #define FMC_A3_Pin GPIO_PIN_3
 #define FMC_A3_GPIO_Port GPIOF
 #define FMC_BA0_Pin GPIO_PIN_4

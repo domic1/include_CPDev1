@@ -16,13 +16,19 @@
 #endif
 
 #include "VM\vmtaskclass.h"
+#include "VM\vm_cfg.h"
+#include <stdint.h>
 
 class VMArduino : public VMCLASS_NAME
 {
 public:
 	int VMP_LoadProgramAndData(const wchar_t* file, int datasize = DEFAULT_DATA_SIZE);
 	int VMP_LoadProgramFromArray(const unsigned char* code, int datasize = DEFAULT_DATA_SIZE);
-
+	void pinMode(uint8_t pin, uint8_t mode);
+	    void digitalWrite(uint8_t pin, uint8_t val);
+	    int digitalRead(uint8_t pin);
+	    void delay(unsigned long ms);
+	    unsigned long millis(void);
 private:
 	void VMP_PostCycle(void);
 	void VMP_PreCycle(void);
@@ -43,5 +49,8 @@ private:
 
 	WM_BYTE pgmDataDefault[DEFAULT_DATA_SIZE];
 };
-
+#define HIGH 1
+#define LOW  0
+#define INPUT 0
+#define OUTPUT 1
 #endif

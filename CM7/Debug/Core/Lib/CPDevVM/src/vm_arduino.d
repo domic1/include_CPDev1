@@ -4,7 +4,8 @@ Core/Lib/CPDevVM/src/vm_arduino.o: ../Core/Lib/CPDevVM/src/vm_arduino.cpp \
  ../Core/Lib/CPDevVM/src/VM\vm_cfg.h \
  ../Core/Lib/CPDevVM/src/VM\vmtaskclass.h \
  ../Core/Lib/CPDevVM/src/VM\vmplatform.h \
- ../Core/Lib/CPDevVM/src/VM\vmregisters.h ../Core/Inc/main.h \
+ ../Core/Lib/CPDevVM/src/VM\vmregisters.h \
+ ../Core/Lib/CPDevVM/src/VM\vm_cfg.h ../Core/Inc/main.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h \
  ../Core/Inc/stm32h7xx_hal_conf.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h \
@@ -44,6 +45,7 @@ Core/Lib/CPDevVM/src/vm_arduino.o: ../Core/Lib/CPDevVM/src/vm_arduino.cpp \
 ../Core/Lib/CPDevVM/src/VM\vmtaskclass.h:
 ../Core/Lib/CPDevVM/src/VM\vmplatform.h:
 ../Core/Lib/CPDevVM/src/VM\vmregisters.h:
+../Core/Lib/CPDevVM/src/VM\vm_cfg.h:
 ../Core/Inc/main.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
 ../Core/Inc/stm32h7xx_hal_conf.h:

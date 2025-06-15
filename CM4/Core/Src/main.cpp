@@ -19,7 +19,8 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "string.h"
-
+#include <cstring>
+#include <iostream>
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -122,7 +123,11 @@ static void MX_TIM13_Init(void);
 static void MX_UART8_Init(void);
 static void MX_USB_OTG_HS_PCD_Init(void);
 /* USER CODE BEGIN PFP */
-
+#ifdef __GNUC__
+#define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
+#else
+#define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)
+#endif
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -189,6 +194,14 @@ int main(void)
   MX_UART8_Init();
   MX_USB_OTG_HS_PCD_Init();
   /* USER CODE BEGIN 2 */
+  HAL_UART_Transmit(&huart8, (uint8_t*)"CM4 Started\r\n", 22, 100);
+  // Test LED2
+   printf("LED2 ON\n");
+   HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, GPIO_PIN_SET);
+   HAL_Delay(1000);
+   HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, GPIO_PIN_RESET);
+   printf("LED2 OFF\n");
+   HAL_Delay(500);
 
   /* USER CODE END 2 */
 
@@ -196,8 +209,15 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    /* USER CODE END WHILE */
+	  if(HAL_HSEM_IsSemTaken(HSEM_ID_0) == 0) {
+	         if(HAL_HSEM_Take(HSEM_ID_0, 0) == HAL_OK) {
+	             HAL_GPIO_TogglePin(LED2_GPIO_Port, LED2_Pin);
+	             HAL_HSEM_Release(HSEM_ID_0, 0);
+	         }
 
+	     HAL_Delay(10);
+    /* USER CODE END WHILE */
+	  }
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
@@ -1078,6 +1098,7 @@ void MX_FMC_Init(void)
   */
 static void MX_GPIO_Init(void)
 {
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
   /* USER CODE BEGIN MX_GPIO_Init_1 */
 
   /* USER CODE END MX_GPIO_Init_1 */
@@ -1095,13 +1116,29 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOK_CLK_ENABLE();
   __HAL_RCC_GPIOJ_CLK_ENABLE();
 
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin : LED2_Pin */
+  GPIO_InitStruct.Pin = LED2_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(LED2_GPIO_Port, &GPIO_InitStruct);
+
   /* USER CODE BEGIN MX_GPIO_Init_2 */
 
   /* USER CODE END MX_GPIO_Init_2 */
 }
 
 /* USER CODE BEGIN 4 */
-
+extern "C" {
+    PUTCHAR_PROTOTYPE
+    {
+        HAL_UART_Transmit(&huart1, (uint8_t *)&ch, 1, HAL_MAX_DELAY);
+        return ch;
+    }
+}
 /* USER CODE END 4 */
 
 /**

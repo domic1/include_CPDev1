@@ -1,14 +1,25 @@
 #include "vm_arduino.h"
 #include "main.h"
 #include <cstdlib>
+#include <cstdio>
+
+extern "C" {
+    void VM_pinMode(uint8_t pin, uint8_t mode);
+    void VM_digitalWrite(uint8_t pin, uint8_t val);
+    int VM_digitalRead(uint8_t pin);
+    unsigned long VM_millis(void);
+    // VM_delay możemy pominąć jeśli nie używamy
+}
 
 #ifdef USE_SD_XCP
 
 #include <SPI.h>
-//#include <SD.h>
+#include <SD.h>
 #include <SdFat.h>
 #include <string.h>
 #include <stdlib.h>
+
+
 
 size_t wchar2char (char *s, const wchar_t *pwcs, size_t n)
 {
@@ -109,7 +120,33 @@ int VMArduino::VMP_LoadProgramFromArray(const unsigned char* code, int datasize)
 
 	return 0;	// success
 }
+void VMArduino::pinMode(uint8_t pin, uint8_t mode)
+{
+    printf("VMArduino::pinMode called\n");
+    VM_pinMode(pin, mode);
+}
 
+void VMArduino::digitalWrite(uint8_t pin, uint8_t val)
+{
+    printf("VMArduino::digitalWrite called\n");
+    VM_digitalWrite(pin, val);
+}
+
+int VMArduino::digitalRead(uint8_t pin)
+{
+    return VM_digitalRead(pin);
+}
+
+void VMArduino::delay(unsigned long ms)
+{
+    // VM delay - nieblokujący
+
+}
+
+unsigned long VMArduino::millis(void)
+{
+    return VM_millis();
+}
 void VMArduino::VMP_Debug(WM_BYTE err, WM_WORD aux)
 {
   //Serial.print("Runtime error ");
@@ -193,4 +230,7 @@ WM_REAL VMArduino::VMP_GetRandom()
 	WM_REAL r = ((WM_REAL)l) / RAND_MAX;
 	return r;
 }
+
+
+
 

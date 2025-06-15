@@ -41,15 +41,15 @@
 
 // default size of data area (pgmData)
 #undef DEFAULT_DATA_SIZE
-#define DEFAULT_DATA_SIZE	128
+#define DEFAULT_DATA_SIZE	250
 
 // size of the calling stack
 #undef CALL_STACK_SIZE
-#define CALL_STACK_SIZE         128
+#define CALL_STACK_SIZE         250
   
 // size of the data offset stack  
 #undef DATA_STACK_SIZE        
-#define DATA_STACK_SIZE         128 
+#define DATA_STACK_SIZE         250
 
 // remove optional support to reduce code size
 #undef VM_STRING_SUPPORT
