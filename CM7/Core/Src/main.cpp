@@ -18,7 +18,9 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "../Inc/main.h"
 
+#include "../Inc/stm32h7xx_hal_conf.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include <cstdio>
@@ -44,17 +46,19 @@
 #define HSEM_ID_0 (0U) /* HW semaphore 0*/
 #endif
 
+
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
-
+WM_BOOL onof = 0;
+WM_BOOL o0, o1, o2, o3;
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
 
 TIM_HandleTypeDef htim7;
-
 UART_HandleTypeDef huart1;
 UART_HandleTypeDef huart2;
 DMA_HandleTypeDef hdma_usart1_rx;
@@ -80,7 +84,6 @@ static void MX_USART2_UART_Init(void);
 #define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)
 #endif /* __GNUC__ */
 
-
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
 	if (htim->Instance == TIM7)
@@ -99,6 +102,8 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 		}
 		HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_RESET);
 	}
+	  printf("Timer off");
+
 }
 /* USER CODE END PFP */
 
@@ -139,6 +144,7 @@ extern "C" unsigned long VM_millis(void)
 int main(void)
 {
 
+  /* USER CODE BEGIN 1 */
 
   /* USER CODE END 1 */
 /* USER CODE BEGIN Boot_Mode_Sequence_0 */
@@ -193,61 +199,28 @@ Error_Handler();
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_DMA_Init();
-  MX_USART1_UART_Init();
   MX_TIM7_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-  printf("Testing all LEDs...\n");
 
-  // Zgaś wszystkie
-  HAL_GPIO_WritePin(GPIOI, LED1_Pin|LED3_Pin|LED4_Pin, GPIO_PIN_RESET);
-  HAL_Delay(1000);
+  printf("CM7 Started\r\n");
+     if (cpdev.VMP_LoadProgramFromArray(xcp_code) != 0)
+       	{
+   	  HAL_GPIO_WritePin(LED4_GPIO_Port, LED4_Pin, GPIO_PIN_SET);
+   	  printf("Cannot load program into VM");
+   	           HAL_Delay(1000);
 
-  // Test LED1
-  printf("LED1 ON\n");
-  HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_SET);
-  HAL_Delay(1000);
-  HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_RESET);
-  printf("LED1 OFF\n");
-  HAL_Delay(500);
+       		while (1)
+       			;
+       	}
+       	else
+       	{
+       		printf("VM loaded successfully\n");
+       		cpdev.task_cycle = 100;
+       		cpdev.WM_Initialize(WM_MODE_FIRST_START | WM_MODE_NORMAL);
+       		HAL_TIM_Base_Start_IT(&htim7);
 
-
-  // Test LED3
-  printf("LED3 ON\n");
-  HAL_GPIO_WritePin(LED3_GPIO_Port, LED3_Pin, GPIO_PIN_SET);
-  HAL_Delay(1000);
-  HAL_GPIO_WritePin(LED3_GPIO_Port, LED3_Pin, GPIO_PIN_RESET);
-  printf("LED3 OFF\n");
-  HAL_Delay(500);
-
-  // Test LED4
-  printf("LED4 ON\n");
-  HAL_GPIO_WritePin(LED4_GPIO_Port, LED4_Pin, GPIO_PIN_SET);
-  HAL_Delay(1000);
-  HAL_GPIO_WritePin(LED4_GPIO_Port, LED4_Pin, GPIO_PIN_RESET);
-  printf("LED4 OFF\n");
-  HAL_Delay(500);
-
-  printf("LED test complete\n");
-
-  HAL_UART_Transmit(&huart1, (uint8_t*)"CM7 Started\r\n", 13, 100);
-    if (cpdev.VMP_LoadProgramFromArray(xcp_code) != 0)
-      	{
-  	  HAL_GPIO_WritePin(LED4_GPIO_Port, LED4_Pin, GPIO_PIN_SET);
-  	  printf("Cannot load program into VM");
-  	           HAL_Delay(1000);
-
-      		while (1)
-      			;
-      	}
-      	else
-      	{
-      		printf("VM loaded successfully\n");
-      		cpdev.task_cycle = 100;
-      		cpdev.WM_Initialize(WM_MODE_FIRST_START | WM_MODE_NORMAL);
-      		HAL_TIM_Base_Start_IT(&htim7);
-      	}
-    HAL_GPIO_WritePin(LED4_GPIO_Port, LED4_Pin, GPIO_PIN_RESET);
+       	}
 
   /* USER CODE END 2 */
 
@@ -255,36 +228,48 @@ Error_Handler();
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-
-
-	      static uint32_t test_time = 0;
-	      static uint8_t test_state = 0;
-
-	      // Co 2 sekundy testuj bezpośrednio
-	      if (HAL_GetTick() - test_time > 2000) {
-	          test_time = HAL_GetTick();
-	          test_state = !test_state;
-
-	          printf("\n=== Direct LED test ===\n");
-	          VM_digitalWrite(13, test_state);
-	          printf("=== End test ===\n\n");
-
-
-	      HAL_Delay(10);
+	  HAL_GPIO_TogglePin(LED3_GPIO_Port, LED3_Pin);
+	  HAL_Delay(500);
+//      static uint32_t test_time = 0;
+//	      static uint8_t test_state = 0;
+//	      if(HAL_HSEM_IsSemTaken(HSEM_ID_0) == 0)
+//	     	         {
+//	    	      if (HAL_GetTick() - test_time > 2000) {
+//	    	          test_time = HAL_GetTick();
+//	    	          test_state = !test_state;
+//
+//	    	          printf("\n=== Direct LED test ===\n");
+//	    	          VM_digitalWrite(13, test_state);
+//	    	          printf("=== End test ===\n\n");
+//	    	      }
+//
+//	    	      HAL_Delay(10);
+//	     	                 HAL_HSEM_Release(HSEM_ID_0, 0x38000000);
+//	     	             }
+//	     	         }
+//	  if(HAL_HSEM_IsSemTaken(HSEM_ID_0) == 0)
+//	  	     	         {
+//	  	            HAL_GPIO_TogglePin(LED3_GPIO_Port, LED3_Pin);
+//
+//
+//
+//	  	     	                 HAL_HSEM_Release(HSEM_ID_0, 0x38000000);
+//	  	     	             }
+//	  	      HAL_Delay(10);
+//	  	     	         }
 
     /* USER CODE END WHILE */
-  }
+
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
-
 }
+
 /**
   * @brief System Clock Configuration
   * @retval None
   */
-void SystemClock_Config(void)
-{
+void SystemClock_Config(void){
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
 
@@ -386,9 +371,9 @@ static void MX_TIM7_Init(void)
 
   /* USER CODE END TIM7_Init 1 */
   htim7.Instance = TIM7;
-  htim7.Init.Prescaler = 63;
+  htim7.Init.Prescaler = 8399;
   htim7.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim7.Init.Period = 999;
+  htim7.Init.Period = 9999;
   htim7.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_ENABLE;
   if (HAL_TIM_Base_Init(&htim7) != HAL_OK)
   {
