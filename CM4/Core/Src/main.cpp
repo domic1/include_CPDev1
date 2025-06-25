@@ -206,8 +206,8 @@ int main(void)
 
 //       if(HAL_HSEM_IsSemTaken(HSEM_ID_0) == 0)
 //      {
-            HAL_GPIO_TogglePin(LED2_GPIO_Port, LED2_Pin);
-
+//            HAL_GPIO_TogglePin(LED2_GPIO_Port, LED2_Pin);
+//HAL_Delay(300);
 //              HAL_HSEM_Release(HSEM_ID_0, 0);
 //          }
 

@@ -26,7 +26,7 @@
 #include <iostream>
 #include "../Lib/CPDevVM/src/vm_arduino.h"
 
-#include <../Lib/CPDev_XCPcodes/2021/mach32b/32b/cpyMem.h>
+#include "../Lib/CPDev_XCPcodes/2021/mach32b/32b/cpyMem.h"
 
 
 /* USER CODE END Includes */
@@ -66,8 +66,8 @@ VMArduino cpdev;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
-void SystemClock_Config(void);
-void PeriphCommonClock_Config(void);
+extern "C" void SystemClock_Config(void);
+extern "C" void PeriphCommonClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_DMA_Init(void);
 static void MX_USART1_UART_Init(void);
@@ -104,31 +104,31 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-extern "C" void VM_digitalWrite(uint8_t pin, uint8_t val)
-{
-    printf("digitalWrite: pin=%d, val=%d\n", pin, val);
-
-    if (pin == 13) {
-        HAL_GPIO_WritePin(LED3_GPIO_Port, LED3_Pin, val ? GPIO_PIN_SET : GPIO_PIN_RESET);
-        printf("LED3 set to %s\n", val ? "HIGH" : "LOW");
-    }
-}
-
-extern "C" void VM_pinMode(uint8_t pin, uint8_t mode)
-{
-    printf("pinMode: pin=%d, mode=%d\n", pin, mode);
-}
-
-extern "C" unsigned long VM_millis(void)
-{
-    unsigned long ms = HAL_GetTick();
-    static unsigned long last_print = 0;
-    if (ms - last_print > 1000) {
-        last_print = ms;
-        printf("millis() called, returning %lu\n", ms);
-    }
-    return ms;
-}
+//extern "C" void VM_digitalWrite(uint8_t pin, uint8_t val)
+//{
+//    printf("digitalWrite: pin=%d, val=%d\n", pin, val);
+//
+//    if (pin == 13) {
+//        HAL_GPIO_WritePin(LED3_GPIO_Port, LED3_Pin, val ? GPIO_PIN_SET : GPIO_PIN_RESET);
+//        printf("LED3 set to %s\n", val ? "HIGH" : "LOW");
+//    }
+//}
+//
+//extern "C" void VM_pinMode(uint8_t pin, uint8_t mode)
+//{
+//    printf("pinMode: pin=%d, mode=%d\n", pin, mode);
+//}
+//
+//extern "C" unsigned long VM_millis(void)
+//{
+//    unsigned long ms = HAL_GetTick();
+//    static unsigned long last_print = 0;
+//    if (ms - last_print > 1000) {
+//        last_print = ms;
+//        printf("millis() called, returning %lu\n", ms);
+//    }
+//    return ms;
+//}
 /* USER CODE END 0 */
 
 /**
@@ -199,7 +199,7 @@ Error_Handler();
   HAL_UART_Transmit(&huart1, (uint8_t*)"CM7 Started\r\n", 13, 100);
     if (cpdev.VMP_LoadProgramFromArray(xcp_code) != 0)
       	{
-  	  HAL_GPIO_WritePin(LED4_GPIO_Port, LED4_Pin, GPIO_PIN_SET);
+//  	  HAL_GPIO_WritePin(LED4_GPIO_Port, LED4_Pin, GPIO_PIN_SET);
   	  printf("Cannot load program into VM");
   	           HAL_Delay(1000);
 
@@ -212,8 +212,9 @@ Error_Handler();
       		cpdev.task_cycle = 100;
       		cpdev.WM_Initialize(WM_MODE_FIRST_START | WM_MODE_NORMAL);
       		HAL_TIM_Base_Start_IT(&htim7);
+      		HAL_GPIO_TogglePin(LED4_GPIO_Port, LED4_Pin);
       	}
-    HAL_GPIO_WritePin(LED4_GPIO_Port, LED4_Pin, GPIO_PIN_RESET);
+//    HAL_GPIO_WritePin(LED4_GPIO_Port, LED4_Pin, GPIO_PIN_RESET);
 
   /* USER CODE END 2 */
 
@@ -222,6 +223,8 @@ Error_Handler();
   while (1)
   {
 
+//HAL_GPIO_TogglePin(LED3_GPIO_Port, LED3_Pin);
+//HAL_Delay(300);
 
 //	      static uint32_t test_time = 0;
 //	      static uint8_t test_state = 0;
