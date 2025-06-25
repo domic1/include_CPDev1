@@ -26,7 +26,7 @@
 #include <iostream>
 #include "../Lib/CPDevVM/src/vm_arduino.h"
 
-#include <../Lib/CPDev_XCPcodes/2021/mach16b/8b/cpyMem.h>
+#include <../Lib/CPDev_XCPcodes/2021/mach32b/32b/cpyMem.h>
 
 
 /* USER CODE END Includes */
@@ -122,7 +122,6 @@ extern "C" void VM_pinMode(uint8_t pin, uint8_t mode)
 extern "C" unsigned long VM_millis(void)
 {
     unsigned long ms = HAL_GetTick();
-    // Wypisz tylko co 1000ms żeby nie zaśmiecać
     static unsigned long last_print = 0;
     if (ms - last_print > 1000) {
         last_print = ms;
@@ -224,23 +223,23 @@ Error_Handler();
   {
 
 
-	      static uint32_t test_time = 0;
-	      static uint8_t test_state = 0;
-
-	      // Co 2 sekundy testuj bezpośrednio
-	      if (HAL_GetTick() - test_time > 2000) {
-	          test_time = HAL_GetTick();
-	          test_state = !test_state;
-
-	          printf("\n=== Direct LED test ===\n");
-	          VM_digitalWrite(13, test_state);
-	          printf("=== End test ===\n\n");
-
-
-	      HAL_Delay(10);
+//	      static uint32_t test_time = 0;
+//	      static uint8_t test_state = 0;
+//
+//	      // Co 2 sekundy testuj bezpośrednio
+//	      if (HAL_GetTick() - test_time > 2000) {
+//	          test_time = HAL_GetTick();
+//	          test_state = !test_state;
+//
+//	          printf("\n=== Direct LED test ===\n");
+//	          VM_digitalWrite(13, test_state);
+//	          printf("=== End test ===\n\n");
+//
+//
+//	      HAL_Delay(10);
 
     /* USER CODE END WHILE */
-  }
+//  }
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
