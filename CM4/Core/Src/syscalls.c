@@ -21,6 +21,7 @@
  */
 
 /* Includes */
+#include "stm32h7xx_hal.h"
 #include <sys/stat.h>
 #include <stdlib.h>
 #include <errno.h>
@@ -29,12 +30,12 @@
 #include <time.h>
 #include <sys/time.h>
 #include <sys/times.h>
-
+#include <sys/unistd.h>
 
 /* Variables */
 extern int __io_putchar(int ch) __attribute__((weak));
 extern int __io_getchar(void) __attribute__((weak));
-
+extern UART_HandleTypeDef huart1;
 
 char *__env[1] = { 0 };
 char **environ = __env;
@@ -88,6 +89,7 @@ __attribute__((weak)) int _write(int file, char *ptr, int len)
   }
   return len;
 }
+
 
 int _close(int file)
 {

@@ -60,6 +60,7 @@ void MX_USART1_UART_Init(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define HSEM_ID_0 (0U)
 #define FMC_D28_Pin GPIO_PIN_6
 #define FMC_D28_GPIO_Port GPIOI
 #define FMC_NBL3_Pin GPIO_PIN_5

@@ -27,25 +27,25 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  11 .ARM.attributes 0000002e  00000000  00000000  0001e06c  2**0
                   CONTENTS, READONLY
- 12 .debug_info   00029202  00000000  00000000  0001e09a  2**0
+ 12 .debug_info   00029217  00000000  00000000  0001e09a  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 13 .debug_abbrev 00003a76  00000000  00000000  0004729c  2**0
+ 13 .debug_abbrev 00003a91  00000000  00000000  000472b1  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_aranges 00001670  00000000  00000000  0004ad18  2**3
+ 14 .debug_aranges 00001670  00000000  00000000  0004ad48  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_rnglists 000011b3  00000000  00000000  0004c388  2**0
+ 15 .debug_rnglists 000011b3  00000000  00000000  0004c3b8  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_macro  00046593  00000000  00000000  0004d53b  2**0
+ 16 .debug_macro  00046c88  00000000  00000000  0004d56b  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   0002035b  00000000  00000000  00093ace  2**0
+ 17 .debug_line   000206f2  00000000  00000000  000941f3  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    001af6ab  00000000  00000000  000b3e29  2**0
+ 18 .debug_str    001b0644  00000000  00000000  000b48e5  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000043  00000000  00000000  002634d4  2**0
+ 19 .comment      00000043  00000000  00000000  00264f29  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00007a10  00000000  00000000  00263518  2**2
+ 20 .debug_frame  00007a10  00000000  00000000  00264f6c  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .debug_line_str 0000006f  00000000  00000000  0026af28  2**0
+ 21 .debug_line_str 0000006f  00000000  00000000  0026c97c  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -27472,6 +27472,7 @@ __attribute__((weak)) int _write(int file, char *ptr, int len)
  800e7ba:	bd80      	pop	{r7, pc}
 
 0800e7bc <_close>:
+
 
 int _close(int file)
 {
