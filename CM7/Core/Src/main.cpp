@@ -28,7 +28,6 @@
 
 #include "../Lib/CPDev_XCPcodes/2021/mach32b/32b/cpyMem.h"
 
-
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -62,6 +61,7 @@ DMA_HandleTypeDef hdma_usart1_tx;
 
 /* USER CODE BEGIN PV */
 VMArduino cpdev;
+static uint32_t cycle_start_time = 0;
 
 /* USER CODE END PV */
 
@@ -73,6 +73,7 @@ static void MX_DMA_Init(void);
 static void MX_USART1_UART_Init(void);
 static void MX_TIM7_Init(void);
 static void MX_USART2_UART_Init(void);
+
 /* USER CODE BEGIN PFP */
 #ifdef __GNUC__
 #define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
@@ -80,15 +81,15 @@ static void MX_USART2_UART_Init(void);
 #define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)
 #endif /* __GNUC__ */
 
-
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
 	if (htim->Instance == TIM7)
 	{
-//		static uint32_t counter = 0;
-		  printf("Timer");
+		cycle_start_time = HAL_GetTick();
+		printf("Timer cycle start\n");
 
 		HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_SET);
+
 		if (cpdev.bRunMode)
 		{
 			cpdev.WM_RunCycle();
@@ -97,38 +98,144 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 		{
 			cpdev.WM_Shutdown();
 		}
+
 		HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_RESET);
+
+		// Utrzymaj stały cykl
+		uint32_t elapsed = HAL_GetTick() - cycle_start_time;
+		if (elapsed < cpdev.task_cycle) {
+			// W przerwaniu nie używamy HAL_Delay, tylko zapisujemy informację
+			printf("Cycle completed in %lu ms\n", elapsed);
+		}
 	}
 }
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-//extern "C" void VM_digitalWrite(uint8_t pin, uint8_t val)
-//{
-//    printf("digitalWrite: pin=%d, val=%d\n", pin, val);
-//
-//    if (pin == 13) {
-//        HAL_GPIO_WritePin(LED3_GPIO_Port, LED3_Pin, val ? GPIO_PIN_SET : GPIO_PIN_RESET);
-//        printf("LED3 set to %s\n", val ? "HIGH" : "LOW");
-//    }
-//}
-//
-//extern "C" void VM_pinMode(uint8_t pin, uint8_t mode)
-//{
-//    printf("pinMode: pin=%d, mode=%d\n", pin, mode);
-//}
-//
-//extern "C" unsigned long VM_millis(void)
-//{
-//    unsigned long ms = HAL_GetTick();
-//    static unsigned long last_print = 0;
-//    if (ms - last_print > 1000) {
-//        last_print = ms;
-//        printf("millis() called, returning %lu\n", ms);
-//    }
-//    return ms;
-//}
+
+// Implementacja funkcji interfejsu VM dla Arduino-like API
+extern "C" void VM_digitalWrite(uint8_t pin, uint8_t val)
+{
+    printf("digitalWrite: pin=%d, val=%d\n", pin, val);
+
+    switch(pin) {
+        case 12: // LED1 (Green)
+            HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, val ? GPIO_PIN_SET : GPIO_PIN_RESET);
+            printf("LED1 (Green) set to %s\n", val ? "HIGH" : "LOW");
+            break;
+
+        case 13: // LED3 (Red)
+            HAL_GPIO_WritePin(LED3_GPIO_Port, LED3_Pin, val ? GPIO_PIN_SET : GPIO_PIN_RESET);
+            printf("LED3 (Red) set to %s\n", val ? "HIGH" : "LOW");
+            break;
+
+        case 14: // LED4 (Blue)
+            HAL_GPIO_WritePin(LED4_GPIO_Port, LED4_Pin, val ? GPIO_PIN_SET : GPIO_PIN_RESET);
+            printf("LED4 (Blue) set to %s\n", val ? "HIGH" : "LOW");
+            break;
+
+        default:
+            printf("Unknown pin %d\n", pin);
+            break;
+    }
+}
+
+extern "C" uint8_t VM_digitalRead(uint8_t pin)
+{
+    uint8_t state = 0;
+
+    switch(pin) {
+        case 0: // JOY_SEL
+            state = HAL_GPIO_ReadPin(JOY_SEL_GPIO_Port, JOY_SEL_Pin) == GPIO_PIN_SET ? 1 : 0;
+            break;
+        case 1: // JOY_UP
+            state = HAL_GPIO_ReadPin(JOY_UP_GPIO_Port, JOY_UP_Pin) == GPIO_PIN_SET ? 1 : 0;
+            break;
+        case 2: // JOY_DOWN
+            state = HAL_GPIO_ReadPin(JOY_DOWN_GPIO_Port, JOY_DOWN_Pin) == GPIO_PIN_SET ? 1 : 0;
+            break;
+        case 3: // JOY_LEFT
+            state = HAL_GPIO_ReadPin(JOY_LEFT_GPIO_Port, JOY_LEFT_Pin) == GPIO_PIN_SET ? 1 : 0;
+            break;
+        case 4: // JOY_RIGHT
+            state = HAL_GPIO_ReadPin(JOY_RIGHT_GPIO_Port, JOY_RIGHT_Pin) == GPIO_PIN_SET ? 1 : 0;
+            break;
+        default:
+            printf("Unknown input pin %d\n", pin);
+            break;
+    }
+
+    printf("digitalRead: pin=%d, state=%d\n", pin, state);
+    return state;
+}
+
+extern "C" void VM_pinMode(uint8_t pin, uint8_t mode)
+{
+    printf("pinMode: pin=%d, mode=%d\n", pin, mode);
+    // GPIO już skonfigurowane w MX_GPIO_Init()
+    // Ta funkcja może być pusta dla tego przykładu
+}
+
+extern "C" unsigned long VM_millis(void)
+{
+    unsigned long ms = HAL_GetTick();
+    static unsigned long last_print = 0;
+
+    // Loguj co sekundę żeby nie zapchać konsoli
+    if (ms - last_print > 1000) {
+        last_print = ms;
+        printf("millis() = %lu\n", ms);
+    }
+    return ms;
+}
+
+extern "C" void VM_delay(unsigned long ms)
+{
+    printf("delay(%lu)\n", ms);
+    HAL_Delay(ms);
+}
+
+extern "C" int VM_analogRead(uint8_t pin)
+{
+    printf("analogRead: pin=%d\n", pin);
+    // Dla tego przykładu zwracamy wartość testową
+    // W rzeczywistej implementacji tutaj byłby kod ADC
+    return 512; // Środkowa wartość dla 10-bit ADC
+}
+
+extern "C" void VM_analogWrite(uint8_t pin, int value)
+{
+    printf("analogWrite: pin=%d, value=%d\n", pin, value);
+    // Implementacja PWM - dla przykładu tylko LED dimming
+    if (pin == 13 && value >= 0 && value <= 255) {
+        // Symulujemy PWM przez szybkie włączanie/wyłączanie
+        static uint8_t pwm_counter = 0;
+        pwm_counter++;
+
+        if ((pwm_counter * 255 / 100) < value) {
+            HAL_GPIO_WritePin(LED3_GPIO_Port, LED3_Pin, GPIO_PIN_SET);
+        } else {
+            HAL_GPIO_WritePin(LED3_GPIO_Port, LED3_Pin, GPIO_PIN_RESET);
+        }
+    }
+}
+
+// Funkcje dla obsługi Serial (UART)
+extern "C" void VM_serialPrint(const char* str)
+{
+    printf("Serial: %s", str);
+    HAL_UART_Transmit(&huart1, (uint8_t*)str, strlen(str), 100);
+}
+
+extern "C" void VM_serialPrintln(const char* str)
+{
+    printf("Serial: %s\n", str);
+    HAL_UART_Transmit(&huart1, (uint8_t*)str, strlen(str), 100);
+    HAL_UART_Transmit(&huart1, (uint8_t*)"\r\n", 2, 100);
+}
+
 /* USER CODE END 0 */
 
 /**
@@ -137,7 +244,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
   */
 int main(void)
 {
-
+  /* USER CODE BEGIN 1 */
 
   /* USER CODE END 1 */
 /* USER CODE BEGIN Boot_Mode_Sequence_0 */
@@ -195,59 +302,99 @@ Error_Handler();
   MX_USART1_UART_Init();
   MX_TIM7_Init();
   MX_USART2_UART_Init();
-  /* USER CODE BEGIN 2 */
-  HAL_UART_Transmit(&huart1, (uint8_t*)"CM7 Started\r\n", 13, 100);
-    if (cpdev.VMP_LoadProgramFromArray(xcp_code) != 0)
-      	{
-//  	  HAL_GPIO_WritePin(LED4_GPIO_Port, LED4_Pin, GPIO_PIN_SET);
-  	  printf("Cannot load program into VM");
-  	           HAL_Delay(1000);
 
-      		while (1)
-      			;
-      	}
-      	else
-      	{
-      		printf("VM loaded successfully\n");
-      		cpdev.task_cycle = 100;
-      		cpdev.WM_Initialize(WM_MODE_FIRST_START | WM_MODE_NORMAL);
-      		HAL_TIM_Base_Start_IT(&htim7);
-      		HAL_GPIO_TogglePin(LED4_GPIO_Port, LED4_Pin);
-      	}
-//    HAL_GPIO_WritePin(LED4_GPIO_Port, LED4_Pin, GPIO_PIN_RESET);
+  /* USER CODE BEGIN 2 */
+  HAL_UART_Transmit(&huart1, (uint8_t*)"CM7 Started - CPDev VM Initializing\r\n", 38, 100);
+  printf("=== CPDev Virtual Machine Starting ===\n");
+
+  // Inicjalizacja CPDev VM
+  if (cpdev.VMP_LoadProgramFromArray(xcp_code) != 0)
+  {
+      printf("ERROR: Cannot load program into VM\n");
+      HAL_GPIO_WritePin(LED4_GPIO_Port, LED4_Pin, GPIO_PIN_SET); // Błąd - niebieska LED
+
+      while (1) {
+          HAL_GPIO_TogglePin(LED4_GPIO_Port, LED4_Pin);
+          HAL_Delay(200); // Szybkie miganie = błąd
+      }
+  }
+  else
+  {
+      printf("SUCCESS: VM loaded successfully\n");
+      printf("Setting task cycle to 100ms\n");
+
+      cpdev.task_cycle = 100; // 100ms cykl PLC
+      cpdev.WM_Initialize(WM_MODE_FIRST_START | WM_MODE_NORMAL);
+
+      printf("Starting timer interrupt for VM cycles\n");
+      HAL_TIM_Base_Start_IT(&htim7);
+
+      // Sygnalizacja poprawnego uruchomienia
+      for(int i = 0; i < 3; i++) {
+          HAL_GPIO_WritePin(LED4_GPIO_Port, LED4_Pin, GPIO_PIN_SET);
+          HAL_Delay(200);
+          HAL_GPIO_WritePin(LED4_GPIO_Port, LED4_Pin, GPIO_PIN_RESET);
+          HAL_Delay(200);
+      }
+
+      printf("=== CPDev VM is now running ===\n");
+  }
 
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  uint32_t last_status_time = 0;
+  uint32_t test_counter = 0;
+
   while (1)
   {
+    /* USER CODE BEGIN WHILE */
 
-//HAL_GPIO_TogglePin(LED3_GPIO_Port, LED3_Pin);
-//HAL_Delay(300);
+    // Status LED (zielona) - wolne miganie oznacza że system działa
+    HAL_GPIO_TogglePin(LED3_GPIO_Port, LED3_Pin);
+    HAL_Delay(500);
 
-//	      static uint32_t test_time = 0;
-//	      static uint8_t test_state = 0;
-//
-//	      // Co 2 sekundy testuj bezpośrednio
-//	      if (HAL_GetTick() - test_time > 2000) {
-//	          test_time = HAL_GetTick();
-//	          test_state = !test_state;
-//
-//	          printf("\n=== Direct LED test ===\n");
-//	          VM_digitalWrite(13, test_state);
-//	          printf("=== End test ===\n\n");
-//
-//
-//	      HAL_Delay(10);
+    // Co 5 sekund wyświetl status systemu
+    if (HAL_GetTick() - last_status_time > 5000) {
+        last_status_time = HAL_GetTick();
+
+        printf("\n=== System Status ===\n");
+        printf("Uptime: %lu ms\n", HAL_GetTick());
+        printf("VM Run Mode: %s\n", cpdev.bRunMode ? "RUNNING" : "STOPPED");
+        printf("Task Cycle: %lu ms\n", cpdev.task_cycle);
+        printf("Test Counter: %lu\n", test_counter++);
+
+        // Test wejść (joystick)
+        printf("Inputs: SEL=%d UP=%d DOWN=%d LEFT=%d RIGHT=%d\n",
+               VM_digitalRead(0), VM_digitalRead(1), VM_digitalRead(2),
+               VM_digitalRead(3), VM_digitalRead(4));
+
+        printf("===================\n\n");
+    }
+
+    // Test bezpośredni LED co 3 sekundy
+    static uint32_t test_time = 0;
+    static uint8_t test_state = 0;
+
+    if (HAL_GetTick() - test_time > 3000) {
+        test_time = HAL_GetTick();
+        test_state = !test_state;
+
+        printf("=== Direct LED Test ===\n");
+        VM_digitalWrite(13, test_state); // Test czerwonej LED
+        printf("=====================\n");
+    }
+
+    HAL_Delay(10); // Krótka pauza w głównej pętli
 
     /* USER CODE END WHILE */
-//  }
-    /* USER CODE BEGIN 3 */
   }
+  /* USER CODE BEGIN 3 */
   /* USER CODE END 3 */
-
 }
+
+// Reszta kodu pozostaje bez zmian...
 /**
   * @brief System Clock Configuration
   * @retval None
@@ -344,15 +491,12 @@ void PeriphCommonClock_Config(void)
   */
 static void MX_TIM7_Init(void)
 {
-
   /* USER CODE BEGIN TIM7_Init 0 */
-
   /* USER CODE END TIM7_Init 0 */
 
   TIM_MasterConfigTypeDef sMasterConfig = {0};
 
   /* USER CODE BEGIN TIM7_Init 1 */
-
   /* USER CODE END TIM7_Init 1 */
   htim7.Instance = TIM7;
   htim7.Init.Prescaler = 63;
@@ -370,9 +514,7 @@ static void MX_TIM7_Init(void)
     Error_Handler();
   }
   /* USER CODE BEGIN TIM7_Init 2 */
-
   /* USER CODE END TIM7_Init 2 */
-
 }
 
 /**
@@ -382,13 +524,10 @@ static void MX_TIM7_Init(void)
   */
 static void MX_USART1_UART_Init(void)
 {
-
   /* USER CODE BEGIN USART1_Init 0 */
-
   /* USER CODE END USART1_Init 0 */
 
   /* USER CODE BEGIN USART1_Init 1 */
-
   /* USER CODE END USART1_Init 1 */
   huart1.Instance = USART1;
   huart1.Init.BaudRate = 115200;
@@ -418,9 +557,7 @@ static void MX_USART1_UART_Init(void)
     Error_Handler();
   }
   /* USER CODE BEGIN USART1_Init 2 */
-
   /* USER CODE END USART1_Init 2 */
-
 }
 
 /**
@@ -430,13 +567,10 @@ static void MX_USART1_UART_Init(void)
   */
 static void MX_USART2_UART_Init(void)
 {
-
   /* USER CODE BEGIN USART2_Init 0 */
-
   /* USER CODE END USART2_Init 0 */
 
   /* USER CODE BEGIN USART2_Init 1 */
-
   /* USER CODE END USART2_Init 1 */
   huart2.Instance = USART2;
   huart2.Init.BaudRate = 115200;
@@ -468,9 +602,7 @@ static void MX_USART2_UART_Init(void)
     Error_Handler();
   }
   /* USER CODE BEGIN USART2_Init 2 */
-
   /* USER CODE END USART2_Init 2 */
-
 }
 
 /**
@@ -478,7 +610,6 @@ static void MX_USART2_UART_Init(void)
   */
 static void MX_DMA_Init(void)
 {
-
   /* DMA controller clock enable */
   __HAL_RCC_DMA1_CLK_ENABLE();
 
@@ -489,7 +620,6 @@ static void MX_DMA_Init(void)
   /* DMA1_Stream1_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(DMA1_Stream1_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(DMA1_Stream1_IRQn);
-
 }
 
 /**
@@ -501,7 +631,6 @@ static void MX_GPIO_Init(void)
 {
   GPIO_InitTypeDef GPIO_InitStruct = {0};
   /* USER CODE BEGIN MX_GPIO_Init_1 */
-
   /* USER CODE END MX_GPIO_Init_1 */
 
   /* GPIO Ports Clock Enable */
@@ -539,7 +668,6 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_Init(GPIOI, &GPIO_InitStruct);
 
   /* USER CODE BEGIN MX_GPIO_Init_2 */
-
   /* USER CODE END MX_GPIO_Init_2 */
 }
 

@@ -14,16 +14,25 @@ C:\ST\STM32CubeIDE_1.18.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.external
 ../Core/Src/../Lib/CPDevVM/src/VM\vmtaskclass.h:90:14:virtual int VMTaskClass16::VMP_ExecNativeBlock(WM_WORD, WM_WORD)	1
 ../Core/Src/../Lib/CPDevVM/src/VM\vmtaskclass.h:91:14:virtual int VMTaskClass16::VMP_InitNativeBlock(WM_WORD, WM_WORD)	1
 ../Core/Src/../Lib/CPDevVM/src/vm_arduino.h:22:7:VMArduino::VMArduino()	1
-../Core/Src/main.cpp:84:6:void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef*)	3
-../Core/Src/main.cpp:138:5:int main()	10
-../Core/Src/main.cpp:255:6:void SystemClock_Config()	4
-../Core/Src/main.cpp:318:6:void PeriphCommonClock_Config()	2
-../Core/Src/main.cpp:345:13:void MX_TIM7_Init()	3
-../Core/Src/main.cpp:383:13:void MX_USART1_UART_Init()	5
-../Core/Src/main.cpp:431:13:void MX_USART2_UART_Init()	5
-../Core/Src/main.cpp:479:13:void MX_DMA_Init()	1
-../Core/Src/main.cpp:500:13:void MX_GPIO_Init()	1
-../Core/Src/main.cpp:548:5:int __io_putchar(int)	1
-../Core/Src/main.cpp:560:6:void Error_Handler()	1
-../Core/Src/main.cpp:569:1:void __static_initialization_and_destruction_0()	1
-../Core/Src/main.cpp:569:1:cpp)	1
+../Core/Src/main.cpp:84:6:void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef*)	4
+../Core/Src/main.cpp:119:17:void VM_digitalWrite(uint8_t, uint8_t)	11
+../Core/Src/main.cpp:145:20:uint8_t VM_digitalRead(uint8_t)	11
+../Core/Src/main.cpp:174:17:void VM_pinMode(uint8_t, uint8_t)	1
+../Core/Src/main.cpp:181:26:long unsigned int VM_millis()	2
+../Core/Src/main.cpp:194:17:void VM_delay(long unsigned int)	1
+../Core/Src/main.cpp:200:16:int VM_analogRead(uint8_t)	1
+../Core/Src/main.cpp:208:17:void VM_analogWrite(uint8_t, int)	5
+../Core/Src/main.cpp:226:17:void VM_serialPrint(const char*)	1
+../Core/Src/main.cpp:232:17:void VM_serialPrintln(const char*)	1
+../Core/Src/main.cpp:245:5:int main()	14
+../Core/Src/main.cpp:402:6:void SystemClock_Config()	4
+../Core/Src/main.cpp:465:6:void PeriphCommonClock_Config()	2
+../Core/Src/main.cpp:492:13:void MX_TIM7_Init()	3
+../Core/Src/main.cpp:525:13:void MX_USART1_UART_Init()	5
+../Core/Src/main.cpp:568:13:void MX_USART2_UART_Init()	5
+../Core/Src/main.cpp:611:13:void MX_DMA_Init()	1
+../Core/Src/main.cpp:630:13:void MX_GPIO_Init()	1
+../Core/Src/main.cpp:676:5:int __io_putchar(int)	1
+../Core/Src/main.cpp:688:6:void Error_Handler()	1
+../Core/Src/main.cpp:697:1:void __static_initialization_and_destruction_0()	1
+../Core/Src/main.cpp:697:1:cpp)	1
