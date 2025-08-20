@@ -45,6 +45,7 @@ MEMORY
 {
 FLASH (rx)     : ORIGIN = 0x08100000, LENGTH = 1024K
 RAM (xrw)      : ORIGIN = 0x10000000, LENGTH = 288K
+RAM_D3 (xrw)   : ORIGIN = 0x38000000, LENGTH = 64K
 }
 
 /* Define output sections */
@@ -149,7 +150,13 @@ SECTIONS
     _ebss = .;         /* define a global symbol at bss end */
     __bss_end__ = _ebss;
   } >RAM
-
+/* M4: */
+.shared_ram (NOLOAD) :
+{
+  . = ALIGN(4);
+  *(.shared_ram)
+  . = ALIGN(4);
+} >RAM_D3
   /* User_heap_stack section, used to check that there is enough RAM left */
   ._user_heap_stack :
   {

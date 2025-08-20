@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<CPDEV version="1.0">
+  <TARGET AddressSize="8" Alignment="0" RawCompilerVersion="00041417" StringCompilerVersion="0.4.20.23" srcChecksum="7f33370ee2b9b5506de4343081f44cd4" CF="00001508" SF="000002b0" OP="00000005" LF="00000001" DC="0000008d">
+    <GLOBAL>
+      <VAR LName="LED" PName="BezNazwy0.LED" Addr="00000000" AdrType="gdlabel" Size="1" Type="BOOL" PType="$DEFAULT.BOOL" VarFlags="00004008" TypeCRC="D275EFCD" />
+    </GLOBAL>
+    <VMACH>
+      <FILE_LOC>VM\VM-Gen32.xml</FILE_LOC>
+    </VMACH>
+    <TASKS>
+      <TASK LName="TASK" PName="BezNazwy0.TASK" LoopType="0" Cycle="200" CycleUnit="ms" BodyCodeAddres="00000012" TaskFlags="00000000" />
+    </TASKS>
+    <MEMORY_MAP Type="code" FInit="0">
+      <file LoadAddr="0" Size="48">blink.xcp</file>
+      <file_FullName>C:\Users\marcin\Desktop\CPDev\Blink\blink.xcp</file_FullName>
+      <file_VMASM>blink.vmasm</file_VMASM>
+      <file_VMASM_FullName>C:\Users\marcin\Desktop\CPDev\Blink\blink.vmasm</file_VMASM_FullName>
+      <CRC mode="1" AlgName="Generic" Value="5cce" Status="OK" />
+    </MEMORY_MAP>
+    <MEMORY_MAP Type="data">
+      <file LoadAddr="0" Size="1">#dummy</file>
+    </MEMORY_MAP>
+    <ProjectGuid>20693e7d-9c18-455d-b5ab-b94a0171c721</ProjectGuid>
+  </TARGET>
+</CPDEV>

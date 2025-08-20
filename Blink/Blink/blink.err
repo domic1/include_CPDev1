@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<CPDEV version="1.0">
+  <COMPILATION>
+    <INPUT>
+      <PARAMETER no="0">--named-pipes</PARAMETER>
+      <PARAMETER no="1">--use-as-pipe</PARAMETER>
+      <PARAMETER no="2">--pipe-type-guid</PARAMETER>
+      <PARAMETER no="3">--use-large-mem-block</PARAMETER>
+      <PARAMETER no="4">--use-src-hash</PARAMETER>
+      <PARAMETER no="5">7f33370ee2b9b5506de4343081f44cd4</PARAMETER>
+      <PARAMETER no="6">--xml-errors</PARAMETER>
+      <PARAMETER no="7">C:\Users\marcin\Desktop\CPDev\Blink\blink.err</PARAMETER>
+      <PARAMETER no="8">--prj-guid</PARAMETER>
+      <PARAMETER no="9">20693e7d-9c18-455d-b5ab-b94a0171c721</PARAMETER>
+      <PARAMETER no="10">--Force-LCID</PARAMETER>
+      <PARAMETER no="11">1045</PARAMETER>
+      <PARAMETER no="12">--lcf</PARAMETER>
+      <PARAMETER no="13">VM\VM-Gen32.xml</PARAMETER>
+      <PARAMETER no="14">--dcp</PARAMETER>
+      <PARAMETER no="15">C:\Users\marcin\Desktop\CPDev\Blink\blink.dcp</PARAMETER>
+      <PARAMETER no="16">--out</PARAMETER>
+      <PARAMETER no="17">C:\Users\marcin\Desktop\CPDev\Blink\blink.xcp</PARAMETER>
+      <PARAMETER no="18">--cf</PARAMETER>
+      <PARAMETER no="19">1508</PARAMETER>
+      <PARAMETER no="20">--sf</PARAMETER>
+      <PARAMETER no="21">2B0</PARAMETER>
+      <PARAMETER no="22">--lof</PARAMETER>
+      <PARAMETER no="23">1</PARAMETER>
+      <PARAMETER no="24">--opt</PARAMETER>
+      <PARAMETER no="25">5</PARAMETER>
+      <PARAMETER no="26">--dcp-output</PARAMETER>
+      <PARAMETER no="27">8D</PARAMETER>
+      <PARAMETER no="28">--project-container-file</PARAMETER>
+      <PARAMETER no="29">C:\Users\marcin\Desktop\CPDev\Blink\blink.xml</PARAMETER>
+      <PARAMETER no="30">--</PARAMETER>
+      <PARAMETER no="31">C:\Users\marcin\Desktop\CPDev\Blink\blink.cst</PARAMETER>
+    </INPUT>
+    <MESSAGES>
+      <WARNING pos="0">Library "IEC_61131" (file "C:\Program Files (x86)\CPDevEva\Biblioteki\IEC 61131-3.lcp") is designed to diffrent compiler version that currently is used.</WARNING>
+      <WARNING pos="0">Library "Basic_blocks" (file "C:\Program Files (x86)\CPDevEva\Biblioteki\Basic_blocks.lcp") is designed to diffrent compiler version that currently is used.</WARNING>
+    </MESSAGES>
+  </COMPILATION>
+</CPDEV>

@@ -37,7 +37,6 @@
 
 extern int __io_putchar(int ch) __attribute__((weak));
 extern int __io_getchar(void) __attribute__((weak));
-extern UART_HandleTypeDef huart1;
 
 
 char *__env[1] = { 0 };

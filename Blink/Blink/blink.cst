@@ -1,0 +1,37 @@
+﻿(*$LIBRARY BezNazwy0*)
+(*$IMPORT IEC_61131
+filename: 'C:\Program Files (x86)\CPDevEva\Biblioteki\IEC 61131-3.lcp'
+version: '0.2.0.1'
+timestamp: '2023-05-11-11:51:51.445'
+fblks: CTD, CTU, CTUD, F_TRIG, R_TRIG, RS, SEMA, SR, TOF, TON, TP
+*)
+(*$IMPORT Basic_blocks
+filename: 'C:\Program Files (x86)\CPDevEva\Biblioteki\Basic_blocks.lcp'
+version: '0.3.1.0'
+timestamp: '2023-05-11-11:51:53.851'
+funs: RND
+fblks: AMEM, ASWI, BMEM, BSWI, COMP, DEBA, DELS, DFF, DIFR, DIVI, FILT, GENR, JKFF, LIMT, MAT, MIT, PDUR, RAND, RSFF, SQR, SRFF, TFF, TOTI
+*)
+(* GLOBAL VARIABLES *)
+VAR_GLOBAL 
+ LED AT %0000  : BOOL;
+END_VAR
+
+(* USER POUs *)
+PROGRAM MAIN
+ VAR_EXTERNAL (*$AUTO*) END_VAR
+ 
+ VAR
+
+ END_VAR
+ LED := NOT LED;
+
+END_PROGRAM
+
+(*$TASKS 
+.TASK TASK
+.LOOPPARAM 0 200
+MAIN
+.END_TASK
+*)
+(*$END_LIBRARY*)

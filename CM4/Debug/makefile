@@ -12,6 +12,16 @@ RM := rm -rf
 -include Drivers/STM32H7xx_HAL_Driver/subdir.mk
 -include Core/Startup/subdir.mk
 -include Core/Src/subdir.mk
+-include Core/Lib/CPDev_XCPcodes/2020/32bitAlign/subdir.mk
+-include Core/Lib/CPDev_XCPcodes/2020/32bit/2020_ShipSim/subdir.mk
+-include Core/Lib/CPDev_XCPcodes/2020/16bit/test03/subdir.mk
+-include Core/Lib/CPDev_XCPcodes/2020/16bit/test02/subdir.mk
+-include Core/Lib/CPDev_XCPcodes/2020/16bit/test01/subdir.mk
+-include Core/Lib/CPDev_XCPcodes/2020/16bit/ShipSim/subdir.mk
+-include Core/Lib/CPDev_XCPcodes/2020/16bit/BlinkRS/subdir.mk
+-include Core/Lib/CPDevVM/src/VM/vmfunc/subdir.mk
+-include Core/Lib/CPDevVM/src/VM/subdir.mk
+-include Core/Lib/CPDevVM/src/subdir.mk
 -include Common/Src/subdir.mk
 -include objects.mk
 

@@ -39,6 +39,16 @@ CPP_DEPS :=
 # Every subdirectory with source files must be described here
 SUBDIRS := \
 Common/Src \
+Core/Lib/CPDevVM/src/VM \
+Core/Lib/CPDevVM/src/VM/vmfunc \
+Core/Lib/CPDevVM/src \
+Core/Lib/CPDev_XCPcodes/2020/16bit/BlinkRS \
+Core/Lib/CPDev_XCPcodes/2020/16bit/ShipSim \
+Core/Lib/CPDev_XCPcodes/2020/16bit/test01 \
+Core/Lib/CPDev_XCPcodes/2020/16bit/test02 \
+Core/Lib/CPDev_XCPcodes/2020/16bit/test03 \
+Core/Lib/CPDev_XCPcodes/2020/32bit/2020_ShipSim \
+Core/Lib/CPDev_XCPcodes/2020/32bitAlign \
 Core/Src \
 Core/Startup \
 Drivers/STM32H7xx_HAL_Driver \

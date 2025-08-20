@@ -1,0 +1,15 @@
+﻿:00000000| 1C15 00000000 01 00               | $VMSYS.MCD LED, #01, #00                                                        
+:00000008|                                   | :?BezNazwy0.TASK?TSKSTR                                                         
+:00000008| 1C16 00000000 22000000            | $VMSYS.CALB #00000000, :?BezNazwy0.MAIN?INIT                                    
+:00000012|                                   | :?BezNazwy0.TASK?TSKLOOP                                                        
+:00000012| 1C16 00000000 24000000            | $VMSYS.CALB #00000000, :?BezNazwy0.MAIN?CODE                                    
+:0000001c| 1C1D 12000000                     | $VMSYS.TRML :?BezNazwy0.TASK?TSKLOOP                                            
+:00000022|                                   | :?BezNazwy0.MAIN?INIT                                                           
+:00000022| 1C13                              | $VMSYS.RETURN                                                                   
+:00000024|                                   | :?BezNazwy0.MAIN?CODE                                                           
+;;;;;;;;;|                                   | {B:3!27!714}                                                                    
+;!!!!!!!!|                                   |  ■LED := NOT LED■;                                                              
+:00000024| 0510 00000000 00000000            | $DEFAULT.NOT LED, LED                                                           
+;;;;;;;;;|                                   | {E:3!27!728}                                                                    
+:0000002e| 1C13                              | $VMSYS.RETURN                                                                   
+:00000030 
