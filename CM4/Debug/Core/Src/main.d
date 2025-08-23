@@ -38,6 +38,7 @@ Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/main.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_spi_ex.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h \
+ ../Core/Src/../../../Common/_common.h \
  ../Core/Src/../Lib/CPDevVM/src/vm_arduino.h \
  ../Core/Src/../Lib/CPDevVM/src/VM\vmtaskclass.h \
  ../Core/Src/../Lib/CPDevVM/src/VM\vm.h \
@@ -87,6 +88,7 @@ Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/main.h \
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_spi_ex.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h:
+../Core/Src/../../../Common/_common.h:
 ../Core/Src/../Lib/CPDevVM/src/vm_arduino.h:
 ../Core/Src/../Lib/CPDevVM/src/VM\vmtaskclass.h:
 ../Core/Src/../Lib/CPDevVM/src/VM\vm.h:

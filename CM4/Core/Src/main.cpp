@@ -18,12 +18,16 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-
+#include "string.h"
+#include "stm32h7xx_hal.h"
+#include "stm32h7xx_hal_hsem.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include <cstdio>
 #include <cstring>
 #include <iostream>
+/*#include "shared_memory.h"*/
+#include "../../../Common/_common.h"
 #include "../Lib/CPDevVM/src/vm_arduino.h"
 #include "../Lib/CPDev_XCPcodes/2021/mach32b/32b/cpyMem.h"
 /* USER CODE END Includes */
@@ -66,6 +70,12 @@ DMA_HandleTypeDef hdma_usart1_tx;
 /* USER CODE BEGIN PV */
 VMArduino cpdev;
 FlagStatus uFlagNotif = RESET;
+#define MEM_ALIGN(x)                        (((x) + 0x00000003) & ~0x00000003)
+
+/* Shared RAM between 2 cores is SRAM4 in D3 domain */
+#define SHD_RAM_START_ADDR                  0x38000000
+#define SHD_RAM_LEN                         0x0000FFFF
+#define HSEM_PROCESS_ID 0U
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -100,7 +110,11 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
+	//  uint8_t *ptrStat = (uint8_t *)0x38000000;
 
+	//	  uint8_t *last_state = (uint8_t *)0xFF;
+		uint8_t last_state0 = 0xFF;
+		uint8_t last_state1 = 0xFF;
   /* USER CODE END 1 */
 
 /* USER CODE BEGIN Boot_Mode_Sequence_1 */
@@ -142,47 +156,52 @@ int main(void)
   MX_SPI5_Init();
   /* USER CODE BEGIN 2 */
   HAL_UART_Transmit(&huart1, (uint8_t*) "CM4 Started\r\n", 13, 700);
-  	  if (cpdev.VMP_LoadProgramFromArray(xcp_code) != 0) {
-    		printf("Cannot load program into VM");
-    		HAL_Delay(1000);
+    	  if (cpdev.VMP_LoadProgramFromArray(xcp_code) != 0) {
+      		printf("Cannot load program into VM");
+      		HAL_Delay(1000);
 
-    		while (1)
-    			;
-    	} else {
-    		printf("VM loaded successfully\n");
-    		cpdev.task_cycle = 300;
-    		cpdev.WM_Initialize(WM_MODE_FIRST_START | WM_MODE_NORMAL);
+      		while (1)
+      			;
+      	} else {
+      		printf("VM loaded successfully\n");
+      		cpdev.task_cycle = 300;
+      		cpdev.WM_Initialize(WM_MODE_FIRST_START | WM_MODE_NORMAL);
 
-    	}
+      	}
 
-    	WM_BOOL LED;
-
+	WM_BOOL IN1;
+	WM_BOOL OUT1;
+	WM_BOOL INPUT1;
+/*	WM_BOOL LED;*/
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  /*	  if(HAL_HSEM_Take(HSEM_ID_0, 0) == HAL_OK) */
+
+if (cpdev.bRunMode) {
+	cpdev.WM_RunCycle();
+} else {
+	cpdev.WM_Shutdown();
+}
+	cpdev.WM_SetData(0, 1, (WM_BYTE*) &IN1);
+	HAL_GPIO_WritePin(LED3_GPIO_Port, LED3_Pin, (GPIO_PinState) ptrStat[1]);
+		printf("LED2 status: %d", IN1);
+		printf("WM_GetData IN1=0x%02X\r\n", IN1);
+
+if (HAL_HSEM_Take(HSEM_ID_0, HSEM_PROCESS_ID) == HAL_OK)
+	 {
+
+	uint8_t in1 = ptrStat[3];
+	uint8_t out1 = ptrStat[4];
+
+	 HAL_HSEM_Release(HSEM_ID_0, HSEM_PROCESS_ID);
+	 cpdev.WM_SetData(0, 1, (WM_BYTE*) &IN1);
+	 }
 
 
-	  		if (cpdev.bRunMode) {
-	  				cpdev.WM_RunCycle();
-
-	  			} else {
-	  				cpdev.WM_Shutdown();
-
-
-	  			}
-	  			cpdev.WM_GetData(0, 1, (WM_BYTE*) &LED);
-	  				HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, (GPIO_PinState) LED);
-	  					printf("LED2 status: %d", LED);
-	  					printf("WM_GetData LED=0x%02X\r\n", LED);
-/*	  				 	  	        HAL_HSEM_Release(HSEM_ID_0, 0);*/
-
-
-/*	  	  HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, GPIO_PIN_SET);*/
-	  			HAL_Delay(400);
+		  			HAL_Delay(400);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -602,6 +621,7 @@ static void MX_GPIO_Init(void)
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOI_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
+  __HAL_RCC_GPIOK_CLK_ENABLE();
   __HAL_RCC_GPIOG_CLK_ENABLE();
   __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOE_CLK_ENABLE();
@@ -609,11 +629,10 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOD_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOF_CLK_ENABLE();
-  __HAL_RCC_GPIOK_CLK_ENABLE();
   __HAL_RCC_GPIOJ_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOI, LED3_Pin|LED4_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : PI6 PI5 PI4 PI1
                            PI0 PI7 PI2 PI3
@@ -636,6 +655,12 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
   GPIO_InitStruct.Alternate = GPIO_AF10_OTG2_HS;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : JOY_RIGHT_Pin JOY_LEFT_Pin */
+  GPIO_InitStruct.Pin = JOY_RIGHT_Pin|JOY_LEFT_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOK, &GPIO_InitStruct);
 
   /*Configure GPIO pins : PC10 PC12 PC8 */
   GPIO_InitStruct.Pin = GPIO_PIN_10|GPIO_PIN_12|GPIO_PIN_8;
@@ -757,12 +782,12 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Alternate = GPIO_AF12_FMC;
   HAL_GPIO_Init(GPIOF, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : LED2_Pin */
-  GPIO_InitStruct.Pin = LED2_Pin;
+  /*Configure GPIO pins : LED3_Pin LED4_Pin */
+  GPIO_InitStruct.Pin = LED3_Pin|LED4_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(LED2_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOI, &GPIO_InitStruct);
 
   /*Configure GPIO pin : PF8 */
   GPIO_InitStruct.Pin = GPIO_PIN_8;

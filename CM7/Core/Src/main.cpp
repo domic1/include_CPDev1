@@ -18,12 +18,17 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "string.h"
+#include "stm32h7xx_hal.h"
+#include "stm32h7xx_hal_hsem.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include <cstdio>
 #include <cstring>
 #include <iostream>
+#include "../../../Common/_common.h"
+//#include "shared_memory.h"
 #include "../Lib/CPDevVM/src/vm_arduino.h"
 #include "../Lib/CPDev_XCPcodes/2021/mach32b/32b/cpyMem.h"
 /* USER CODE END Includes */
@@ -36,7 +41,6 @@
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 #define xcp_code test
-
 #ifndef HSEM_ID_0
 #define HSEM_ID_0 (0U) /* HW semaphore 0*/
 #endif
@@ -57,10 +61,13 @@ DMA_HandleTypeDef hdma_usart1_tx;
 /* USER CODE BEGIN PV */
 VMArduino cpdev;
 FlagStatus uFlagNotif = RESET;
+#define SHD_RAM_START_ADDR                  0x38000000U
+#define SHD_RAM_LEN                         0x0000FFFF
+#define SV 400
+#define HSEM_PROCESS_ID 0U
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
-
 extern "C" void SystemClock_Config(void);
 extern "C" void PeriphCommonClock_Config(void);
 static void MX_GPIO_Init(void);
@@ -87,7 +94,13 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
+	  uint8_t vmData32_2[SV] = {0};
 
+//	  uint8_t *ptrStat = (uint8_t *)SHD_RAM_START_ADDR;
+
+	  for (int i = 0; i < SV; ++i)
+	 			      memcpy(ptrStat + SV + i, vmData32_2 + i, 1);
+	 			  SCB_CleanDCache_by_Addr((uint32_t *)ptrStat, SV);
   /* USER CODE END 1 */
 /* USER CODE BEGIN Boot_Mode_Sequence_0 */
   int32_t timeout;
@@ -157,34 +170,73 @@ Error_Handler();
 
   	}
 
-  	WM_BOOL LED;
+  	WM_BOOL IN1;
+  	WM_BOOL OUT2;
+/*  	WM_BOOL LED;*/
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  /* if(HAL_HSEM_Take(HSEM_ID_0, 0) == HAL_OK)
-	  		{*/
-
-	  		if (cpdev.bRunMode) {
-	  			cpdev.WM_RunCycle();
-
-	  		} else {
-	  			cpdev.WM_Shutdown();
-	  			HAL_GPIO_WritePin(LED4_GPIO_Port, LED4_Pin, (GPIO_PinState) !LED);
 
 
-	  		}
-	  		cpdev.WM_GetData(0, 1, (WM_BYTE*) &LED);
-	  			HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, (GPIO_PinState) LED);
-	  			printf("LED1 status: %d", LED);
-	  			printf("WM_GetData LED=0x%02X\r\n", LED);
-	  /*			 	  	        HAL_HSEM_Release(HSEM_ID_0, 0);*/
+	if (cpdev.bRunMode) {
+
+		cpdev.WM_RunCycle();
+
+		} else {
+
+		cpdev.WM_Shutdown();
+		  	HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, (GPIO_PinState) !IN1);
+
+		}
+	if (HAL_HSEM_Take(HSEM_ID_0, HSEM_PROCESS_ID) == HAL_OK)
+		 {
+			uint8_t JOY_UP = ptrStat[0];
+			uint8_t out2 = ptrStat[1];
+			uint8_t JOY_LEFT = ptrStat[2];
+			uint8_t out1 = ptrStat[3];
+		 }
+		 HAL_HSEM_Release(HSEM_ID_0, HSEM_PROCESS_ID);
+
+
+	if(HAL_HSEM_Take(HSEM_ID_0, HSEM_PROCESS_ID) == HAL_OK)
+		{
+		if (HAL_GPIO_ReadPin(JOY_UP_GPIO_Port, JOY_UP_Pin) == GPIO_PIN_RESET) // przycisk wciśnięty
+
+		{
+			ptrStat[0] = 1;
+			} else {
+
+		  				ptrStat[0] = 0;
+		  		         SCB_CleanDCache_by_Addr((uint32_t*)ptrStat, 0);
+		  				}
+		  				 HAL_HSEM_Release(HSEM_ID_0, HSEM_PROCESS_ID);
+		  				}
+
+		if (ptrStat[3] == 1)
+		{
+
+
+			HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, (GPIO_PinState) ptrStat[3]);
+
+			printf("LED2 status: %d", ptrStat[3]);
+			printf("WM_GetData IN1=0x%02X\r\n", ptrStat[3]);
+		}
+	 cpdev.WM_GetData(1, 1, (WM_BYTE*) &OUT2);
+	 OUT2 = ptrStat[1];
 
 
 
-	  		HAL_Delay(400);
+
+	 /* cpdev.WM_GetData(1, 1, (WM_BYTE*) &LED);
+	  	HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, (GPIO_PinState) LED);
+	  		printf("LED1 status: %d", LED);
+	  		printf("WM_GetData LED=0x%02X\r\n", LED)*/;
+
+		  		HAL_Delay(400);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -361,19 +413,17 @@ static void MX_GPIO_Init(void)
   /* USER CODE END MX_GPIO_Init_1 */
 
   /* GPIO Ports Clock Enable */
-  __HAL_RCC_GPIOK_CLK_ENABLE();
   __HAL_RCC_GPIOC_CLK_ENABLE();
+  __HAL_RCC_GPIOK_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOI_CLK_ENABLE();
   __HAL_RCC_GPIOH_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOI, LED1_Pin|LED3_Pin|LED4_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOI, LED1_Pin|LED2_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pins : JOY_RIGHT_Pin JOY_LEFT_Pin JOY_UP_Pin JOY_DOWN_Pin
-                           JOY_SEL_Pin */
-  GPIO_InitStruct.Pin = JOY_RIGHT_Pin|JOY_LEFT_Pin|JOY_UP_Pin|JOY_DOWN_Pin
-                          |JOY_SEL_Pin;
+  /*Configure GPIO pins : JOY_UP_Pin JOY_DOWN_Pin JOY_SEL_Pin */
+  GPIO_InitStruct.Pin = JOY_UP_Pin|JOY_DOWN_Pin|JOY_SEL_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOK, &GPIO_InitStruct);
@@ -386,8 +436,8 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Alternate = GPIO_AF0_MCO;
   HAL_GPIO_Init(CEC_CK_MCO1_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : LED1_Pin LED3_Pin LED4_Pin */
-  GPIO_InitStruct.Pin = LED1_Pin|LED3_Pin|LED4_Pin;
+  /*Configure GPIO pins : LED1_Pin LED2_Pin */
+  GPIO_InitStruct.Pin = LED1_Pin|LED2_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;

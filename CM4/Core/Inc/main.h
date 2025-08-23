@@ -58,8 +58,12 @@ void MX_USART1_UART_Init(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define JOY_RIGHT_Pin GPIO_PIN_5
+#define JOY_RIGHT_GPIO_Port GPIOK
 #define QSPI_BK2_IO2_Pin GPIO_PIN_9
 #define QSPI_BK2_IO2_GPIO_Port GPIOG
+#define JOY_LEFT_Pin GPIO_PIN_4
+#define JOY_LEFT_GPIO_Port GPIOK
 #define OSC32_OUT_Pin GPIO_PIN_15
 #define OSC32_OUT_GPIO_Port GPIOC
 #define OSC32_IN_Pin GPIO_PIN_14
@@ -80,8 +84,8 @@ void MX_USART1_UART_Init(void);
 #define PMOD_1_GPIO_Port GPIOA
 #define QSPI_BK1_NCS_Pin GPIO_PIN_6
 #define QSPI_BK1_NCS_GPIO_Port GPIOG
-#define LED2_Pin GPIO_PIN_13
-#define LED2_GPIO_Port GPIOI
+#define LED3_Pin GPIO_PIN_14
+#define LED3_GPIO_Port GPIOI
 #define OSC_OUT_Pin GPIO_PIN_1
 #define OSC_OUT_GPIO_Port GPIOH
 #define OSC_IN_Pin GPIO_PIN_0
@@ -110,6 +114,8 @@ void MX_USART1_UART_Init(void);
 #define QSPI_BK2_IO0_GPIO_Port GPIOH
 #define QSPI_BK2_IO1_Pin GPIO_PIN_3
 #define QSPI_BK2_IO1_GPIO_Port GPIOH
+#define LED4_Pin GPIO_PIN_15
+#define LED4_GPIO_Port GPIOI
 #define ARD_A4_Pin GPIO_PIN_2
 #define ARD_A4_GPIO_Port GPIOC
 #define ARD_A5_Pin GPIO_PIN_3

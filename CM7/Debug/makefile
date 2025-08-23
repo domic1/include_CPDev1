@@ -22,6 +22,7 @@ RM := rm -rf
 -include Core/Lib/CPDevVM/src/VM/vmfunc/subdir.mk
 -include Core/Lib/CPDevVM/src/VM/subdir.mk
 -include Core/Lib/CPDevVM/src/subdir.mk
+-include Core/Inc/subdir.mk
 -include Common/Src/subdir.mk
 -include objects.mk
 
