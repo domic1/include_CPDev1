@@ -186,8 +186,8 @@ void VMArduino::VMP_PostCycle(void)
 	else
 		wStatus1 &= ~WMSTAT_CYCLEOVERRUN;
 
-	//if (cycleEnd - stopTime > 0)
-	//	HAL_Delay((WM_LWORD)(cycleEnd - stopTime));
+//	if (cycleEnd - stopTime > 0)
+//		HAL_Delay((WM_LWORD)(cycleEnd - stopTime));
 }
 
 void VMArduino::VMP_PreProgram(void)

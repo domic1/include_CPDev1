@@ -14,17 +14,17 @@ C:\ST\STM32CubeIDE_1.18.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.external
 ../Core/Src/../Lib/CPDevVM/src/VM\vmtaskclass.h:90:14:virtual int VMTaskClass32::VMP_ExecNativeBlock(WM_WORD, WM_DWORD)	1
 ../Core/Src/../Lib/CPDevVM/src/VM\vmtaskclass.h:91:14:virtual int VMTaskClass32::VMP_InitNativeBlock(WM_WORD, WM_DWORD)	1
 ../Core/Src/../Lib/CPDevVM/src/vm_arduino.h:22:7:VMArduino::VMArduino()	1
-../Core/Src/main.cpp:109:5:int main()	5
-../Core/Src/main.cpp:216:6:void PeriphCommonClock_Config()	2
-../Core/Src/main.cpp:243:13:void MX_ADC1_Init()	4
-../Core/Src/main.cpp:312:13:void MX_ADC3_Init()	3
-../Core/Src/main.cpp:371:13:void MX_QUADSPI_Init()	2
-../Core/Src/main.cpp:405:13:void MX_RTC_Init()	3
-../Core/Src/main.cpp:459:13:void MX_SPI2_Init()	2
-../Core/Src/main.cpp:507:13:void MX_SPI5_Init()	2
-../Core/Src/main.cpp:555:6:void MX_USART1_UART_Init()	5
-../Core/Src/main.cpp:601:13:void MX_DMA_Init()	1
-../Core/Src/main.cpp:614:13:void MX_GPIO_Init()	1
-../Core/Src/main.cpp:869:6:void Error_Handler()	1
-../Core/Src/main.cpp:878:1:void __static_initialization_and_destruction_0()	1
-../Core/Src/main.cpp:878:1:cpp)	1
+../Core/Src/main.cpp:109:5:int main()	6
+../Core/Src/main.cpp:237:6:void PeriphCommonClock_Config()	2
+../Core/Src/main.cpp:264:13:void MX_ADC1_Init()	4
+../Core/Src/main.cpp:333:13:void MX_ADC3_Init()	3
+../Core/Src/main.cpp:392:13:void MX_QUADSPI_Init()	2
+../Core/Src/main.cpp:426:13:void MX_RTC_Init()	3
+../Core/Src/main.cpp:480:13:void MX_SPI2_Init()	2
+../Core/Src/main.cpp:528:13:void MX_SPI5_Init()	2
+../Core/Src/main.cpp:576:6:void MX_USART1_UART_Init()	5
+../Core/Src/main.cpp:622:13:void MX_DMA_Init()	1
+../Core/Src/main.cpp:635:13:void MX_GPIO_Init()	1
+../Core/Src/main.cpp:890:6:void Error_Handler()	1
+../Core/Src/main.cpp:899:1:void __static_initialization_and_destruction_0()	1
+../Core/Src/main.cpp:899:1:cpp)	1

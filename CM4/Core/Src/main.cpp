@@ -110,11 +110,9 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-	//  uint8_t *ptrStat = (uint8_t *)0x38000000;
+/*  uint8_t *ptrStat = (uint8_t *)0x38000000;*/
 
-	//	  uint8_t *last_state = (uint8_t *)0xFF;
-		uint8_t last_state0 = 0xFF;
-		uint8_t last_state1 = 0xFF;
+
   /* USER CODE END 1 */
 
 /* USER CODE BEGIN Boot_Mode_Sequence_1 */
@@ -169,9 +167,7 @@ int main(void)
 
       	}
 
-	WM_BOOL IN1;
-	WM_BOOL OUT1;
-	WM_BOOL INPUT1;
+
 /*	WM_BOOL LED;*/
   /* USER CODE END 2 */
 
@@ -180,36 +176,61 @@ int main(void)
   while (1)
   {
 
-if (cpdev.bRunMode) {
+  	  if (!cpdev.bRunMode) {
+  		  cpdev.WM_Shutdown();continue; }
+
+
+
+  	/*	VMP_PreCycle(void);*/
+
+
+
+  WM_BYTE IN1 = ptrStat[0];
+	cpdev.WM_SetData(0, 1, &IN1);
+  WM_BYTE OUT1;
+  WM_BYTE RST;
+
+  	cpdev.WM_RunCycle();
+  	/*	     cpdev.VMP_PostCycle();*/
+
+
+  	 cpdev.WM_GetData(1, 1, (WM_BYTE*) &OUT1);
+  	 cpdev.WM_GetData(2, 1, (WM_BYTE*) &RST);
+
+
+
+  	if (HAL_HSEM_Take(HSEM_ID_0, HSEM_PROCESS_ID) == HAL_OK)
+  	  	{
+  		ptrStat[2] = OUT1;
+		ptrStat[3] = RST ;
+
+  	  	HAL_HSEM_Release(HSEM_ID_0, HSEM_PROCESS_ID);
+  	  	}
+  		if(ptrStat[1] !=0){
+  			HAL_GPIO_WritePin(LED3_GPIO_Port, LED3_Pin, GPIO_PIN_SET);
+  		}else{
+  			HAL_GPIO_WritePin(LED3_GPIO_Port, LED3_Pin, GPIO_PIN_RESET);
+  		}
+
+
+  		cpdev.task_cycle = 300;
+
+
+/*if (cpdev.bRunMode) {
 	cpdev.WM_RunCycle();
 } else {
 	cpdev.WM_Shutdown();
-}
-	cpdev.WM_SetData(0, 1, (WM_BYTE*) &IN1);
-	HAL_GPIO_WritePin(LED3_GPIO_Port, LED3_Pin, (GPIO_PinState) ptrStat[1]);
-		printf("LED2 status: %d", IN1);
-		printf("WM_GetData IN1=0x%02X\r\n", IN1);
-
-if (HAL_HSEM_Take(HSEM_ID_0, HSEM_PROCESS_ID) == HAL_OK)
-	 {
-
-	uint8_t in1 = ptrStat[3];
-	uint8_t out1 = ptrStat[4];
-
-	 HAL_HSEM_Release(HSEM_ID_0, HSEM_PROCESS_ID);
-	 cpdev.WM_SetData(0, 1, (WM_BYTE*) &IN1);
-	 }
+}*/
 
 
-		  			HAL_Delay(400);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-  }
+
   /* USER CODE END 3 */
 }
 
-/**
+}/**
   * @brief Peripherals Common Clock Configuration
   * @retval None
   */

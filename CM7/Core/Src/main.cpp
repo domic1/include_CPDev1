@@ -61,7 +61,7 @@ DMA_HandleTypeDef hdma_usart1_tx;
 /* USER CODE BEGIN PV */
 VMArduino cpdev;
 FlagStatus uFlagNotif = RESET;
-#define SHD_RAM_START_ADDR                  0x38000000U
+#define SHD_RAM_START_ADDR                  0x38000000
 #define SHD_RAM_LEN                         0x0000FFFF
 #define SV 400
 #define HSEM_PROCESS_ID 0U
@@ -94,13 +94,12 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-	  uint8_t vmData32_2[SV] = {0};
 
-//	  uint8_t *ptrStat = (uint8_t *)SHD_RAM_START_ADDR;
 
-	  for (int i = 0; i < SV; ++i)
-	 			      memcpy(ptrStat + SV + i, vmData32_2 + i, 1);
-	 			  SCB_CleanDCache_by_Addr((uint32_t *)ptrStat, SV);
+
+
+
+
   /* USER CODE END 1 */
 /* USER CODE BEGIN Boot_Mode_Sequence_0 */
   int32_t timeout;
@@ -170,8 +169,7 @@ Error_Handler();
 
   	}
 
-  	WM_BOOL IN1;
-  	WM_BOOL OUT2;
+
 /*  	WM_BOOL LED;*/
 
   /* USER CODE END 2 */
@@ -180,65 +178,61 @@ Error_Handler();
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  if((HAL_GetTick() >cpdev.task_cycle)){
+	 /* VMP_ReadRTC(WM_DATE_AND_TIME *dt)*///	 if(HAL_GetTick() - czasStartu > cpdev.task_cycle)
+	  if (!cpdev.bRunMode) {
+		  cpdev.WM_Shutdown();continue; }
 
 
-	if (cpdev.bRunMode) {
+/*	 Czy out1/2 powinniem ustawiać skoro to jest zmienna tylko do odczytu*/
 
-		cpdev.WM_RunCycle();
+	  /*	VMP_PreCycle(void);*/
 
-		} else {
+//ZPISUJEMY CZAS
+	WM_INT CNT;
+	WM_BOOL OUT2;
+	WM_BOOL IN1 = HAL_GPIO_ReadPin(JOY_UP_GPIO_Port, JOY_UP_Pin);
+	WM_INT RST;
+	cpdev.WM_SetData(0, 1, &IN1);
 
-		cpdev.WM_Shutdown();
-		  	HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, (GPIO_PinState) !IN1);
-
-		}
 	if (HAL_HSEM_Take(HSEM_ID_0, HSEM_PROCESS_ID) == HAL_OK)
-		 {
-			uint8_t JOY_UP = ptrStat[0];
-			uint8_t out2 = ptrStat[1];
-			uint8_t JOY_LEFT = ptrStat[2];
-			uint8_t out1 = ptrStat[3];
-		 }
-		 HAL_HSEM_Release(HSEM_ID_0, HSEM_PROCESS_ID);
-
-
-	if(HAL_HSEM_Take(HSEM_ID_0, HSEM_PROCESS_ID) == HAL_OK)
 		{
-		if (HAL_GPIO_ReadPin(JOY_UP_GPIO_Port, JOY_UP_Pin) == GPIO_PIN_RESET) // przycisk wciśnięty
-
-		{
-			ptrStat[0] = 1;
-			} else {
-
-		  				ptrStat[0] = 0;
-		  		         SCB_CleanDCache_by_Addr((uint32_t*)ptrStat, 0);
-		  				}
-		  				 HAL_HSEM_Release(HSEM_ID_0, HSEM_PROCESS_ID);
-		  				}
-
-		if (ptrStat[3] == 1)
-		{
+		RST = ptrStat[2];
 
 
-			HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, (GPIO_PinState) ptrStat[3]);
-
-			printf("LED2 status: %d", ptrStat[3]);
-			printf("WM_GetData IN1=0x%02X\r\n", ptrStat[3]);
+		HAL_HSEM_Release(HSEM_ID_0, HSEM_PROCESS_ID);
 		}
-	 cpdev.WM_GetData(1, 1, (WM_BYTE*) &OUT2);
-	 OUT2 = ptrStat[1];
+/*	VMP_PreCycle(void);*/
+	cpdev.WM_RunCycle();
+	/*	     cpdev.VMP_PostCycle();*/
+
+cpdev.WM_GetData(1, 1, (WM_BYTE*) &OUT2);
+cpdev.WM_GetData(4, 2, (WM_BYTE*) &CNT);
+
+	if (HAL_HSEM_Take(HSEM_ID_0, HSEM_PROCESS_ID) == HAL_OK)
+		{
+		ptrStat[0]= IN1;
+		ptrStat[1] = OUT2 ;
+		ptrStat[3] = CNT ;
+
+		HAL_HSEM_Release(HSEM_ID_0, HSEM_PROCESS_ID);
+		}
+
+
+
+		if(ptrStat[1] !=0){
+			HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_SET);
+		}else{
+			HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_RESET);
+		}
 
 
 
 
-	 /* cpdev.WM_GetData(1, 1, (WM_BYTE*) &LED);
-	  	HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, (GPIO_PinState) LED);
-	  		printf("LED1 status: %d", LED);
-	  		printf("WM_GetData LED=0x%02X\r\n", LED)*/;
 
-		  		HAL_Delay(400);
+	cpdev.task_cycle = 300;
     /* USER CODE END WHILE */
-
+	  }
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */

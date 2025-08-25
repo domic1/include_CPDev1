@@ -50,6 +50,8 @@ MEMORY
   RAM_D2 (xrw)   : ORIGIN = 0x30000000, LENGTH = 288K
   RAM_D3 (xrw)   : ORIGIN = 0x38000000, LENGTH = 64K
   ITCMRAM (xrw)  : ORIGIN = 0x00000000, LENGTH = 64K
+    SRAM4 (xrw) : ORIGIN = 0x38000000, LENGTH = 64K
+  
 }
 
 /* Sections */
@@ -196,7 +198,6 @@ SECTIONS
     PROVIDE(__shared_ram_start__ = ADDR(.shared_ram));
     PROVIDE(__shared_ram_end__ = ADDR(.shared_ram) + SIZEOF(.shared_ram));
   } >RAM_D3
-
   /* Remove information from the compiler libraries */
   /DISCARD/ :
   {
