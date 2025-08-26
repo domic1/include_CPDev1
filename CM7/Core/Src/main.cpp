@@ -25,6 +25,8 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include <cstdio>
+#include <stdio.h>
+
 #include <cstring>
 #include <iostream>
 #include "../../../Common/_common.h"
@@ -60,6 +62,8 @@ DMA_HandleTypeDef hdma_usart1_tx;
 
 /* USER CODE BEGIN PV */
 VMArduino cpdev;
+
+
 FlagStatus uFlagNotif = RESET;
 #define SHD_RAM_START_ADDR                  0x38000000
 #define SHD_RAM_LEN                         0x0000FFFF
@@ -79,11 +83,30 @@ static void MX_USART1_UART_Init(void);
 #else
 #define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)
 #endif /* __GNUC__ */
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+extern "C" {
 
+// STM32Cube (newlib-nano + GCC) woła __io_putchar z syscalls.c:_write()
+int __io_putchar(int ch)
+{
+    uint8_t c = static_cast<uint8_t>(ch);
+    HAL_UART_Transmit(&huart1, &c, 1, 1000);
+    return ch;
+}
+
+// (opcjonalnie) jeśli używasz scanf/getchar:
+int __io_getchar(void)
+{
+    uint8_t c;
+    HAL_UART_Receive(&huart1, &c, 1, HAL_MAX_DELAY);
+    return (int)c;
+}
+
+}  extern "C"
 /* USER CODE END 0 */
 
 /**
@@ -158,7 +181,7 @@ Error_Handler();
   HAL_UART_Transmit(&huart1, (uint8_t*) "CM7 Started\r\n", 13, 700);
   	if (cpdev.VMP_LoadProgramFromArray(xcp_code) != 0) {
   		printf("Cannot load program into VM");
-  		HAL_Delay(600);
+  		HAL_Delay(1000);
 
   		while (1)
   			;
@@ -169,7 +192,7 @@ Error_Handler();
 
   	}
 
-
+    WM_BOOL IN1, OUT1, OUT2, RST;
 /*  	WM_BOOL LED;*/
 
   /* USER CODE END 2 */
@@ -178,65 +201,52 @@ Error_Handler();
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  if((HAL_GetTick() >cpdev.task_cycle)){
-	 /* VMP_ReadRTC(WM_DATE_AND_TIME *dt)*///	 if(HAL_GetTick() - czasStartu > cpdev.task_cycle)
+
+/*if((HAL_GetTick() - lastStartCycle > cpdev.task_cycle)){*/
+
 	  if (!cpdev.bRunMode) {
-		  cpdev.WM_Shutdown();continue; }
+	      cpdev.WM_Shutdown();continue; }
+
+/*	  	Program drugi
+ * cpdev.VMP_PreCycle(void);  */
+	  if (HAL_HSEM_Take(HSEM_ID_0, HSEM_PROCESS_ID) == HAL_OK)
+	  	    	  	{
+		  	  	  IN1 = ptrStat[0];
+		  	  	  OUT1 = ptrStat[1];
+	  	    	  	HAL_HSEM_Release(HSEM_ID_0, HSEM_PROCESS_ID);
+	  	    	  	}
+
+	  	  	cpdev.WM_SetData(0, 1, &IN1);
 
 
-/*	 Czy out1/2 powinniem ustawiać skoro to jest zmienna tylko do odczytu*/
+	    cpdev.WM_RunCycle();
+/*	  	cpdev.VMP_PostCycle();*/
 
-	  /*	VMP_PreCycle(void);*/
+	    	 cpdev.WM_GetData(1, 1, (WM_BYTE*) &OUT2);
+	    	 cpdev.WM_GetData(2, 1, (WM_BYTE*) &RST);
 
-//ZPISUJEMY CZAS
-	WM_INT CNT;
-	WM_BOOL OUT2;
-	WM_BOOL IN1 = HAL_GPIO_ReadPin(JOY_UP_GPIO_Port, JOY_UP_Pin);
-	WM_INT RST;
-	cpdev.WM_SetData(0, 1, &IN1);
+	    	if (HAL_HSEM_Take(HSEM_ID_0, HSEM_PROCESS_ID) == HAL_OK)
+	    	  	{
+	    		ptrStat[2] = OUT2;
+	    		ptrStat[5] = RST ;
 
-	if (HAL_HSEM_Take(HSEM_ID_0, HSEM_PROCESS_ID) == HAL_OK)
-		{
-		RST = ptrStat[2];
+	    	  	HAL_HSEM_Release(HSEM_ID_0, HSEM_PROCESS_ID);
+	    	  	}
 
-
-		HAL_HSEM_Release(HSEM_ID_0, HSEM_PROCESS_ID);
-		}
-/*	VMP_PreCycle(void);*/
-	cpdev.WM_RunCycle();
-	/*	     cpdev.VMP_PostCycle();*/
-
-cpdev.WM_GetData(1, 1, (WM_BYTE*) &OUT2);
-cpdev.WM_GetData(4, 2, (WM_BYTE*) &CNT);
-
-	if (HAL_HSEM_Take(HSEM_ID_0, HSEM_PROCESS_ID) == HAL_OK)
-		{
-		ptrStat[0]= IN1;
-		ptrStat[1] = OUT2 ;
-		ptrStat[3] = CNT ;
-
-		HAL_HSEM_Release(HSEM_ID_0, HSEM_PROCESS_ID);
-		}
+	    	HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, (GPIO_PinState) OUT1);
+	    	HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, (GPIO_PinState) OUT2);
 
 
-
-		if(ptrStat[1] !=0){
-			HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_SET);
-		}else{
-			HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_RESET);
-		}
+	    		cpdev.task_cycle = 300;
 
 
-
-
-
-	cpdev.task_cycle = 300;
     /* USER CODE END WHILE */
-	  }
+  	  }
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
-}
+/*}*/
+
 
 /**
   * @brief System Clock Configuration
