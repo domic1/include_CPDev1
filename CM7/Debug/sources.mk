@@ -38,7 +38,6 @@ CPP_DEPS :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
-Common/Src \
 Core/Inc \
 Core/Lib/CPDevVM/src/VM \
 Core/Lib/CPDevVM/src/VM/vmfunc \

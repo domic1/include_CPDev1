@@ -1,0 +1,2107 @@
+[0.000] initConfigParams():  Configuration flags start
+[0.000] initConfigParams():   external-init                  false
+[0.000] initConfigParams():   pend-halt-timeout              (null)
+[0.000] initConfigParams():   halt                           false
+[0.000] initConfigParams():   config-file                    ""
+[0.000] initConfigParams():   persistent                     false
+[0.000] initConfigParams():  +log-file                       "C:\Users\Dominik\STM32CubeIDE\workspace_1.18.0\include_CPDev\CM4\Debug\st-link_gdbserver_log.txt"
+[0.000] initConfigParams():  +log-level                      31
+[0.000] initConfigParams():  +port-number                    61238
+[0.000] initConfigParams():  +verbose                        true
+[0.000] initConfigParams():   refresh-delay                  15
+[0.000] initConfigParams():  +verify                         true
+[0.000] initConfigParams():  +swd                            true
+[0.000] initConfigParams():   swo-port                       61234
+[0.000] initConfigParams():   cpu-clock                      8000000
+[0.000] initConfigParams():   swo-clock-div                  128
+[0.000] initConfigParams():   initialize-reset               false
+[0.000] initConfigParams():   debuggers                      false
+[0.000] initConfigParams():   serial-number                  ""
+[0.000] initConfigParams():  +apid                           3
+[0.000] initConfigParams():  +attach                         true
+[0.000] initConfigParams():  +shared                         true
+[0.000] initConfigParams():   erase-all                      false
+[0.000] initConfigParams():   memory-map                     ""
+[0.000] initConfigParams():   ext-memory-loaders             false
+[0.000] initConfigParams():   extload_init                   (null)
+[0.000] initConfigParams():   extload                        (null)
+[0.000] initConfigParams():  +stm32cubeprogrammer-path       "C:\ST\STM32CubeIDE_1.18.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.cubeprogrammer.win32_2.2.100.202412061334\tools\bin"
+[0.000] initConfigParams():   temp-path                      ""
+[0.000] initConfigParams():   preserve-temps                 false
+[0.000] initConfigParams():   frequency                      0
+[0.000] initConfigParams():   licenses                       false
+[0.000] initConfigParams():   ignore-rest                    false
+[0.000] initConfigParams():   version                        false
+[0.000] initConfigParams():   help                           false
+[0.000] initConfigParams():  Configuration flags end
+[0.001] init():  STMicroelectronics ST-LINK GDB server. Version 7.10.0
+Copyright (c) 2025, STMicroelectronics. All rights reserved.
+[0.027] openDevice():  COM frequency = 24000 kHz
+[0.027] openDevice():  Target connection mode: Attach
+[0.032] readFromTarget():  Reading ROM table for AP 3 @0xe00fffd0
+[0.036] reset_hw_wtchpt_module():  Hardware watchpoint supported by the target 
+[0.041] initContext():  ST-LINK Firmware version : V3J16M7
+[0.041] initContext():  Device ID: 0x450
+[0.041] initContext():  PC: 0x810f478
+[0.042] Device_GetStatus():  ST-LINK device status: HALT_MODE
+[0.042] initContext():  ST-LINK detects target voltage = 3.27 V
+[0.043] initContext():  ST-LINK device status: HALT_MODE
+[0.043] initServerContext():  ST-LINK device initialization OK
+[0.043] pollAndNotifyRun():  Stm32Device, pollAndNotify running...
+[0.043] updateState():  SwvSrv state change: 0 -> 1
+[0.043] WaitConnection():  Waiting for connection on port 61238...
+[0.043] WaitConnection():  Waiting for connection on port 61239...
+[4.337] WaitConnection():  Accepted connection on port 61238...
+[4.337] WaitConnection():  Waiting for connection on port 61238...
+[4.337] run():  GDB session thread running
+[4.337] handleSessionEvent():  GdbSessionManager, session started: 1
+[4.338] read():  <708> Rx: +$qSupported:multiprocess+;swbreak+;hwbreak+;qRelocInsn+;fork-events+;vfork-events+;exec-events+;vContSupported+;QThreadEvents+;no-resumed+;memory-tagging+#ec
+[4.351] write():  <708> Tx: +
+[4.351] write():  <708> Tx: $PacketSize=4000;qXfer:memory-map:read+;qXfer:features:read+;QStartNoAckMode+;QNonStop+;qXfer:threads:read+;hwbreak+;swbreak+#f3
+[4.351] read():  <708> Rx: +$vCont?#49
+[4.366] write():  <708> Tx: +
+[4.366] write():  <708> Tx: $vCont;c;s;t#05
+[4.366] read():  <708> Rx: +
+[4.366] read():  <708> Rx: $vMustReplyEmpty#3a
+[4.366] write():  <708> Tx: +
+[4.366] write():  <708> Tx: $#00
+[4.366] read():  <708> Rx: +
+[4.366] read():  <708> Rx: $QStartNoAckMode#b0
+[4.366] write():  <708> Tx: +
+[4.366] write():  <708> Tx: $OK#9a
+[4.366] read():  <708> Rx: +$Hg0#df
+[4.382] write():  <708> Tx: $#00
+[4.382] read():  <708> Rx: $qXfer:features:read:target.xml:0,1000#0c
+[4.382] write():  <708> Tx: $l<?xml version="1.0"?><!DOCTYPE target SYSTEM "gdb-target.dtd"><target><feature name="org.gnu.gdb.arm.m-profile"><reg name="r0" bitsize="32" type="uint32" regnum="0"/><reg name="r1" bitsize="32" type="uint32" regnum="1"/><reg name="r2" bitsize="32" type="uint32" regnum="2"/><reg name="r3" bitsize="32" type="uint32" regnum="3"/><reg name="r4" bitsize="32" type="uint32" regnum="4"/><reg name="r5" bitsize="32" type="uint32" regnum="5"/><reg name="r6" bitsize="32" type="uint32" regnum="6"/><reg name="r7" bitsize="32" type="uint32" regnum="7"/><reg name="r8" bitsize="32" type="uint32" regnum="8"/><reg name="r9" bitsize="32" type="uint32" regnum="9"/><reg name="r10" bitsize="32" type="uint32" regnum="10"/><reg name="r11" bitsize="32" type="uint32" regnum="11"/><reg name="r12" bitsize="32" type="uint32" regnum="12"/><reg name="sp" bitsize="32" type="data_ptr" regnum="13"/><reg name="lr" bitsize="32" type="int" regnum="14"/><reg name="pc" bitsize="32" type="code_ptr" regnum="15"/><reg name="xpsr" bitsize="32" type="int" regnum="25"/></feature><feature name="org.gnu.gdb.arm.vfp"><reg name="d0" bitsize="64" type="ieee_double" regnum="26"/><reg name="d1" bitsize="64" type="ieee_double" regnum="27"/><reg name="d2" bitsize="64" type="ieee_double" regnum="28"/><reg name="d3" bitsize="64" type="ieee_double" regnum="29"/><reg name="d4" bitsize="64" type="ieee_double" regnum="30"/><reg name="d5" bitsize="64" type="ieee_double" regnum="31"/><reg name="d6" bitsize="64" type="ieee_double" regnum="32"/><reg name="d7" bitsize="64" type="ieee_double" regnum="33"/><reg name="d8" bitsize="64" type="ieee_double" regnum="34"/><reg name="d9" bitsize="64" type="ieee_double" regnum="35"/><reg name="d10" bitsize="64" type="ieee_double" regnum="36"/><reg name="d11" bitsize="64" type="ieee_double" regnum="37"/><reg name="d12" bitsize="64" type="ieee_double" regnum="38"/><reg name="d13" bitsize="64" type="ieee_double" regnum="39"/><reg name="d14" bitsize="64" type="ieee_double" regnum="40"/><reg name="d15" bitsize="64" type="ieee_double" regnum="41"/><reg name="fpscr" bitsize="32" type="int" group="float" regnum="42"/></feature><feature name="org.gnu.gdb.arm.m-system"><reg name="primask" bitsize="32" type="uint32" regnum="93"/><reg name="basepri" bitsize="32" type="uint32" regnum="94"/><reg name="faultmask" bitsize="32" type="uint32" regnum="95"/><reg name="control" bitsize="32" type="uint32" regnum="96"/><reg name="msp" bitsize="32" type="data_ptr" regnum="97"/><reg name="psp" bitsize="32" type="data_ptr" regnum="98"/></feature></target>#e2
+[4.385] read():  <708> Rx: $QNonStop:0#8c
+[4.385] write():  <708> Tx: $OK#9a
+[4.385] read():  <708> Rx: $qTStatus#49
+[4.385] write():  <708> Tx: $#00
+[4.385] read():  <708> Rx: $?#3f
+[4.385] write():  <708> Tx: $S05#b8
+[4.387] read():  <708> Rx: $qXfer:threads:read::0,1000#92
+[4.387] write():  <708> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="3" name="main"></thread></threads>#fa
+[4.387] read():  <708> Rx: $qAttached#8f
+[4.387] write():  <708> Tx: $#00
+[4.387] read():  <708> Rx: $Hc-1#09
+[4.387] write():  <708> Tx: $#00
+[4.387] read():  <708> Rx: $qC#b4
+[4.387] write():  <708> Tx: $QC1#c5
+[4.388] read():  <708> Rx: $qOffsets#4b
+[4.388] write():  <708> Tx: $#00
+[4.388] read():  <708> Rx: $g#67
+[4.394] write():  <708> Tx: $0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000800410ffffffff78f4100800000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080041000000000#1d
+[4.394] read():  <708> Rx: $qXfer:threads:read::0,1000#92
+[4.394] write():  <708> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="3" name="main"></thread></threads>#fa
+[4.395] read():  <708> Rx: $qXfer:memory-map:read::0,1000#ab
+[4.395] write():  <708> Tx: $l<?xml version="1.0"?>\x0a<!DOCTYPE memory-map\x0a          PUBLIC "+//IDN gnu.org//DTD GDB Memory Map V1.0//EN"\x0a                 "http://sourceware.org/gdb/gdb-memory-map.dtd">\x0a<memory-map>\x0a<memory type="ram" start="0x0" length="0x8000000"/>\x0a<memory type="flash" start="0x8000000" length="0x200000">\x0a<property name="blocksize">0x400</property>\x0a</memory>\x0a<memory type="ram" start="0x8200000" length="0xf7dfffff"/>\x0a</memory-map>#d3
+[4.396] read():  <708> Rx: $m810f478,4#6f
+[4.396] handlePacket():  Reading 0x4 bytes of memory from addr 0x810f478 
+[4.399] write():  <708> Tx: $dff838d0#67
+[4.399] read():  <708> Rx: $m810f478,2#6d
+[4.399] handlePacket():  Reading 0x2 bytes of memory from addr 0x810f478 
+[4.400] write():  <708> Tx: $dff8#68
+[4.400] read():  <708> Rx: $m810f47a,2#96
+[4.400] handlePacket():  Reading 0x2 bytes of memory from addr 0x810f47a 
+[4.401] write():  <708> Tx: $38d0#ff
+[4.403] read():  <708> Rx: $qSymbol::#5b
+[4.403] write():  <708> Tx: $#00
+[4.414] read():  <708> Rx: $qRcmd,5265616441504578203078333030303030302030784638#5d
+[4.417] write():  <708> Tx: $4f2e4b2e3a307865303066663030330a#8a
+[4.429] read():  <708> Rx: $qRcmd,526561644d656d41502030783330303030303020307845303046464644302030783820307830#bb
+[4.431] write():  <708> Tx: $4f2e4b2e3a3078302c3078302c3078302c3078302c307835302c3078342c3078612c3078300a#ae
+[4.431] read():  <708> Rx: $qXfer:threads:read::0,1000#92
+[4.431] write():  <708> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="3" name="main"></thread></threads>#fa
+[4.445] read():  <708> Rx: $qXfer:threads:read::0,1000#92
+[4.445] write():  <708> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="3" name="main"></thread></threads>#fa
+[4.491] read():  <708> Rx: $qXfer:threads:read::0,1000#92
+[4.491] write():  <708> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="3" name="main"></thread></threads>#fa
+[4.491] read():  <708> Rx: $qXfer:threads:read::0,1000#92
+[4.491] write():  <708> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="3" name="main"></thread></threads>#fa
+[6.504] WaitConnection():  Accepted connection on port 61238...
+[6.505] WaitConnection():  Waiting for connection on port 61238...
+[6.505] run():  GDB session thread running
+[6.505] handleSessionEvent():  GdbSessionManager, session started: 2
+[6.506] read():  <920> Rx: +$qSupported:multiprocess+;swbreak+;hwbreak+;qRelocInsn+;fork-events+;vfork-events+;exec-events+;vContSupported+;QThreadEvents+;no-resumed+;memory-tagging+#ec
+[6.519] write():  <920> Tx: +
+[6.519] write():  <920> Tx: $PacketSize=4000;qXfer:memory-map:read+;qXfer:features:read+;QStartNoAckMode+;QNonStop+;qXfer:threads:read+;hwbreak+;swbreak+#f3
+[6.519] read():  <920> Rx: +
+[6.519] read():  <920> Rx: $vCont?#49
+[6.519] write():  <920> Tx: +
+[6.519] write():  <920> Tx: $vCont;c;s;t#05
+[6.519] read():  <920> Rx: +
+[6.519] read():  <920> Rx: $vMustReplyEmpty#3a
+[6.519] write():  <920> Tx: +
+[6.519] write():  <920> Tx: $#00
+[6.519] read():  <920> Rx: +
+[6.519] read():  <920> Rx: $QStartNoAckMode#b0
+[6.519] write():  <920> Tx: +
+[6.519] write():  <920> Tx: $OK#9a
+[6.521] read():  <920> Rx: +
+[6.521] read():  <920> Rx: $Hg0#df
+[6.521] write():  <920> Tx: $#00
+[6.521] read():  <920> Rx: $qXfer:features:read:target.xml:0,1000#0c
+[6.521] write():  <920> Tx: $l<?xml version="1.0"?><!DOCTYPE target SYSTEM "gdb-target.dtd"><target><feature name="org.gnu.gdb.arm.m-profile"><reg name="r0" bitsize="32" type="uint32" regnum="0"/><reg name="r1" bitsize="32" type="uint32" regnum="1"/><reg name="r2" bitsize="32" type="uint32" regnum="2"/><reg name="r3" bitsize="32" type="uint32" regnum="3"/><reg name="r4" bitsize="32" type="uint32" regnum="4"/><reg name="r5" bitsize="32" type="uint32" regnum="5"/><reg name="r6" bitsize="32" type="uint32" regnum="6"/><reg name="r7" bitsize="32" type="uint32" regnum="7"/><reg name="r8" bitsize="32" type="uint32" regnum="8"/><reg name="r9" bitsize="32" type="uint32" regnum="9"/><reg name="r10" bitsize="32" type="uint32" regnum="10"/><reg name="r11" bitsize="32" type="uint32" regnum="11"/><reg name="r12" bitsize="32" type="uint32" regnum="12"/><reg name="sp" bitsize="32" type="data_ptr" regnum="13"/><reg name="lr" bitsize="32" type="int" regnum="14"/><reg name="pc" bitsize="32" type="code_ptr" regnum="15"/><reg name="xpsr" bitsize="32" type="int" regnum="25"/></feature><feature name="org.gnu.gdb.arm.vfp"><reg name="d0" bitsize="64" type="ieee_double" regnum="26"/><reg name="d1" bitsize="64" type="ieee_double" regnum="27"/><reg name="d2" bitsize="64" type="ieee_double" regnum="28"/><reg name="d3" bitsize="64" type="ieee_double" regnum="29"/><reg name="d4" bitsize="64" type="ieee_double" regnum="30"/><reg name="d5" bitsize="64" type="ieee_double" regnum="31"/><reg name="d6" bitsize="64" type="ieee_double" regnum="32"/><reg name="d7" bitsize="64" type="ieee_double" regnum="33"/><reg name="d8" bitsize="64" type="ieee_double" regnum="34"/><reg name="d9" bitsize="64" type="ieee_double" regnum="35"/><reg name="d10" bitsize="64" type="ieee_double" regnum="36"/><reg name="d11" bitsize="64" type="ieee_double" regnum="37"/><reg name="d12" bitsize="64" type="ieee_double" regnum="38"/><reg name="d13" bitsize="64" type="ieee_double" regnum="39"/><reg name="d14" bitsize="64" type="ieee_double" regnum="40"/><reg name="d15" bitsize="64" type="ieee_double" regnum="41"/><reg name="fpscr" bitsize="32" type="int" group="float" regnum="42"/></feature><feature name="org.gnu.gdb.arm.m-system"><reg name="primask" bitsize="32" type="uint32" regnum="93"/><reg name="basepri" bitsize="32" type="uint32" regnum="94"/><reg name="faultmask" bitsize="32" type="uint32" regnum="95"/><reg name="control" bitsize="32" type="uint32" regnum="96"/><reg name="msp" bitsize="32" type="data_ptr" regnum="97"/><reg name="psp" bitsize="32" type="data_ptr" regnum="98"/></feature></target>#e2
+[6.523] read():  <920> Rx: $QNonStop:0#8c
+[6.523] write():  <920> Tx: $OK#9a
+[6.523] read():  <920> Rx: $qTStatus#49
+[6.523] write():  <920> Tx: $#00
+[6.523] read():  <920> Rx: $?#3f
+[6.523] write():  <920> Tx: $S05#b8
+[6.523] read():  <920> Rx: $qXfer:threads:read::0,1000#92
+[6.523] write():  <920> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="3" name="main"></thread></threads>#fa
+[6.524] read():  <920> Rx: $qAttached#8f
+[6.524] write():  <920> Tx: $#00
+[6.524] read():  <920> Rx: $Hc-1#09
+[6.524] write():  <920> Tx: $#00
+[6.524] read():  <920> Rx: $qC#b4
+[6.524] write():  <920> Tx: $QC1#c5
+[6.524] read():  <920> Rx: $qOffsets#4b
+[6.524] write():  <920> Tx: $#00
+[6.525] read():  <920> Rx: $g#67
+[6.528] write():  <920> Tx: $0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000800410ffffffff78f4100800000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080041000000000#1d
+[6.528] read():  <920> Rx: $qXfer:threads:read::0,1000#92
+[6.529] write():  <920> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="3" name="main"></thread></threads>#fa
+[6.529] read():  <920> Rx: $qXfer:memory-map:read::0,1000#ab
+[6.530] write():  <920> Tx: $l<?xml version="1.0"?>\x0a<!DOCTYPE memory-map\x0a          PUBLIC "+//IDN gnu.org//DTD GDB Memory Map V1.0//EN"\x0a                 "http://sourceware.org/gdb/gdb-memory-map.dtd">\x0a<memory-map>\x0a<memory type="ram" start="0x0" length="0x8000000"/>\x0a<memory type="flash" start="0x8000000" length="0x200000">\x0a<property name="blocksize">0x400</property>\x0a</memory>\x0a<memory type="ram" start="0x8200000" length="0xf7dfffff"/>\x0a</memory-map>#d3
+[6.530] read():  <920> Rx: $m810f478,4#6f
+[6.530] handlePacket():  Reading 0x4 bytes of memory from addr 0x810f478 
+[6.531] write():  <920> Tx: $dff838d0#67
+[6.532] read():  <920> Rx: $m810f478,2#6d
+[6.532] handlePacket():  Reading 0x2 bytes of memory from addr 0x810f478 
+[6.532] write():  <920> Tx: $dff8#68
+[6.532] read():  <920> Rx: $m810f47a,2#96
+[6.532] handlePacket():  Reading 0x2 bytes of memory from addr 0x810f47a 
+[6.533] write():  <920> Tx: $38d0#ff
+[6.533] read():  <920> Rx: $qSymbol::#5b
+[6.534] write():  <920> Tx: $#00
+[6.568] read():  <708> Rx: $me0043000,4#89
+[6.568] handlePacket():  Reading 0x4 bytes of memory from addr 0xe0043000 
+[6.568] write():  <708> Tx: $01000000#81
+[6.568] read():  <708> Rx: $Xe0043000,0:#aa
+[6.568] write():  <708> Tx: $OK#9a
+[6.568] read():  <708> Rx: $Xe0043000,4:\x00\x00\x00\x00#ae
+[6.570] write():  <708> Tx: $OK#9a
+[6.570] read():  <708> Rx: $g#67
+[6.574] write():  <708> Tx: $0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000800410ffffffff78f4100800000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080041000000000#1d
+[6.574] read():  <708> Rx: $m810f478,4#6f
+[6.574] handlePacket():  Reading 0x4 bytes of memory from addr 0x810f478 
+[6.574] write():  <708> Tx: $dff838d0#67
+[6.574] read():  <708> Rx: $m810f478,2#6d
+[6.574] handlePacket():  Reading 0x2 bytes of memory from addr 0x810f478 
+[6.574] write():  <708> Tx: $dff8#68
+[6.574] read():  <708> Rx: $m810f47a,2#96
+[6.574] handlePacket():  Reading 0x2 bytes of memory from addr 0x810f47a 
+[6.575] write():  <708> Tx: $38d0#ff
+[6.575] read():  <708> Rx: $me00430a0,4#ba
+[6.575] handlePacket():  Reading 0x4 bytes of memory from addr 0xe00430a0 
+[6.575] write():  <708> Tx: $01000000#81
+[6.575] read():  <708> Rx: $Xe00430a0,4:\x00\x00\x00\x00#df
+[6.576] write():  <708> Tx: $OK#9a
+[6.576] read():  <708> Rx: $g#67
+[6.581] write():  <708> Tx: $0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000800410ffffffff78f4100800000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080041000000000#1d
+[6.581] read():  <708> Rx: $m810f478,4#6f
+[6.581] handlePacket():  Reading 0x4 bytes of memory from addr 0x810f478 
+[6.581] write():  <708> Tx: $dff838d0#67
+[6.581] read():  <708> Rx: $m810f478,2#6d
+[6.581] handlePacket():  Reading 0x2 bytes of memory from addr 0x810f478 
+[6.581] write():  <708> Tx: $dff8#68
+[6.581] read():  <708> Rx: $m810f47a,2#96
+[6.581] handlePacket():  Reading 0x2 bytes of memory from addr 0x810f47a 
+[6.582] write():  <708> Tx: $38d0#ff
+[6.582] read():  <708> Rx: $me0043020,4#8b
+[6.582] handlePacket():  Reading 0x4 bytes of memory from addr 0xe0043020 
+[6.582] write():  <708> Tx: $01000000#81
+[6.582] read():  <708> Rx: $Xe0043020,4:\x00\x00\x00\x00#b0
+[6.583] write():  <708> Tx: $OK#9a
+[6.583] read():  <708> Rx: $g#67
+[6.586] write():  <708> Tx: $0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000800410ffffffff78f4100800000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080041000000000#1d
+[6.586] read():  <708> Rx: $m810f478,4#6f
+[6.586] handlePacket():  Reading 0x4 bytes of memory from addr 0x810f478 
+[6.586] write():  <708> Tx: $dff838d0#67
+[6.587] read():  <708> Rx: $m810f478,2#6d
+[6.587] handlePacket():  Reading 0x2 bytes of memory from addr 0x810f478 
+[6.587] write():  <708> Tx: $dff8#68
+[6.587] read():  <708> Rx: $m810f47a,2#96
+[6.587] handlePacket():  Reading 0x2 bytes of memory from addr 0x810f47a 
+[6.587] write():  <708> Tx: $38d0#ff
+[6.587] read():  <708> Rx: $me0043010,4#8a
+[6.587] handlePacket():  Reading 0x4 bytes of memory from addr 0xe0043010 
+[6.588] write():  <708> Tx: $00000000#80
+[6.588] read():  <708> Rx: $Xe0043010,4:\x01\x00\x00\x00#b0
+[6.588] write():  <708> Tx: $OK#9a
+[6.588] read():  <708> Rx: $g#67
+[6.592] write():  <708> Tx: $0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000800410ffffffff78f4100800000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080041000000000#1d
+[6.592] read():  <708> Rx: $m810f478,4#6f
+[6.592] handlePacket():  Reading 0x4 bytes of memory from addr 0x810f478 
+[6.592] write():  <708> Tx: $dff838d0#67
+[6.592] read():  <708> Rx: $m810f478,2#6d
+[6.592] handlePacket():  Reading 0x2 bytes of memory from addr 0x810f478 
+[6.593] write():  <708> Tx: $dff8#68
+[6.593] read():  <708> Rx: $m810f47a,2#96
+[6.593] handlePacket():  Reading 0x2 bytes of memory from addr 0x810f47a 
+[6.593] write():  <708> Tx: $38d0#ff
+[6.614] read():  <708> Rx: $me000ed14,4#f0
+[6.614] handlePacket():  Reading 0x4 bytes of memory from addr 0xe000ed14 
+[6.614] write():  <708> Tx: $00020000#82
+[6.614] read():  <708> Rx: $Xe000ed14,4:\x10\x02\x00\x00#27
+[6.615] write():  <708> Tx: $OK#9a
+[6.615] read():  <708> Rx: $g#67
+[6.619] write():  <708> Tx: $0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000800410ffffffff78f4100800000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080041000000000#1d
+[6.619] read():  <708> Rx: $m810f478,4#6f
+[6.619] handlePacket():  Reading 0x4 bytes of memory from addr 0x810f478 
+[6.619] write():  <708> Tx: $dff838d0#67
+[6.620] read():  <708> Rx: $m810f478,2#6d
+[6.620] handlePacket():  Reading 0x2 bytes of memory from addr 0x810f478 
+[6.620] write():  <708> Tx: $dff8#68
+[6.620] read():  <708> Rx: $m810f47a,2#96
+[6.620] handlePacket():  Reading 0x2 bytes of memory from addr 0x810f47a 
+[6.621] write():  <708> Tx: $38d0#ff
+[6.621] read():  <708> Rx: $me000edfc,4#54
+[6.621] handlePacket():  Reading 0x4 bytes of memory from addr 0xe000edfc 
+[6.622] write():  <708> Tx: $01000001#82
+[6.622] read():  <708> Rx: $Xe000edfc,4:\xff\x07\x00\x01#72
+[6.622] write():  <708> Tx: $OK#9a
+[6.623] read():  <708> Rx: $g#67
+[6.626] write():  <708> Tx: $0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000800410ffffffff78f4100800000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080041000000000#1d
+[6.626] read():  <708> Rx: $m810f478,4#6f
+[6.626] handlePacket():  Reading 0x4 bytes of memory from addr 0x810f478 
+[6.627] write():  <708> Tx: $dff838d0#67
+[6.627] read():  <708> Rx: $m810f478,2#6d
+[6.627] handlePacket():  Reading 0x2 bytes of memory from addr 0x810f478 
+[6.628] write():  <708> Tx: $dff8#68
+[6.628] read():  <708> Rx: $m810f47a,2#96
+[6.628] handlePacket():  Reading 0x2 bytes of memory from addr 0x810f47a 
+[6.629] write():  <708> Tx: $38d0#ff
+[6.683] read():  <708> Rx: $m810ec80,40#c6
+[6.683] handlePacket():  Reading 0x40 bytes of memory from addr 0x810ec80 
+[6.685] write():  <708> Tx: $bd4680bd6c97110880b584b000af6a4bd3f8e030684a43f00073c2f8e030664bd3f8e03003f000733b603b68012001f0b9fd01f067fe01220221002001f0e8fd#8c
+[6.685] read():  <708> Rx: $m810ee38,4#9b
+[6.685] handlePacket():  Reading 0x4 bytes of memory from addr 0x810ee38 
+[6.685] write():  <708> Tx: $00440258#97
+[6.686] read():  <708> Rx: $m810ee38,4#9b
+[6.686] handlePacket():  Reading 0x4 bytes of memory from addr 0x810ee38 
+[6.686] write():  <708> Tx: $00440258#97
+[6.686] read():  <708> Rx: $m810ec8e,2#c9
+[6.686] handlePacket():  Reading 0x2 bytes of memory from addr 0x810ec8e 
+[6.687] write():  <708> Tx: $6a4b#2d
+[6.708] read():  <708> Rx: $m5c001004,4#8a
+[6.708] handlePacket():  Reading 0x4 bytes of memory from addr 0x5c001004 
+[6.714] write():  <708> Tx: $3f006000#bf
+[6.714] read():  <708> Rx: $X5c001004,4:?\x00`\x00#4e
+[6.719] write():  <708> Tx: $OK#9a
+[6.719] read():  <708> Rx: $g#67
+[6.723] write():  <708> Tx: $0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000800410ffffffff78f4100800000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080041000000000#1d
+[6.723] read():  <708> Rx: $m810f478,4#6f
+[6.723] handlePacket():  Reading 0x4 bytes of memory from addr 0x810f478 
+[6.726] write():  <708> Tx: $dff838d0#67
+[6.726] read():  <708> Rx: $m810f478,2#6d
+[6.726] handlePacket():  Reading 0x2 bytes of memory from addr 0x810f478 
+[6.727] write():  <708> Tx: $dff8#68
+[6.727] read():  <708> Rx: $m810f47a,2#96
+[6.727] handlePacket():  Reading 0x2 bytes of memory from addr 0x810f47a 
+[6.728] write():  <708> Tx: $38d0#ff
+[6.728] read():  <708> Rx: $m5c001004,4#8a
+[6.728] handlePacket():  Reading 0x4 bytes of memory from addr 0x5c001004 
+[6.729] write():  <708> Tx: $3f006000#bf
+[6.729] read():  <708> Rx: $X5c001004,4:?\x00`\x00#4e
+[6.730] write():  <708> Tx: $OK#9a
+[6.730] read():  <708> Rx: $g#67
+[6.734] write():  <708> Tx: $0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000800410ffffffff78f4100800000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080041000000000#1d
+[6.734] read():  <708> Rx: $m810f478,4#6f
+[6.734] handlePacket():  Reading 0x4 bytes of memory from addr 0x810f478 
+[6.734] write():  <708> Tx: $dff838d0#67
+[6.734] read():  <708> Rx: $m810f478,2#6d
+[6.734] handlePacket():  Reading 0x2 bytes of memory from addr 0x810f478 
+[6.736] write():  <708> Tx: $dff8#68
+[6.736] read():  <708> Rx: $m810f47a,2#96
+[6.736] handlePacket():  Reading 0x2 bytes of memory from addr 0x810f47a 
+[6.736] write():  <708> Tx: $38d0#ff
+[6.737] read():  <708> Rx: $me0043000,4#89
+[6.737] handlePacket():  Reading 0x4 bytes of memory from addr 0xe0043000 
+[6.737] write():  <708> Tx: $00000000#80
+[6.738] read():  <708> Rx: $Xe0043000,4:\x01\x00\x00\x00#af
+[6.738] write():  <708> Tx: $OK#9a
+[6.738] read():  <708> Rx: $g#67
+[6.742] write():  <708> Tx: $0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000800410ffffffff78f4100800000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080041000000000#1d
+[6.742] read():  <708> Rx: $m810f478,4#6f
+[6.742] handlePacket():  Reading 0x4 bytes of memory from addr 0x810f478 
+[6.743] write():  <708> Tx: $dff838d0#67
+[6.743] read():  <708> Rx: $m810f478,2#6d
+[6.743] handlePacket():  Reading 0x2 bytes of memory from addr 0x810f478 
+[6.744] write():  <708> Tx: $dff8#68
+[6.744] read():  <708> Rx: $m810f47a,2#96
+[6.744] handlePacket():  Reading 0x2 bytes of memory from addr 0x810f47a 
+[6.744] write():  <708> Tx: $38d0#ff
+[6.745] read():  <708> Rx: $me00430a0,4#ba
+[6.745] handlePacket():  Reading 0x4 bytes of memory from addr 0xe00430a0 
+[6.745] write():  <708> Tx: $00000000#80
+[6.745] read():  <708> Rx: $Xe00430a0,4:\x01\x00\x00\x00#e0
+[6.746] write():  <708> Tx: $OK#9a
+[6.746] read():  <708> Rx: $g#67
+[6.751] write():  <708> Tx: $0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000800410ffffffff78f4100800000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080041000000000#1d
+[6.751] read():  <708> Rx: $m810f478,4#6f
+[6.751] handlePacket():  Reading 0x4 bytes of memory from addr 0x810f478 
+[6.751] write():  <708> Tx: $dff838d0#67
+[6.751] read():  <708> Rx: $m810f478,2#6d
+[6.751] handlePacket():  Reading 0x2 bytes of memory from addr 0x810f478 
+[6.752] write():  <708> Tx: $dff8#68
+[6.752] read():  <708> Rx: $m810f47a,2#96
+[6.752] handlePacket():  Reading 0x2 bytes of memory from addr 0x810f47a 
+[6.753] write():  <708> Tx: $38d0#ff
+[6.754] read():  <708> Rx: $me0043020,4#8b
+[6.754] handlePacket():  Reading 0x4 bytes of memory from addr 0xe0043020 
+[6.755] write():  <708> Tx: $00000000#80
+[6.755] read():  <708> Rx: $Xe0043020,4:\x01\x00\x00\x00#b1
+[6.757] write():  <708> Tx: $OK#9a
+[6.757] read():  <708> Rx: $g#67
+[6.760] write():  <708> Tx: $0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000800410ffffffff78f4100800000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080041000000000#1d
+[6.761] read():  <708> Rx: $m810f478,4#6f
+[6.761] handlePacket():  Reading 0x4 bytes of memory from addr 0x810f478 
+[6.761] write():  <708> Tx: $dff838d0#67
+[6.762] read():  <708> Rx: $m810f478,2#6d
+[6.762] handlePacket():  Reading 0x2 bytes of memory from addr 0x810f478 
+[6.762] write():  <708> Tx: $dff8#68
+[6.763] read():  <708> Rx: $m810f47a,2#96
+[6.763] handlePacket():  Reading 0x2 bytes of memory from addr 0x810f47a 
+[6.763] write():  <708> Tx: $38d0#ff
+[6.764] read():  <708> Rx: $Z1,810ec8e,2#13
+[6.766] write():  <708> Tx: $OK#9a
+[6.766] read():  <708> Rx: $Hc0#db
+[6.766] write():  <708> Tx: $#00
+[6.766] read():  <708> Rx: $c#63
+[6.787] handleTargetDeviceEvent():  GDB session, device event: 3
+[6.787] handleTargetDeviceEvent():  GDB session, device event: 3
+[6.787] handleTargetDeviceEvent():  GDB session, device event: 1
+[6.787] handleTargetDeviceEvent():  GDB session, device event: 1
+[6.818] handleTargetDeviceEvent():  GDB session, device event: 0
+[6.818] handleTargetDeviceEvent():  GDB session, device event: 0
+[6.835] Device_GetHaltReason():  NVIC_DFSR_REG = 0x0000001B 
+[6.839] write():  <708> Tx: $T05#b9
+[6.839] read():  <708> Rx: $g#67
+[6.843] write():  <708> Tx: $100200106c0000106c97110810020010b42700100000000000000000e87f04100000000000000000000000000000000000000000e87f0410b3f410088eec10080000006100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000e87f041000000000#7f
+[6.843] read():  <708> Rx: $qXfer:threads:read::0,1000#92
+[6.843] write():  <708> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="3" name="main"></thread></threads>#fa
+[6.843] read():  <708> Rx: $z1,810ec8e,2#33
+[6.843] write():  <708> Tx: $OK#9a
+[6.843] read():  <708> Rx: $m810ec8e,4#cb
+[6.843] handlePacket():  Reading 0x4 bytes of memory from addr 0x810ec8e 
+[6.844] write():  <708> Tx: $6a4bd3f8#62
+[6.879] read():  <708> Rx: $qXfer:threads:read::0,1000#92
+[6.879] write():  <708> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="3" name="main"></thread></threads>#fa
+[6.879] read():  <708> Rx: $qXfer:threads:read::0,1000#92
+[6.879] write():  <708> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="3" name="main"></thread></threads>#fa
+[61.221] read():  <708> Rx: $T1#85
+[61.221] write():  <708> Tx: $OK#9a
+[61.222] read():  <708> Rx: $m810ec8e,4#cb
+[61.222] handlePacket():  Reading 0x4 bytes of memory from addr 0x810ec8e 
+[61.241] write():  <708> Tx: $6a4bd3f8#62
+[61.289] read():  <920> Rx: $m38000000,1#55
+[61.289] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[61.290] write():  <920> Tx: $00#60
+[61.291] read():  <920> Rx: $m38000002,1#57
+[61.291] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[61.292] write():  <920> Tx: $00#60
+[61.330] read():  <920> Rx: $m38000002,1#57
+[61.330] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[61.330] write():  <920> Tx: $00#60
+[61.377] read():  <920> Rx: $m38000003,1#58
+[61.377] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000003 
+[61.385] write():  <920> Tx: $00#60
+[61.424] read():  <920> Rx: $m38000004,1#59
+[61.424] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000004 
+[61.425] write():  <920> Tx: $00#60
+[61.471] read():  <920> Rx: $m38000005,1#5a
+[61.471] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[61.481] write():  <920> Tx: $00#60
+[61.534] read():  <920> Rx: $m38000000,1#55
+[61.534] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[61.534] write():  <920> Tx: $00#60
+[61.566] read():  <920> Rx: $m38000001,1#56
+[61.566] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000001 
+[61.566] write():  <920> Tx: $00#60
+[61.613] read():  <920> Rx: $m38000002,1#57
+[61.613] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[61.614] write():  <920> Tx: $00#60
+[61.697] read():  <920> Rx: $m38000003,2#59
+[61.697] handlePacket():  Reading 0x2 bytes of memory from addr 0x38000003 
+[61.698] write():  <920> Tx: $0000#c0
+[61.736] read():  <920> Rx: $m38000005,1#5a
+[61.736] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[61.739] write():  <920> Tx: $00#60
+[62.692] read():  <708> Rx: $c#63
+[62.708] read():  <920> Rx: $m38000000,1#55
+[62.710] clearPendingDebugEvents():  Stm32Device::clearPendingDebugEvents(): ACK the EDBGRQ
+[62.711] handleTargetDeviceEvent():  GDB session, device event: 3
+[62.711] handleTargetDeviceEvent():  GDB session, device event: 3
+[62.711] handleTargetDeviceEvent():  GDB session, device event: 1
+[62.711] handleTargetDeviceEvent():  GDB session, device event: 1
+[62.711] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[62.712] write():  <920> Tx: $01#61
+[62.713] read():  <920> Rx: $m38000002,1#57
+[62.713] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[62.714] write():  <920> Tx: $5f#9b
+[62.739] read():  <920> Rx: $m38000002,1#57
+[62.739] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[62.741] write():  <920> Tx: $5f#9b
+[62.742] read():  <920> Rx: $m38000003,1#58
+[62.742] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000003 
+[62.743] write():  <920> Tx: $a0#91
+[62.744] read():  <920> Rx: $m38000004,1#59
+[62.744] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000004 
+[62.746] write():  <920> Tx: $01#61
+[62.771] read():  <920> Rx: $m38000005,1#5a
+[62.771] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[62.773] write():  <920> Tx: $00#60
+[62.787] read():  <920> Rx: $m38000000,1#55
+[62.787] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[62.787] handleTargetDeviceEvent():  GDB session, device event: 0
+[62.787] handleTargetDeviceEvent():  GDB session, device event: 0
+[62.789] write():  <920> Tx: $01#61
+[62.802] read():  <920> Rx: $m38000001,1#56
+[62.802] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000001 
+[62.804] Device_GetHaltReason():  NVIC_DFSR_REG = 0xA05F0001 
+[62.804] write():  <708> Tx: $T05#b9
+[62.804] write():  <920> Tx: $00#60
+[62.805] read():  <708> Rx: $g#67
+[62.808] write():  <708> Tx: $01005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001000000000000005f000000a000000001005fa001005fa0#91
+[62.808] read():  <708> Rx: $qXfer:threads:read::0,1000#92
+[62.808] write():  <708> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="3" name="main"></thread></threads>#fa
+[62.809] read():  <708> Rx: $ma05f0000,4#b9
+[62.809] handlePacket():  Reading 0x4 bytes of memory from addr 0xa05f0000 
+[62.812] write():  <708> Tx: $01005fa0#ed
+[62.818] read():  <920> Rx: $m38000002,1#57
+[62.818] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[62.820] write():  <920> Tx: $5f#9b
+[62.834] read():  <920> Rx: $m38000003,2#59
+[62.834] handlePacket():  Reading 0x2 bytes of memory from addr 0x38000003 
+[62.834] read():  <708> Rx: $ma05f0000,4#b9
+[62.834] handlePacket():  Reading 0x4 bytes of memory from addr 0xa05f0000 
+[62.834] write():  <920> Tx: $a001#f2
+[62.835] write():  <708> Tx: $01005fa0#ed
+[62.835] read():  <708> Rx: $ma05f0000,2#b7
+[62.835] handlePacket():  Reading 0x2 bytes of memory from addr 0xa05f0000 
+[62.836] write():  <708> Tx: $0100#c1
+[62.850] read():  <920> Rx: $m38000005,1#5a
+[62.850] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[62.850] write():  <920> Tx: $00#60
+[62.865] read():  <920> Rx: $m38000000,1#55
+[62.865] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[62.869] write():  <920> Tx: $01#61
+[62.881] read():  <920> Rx: $m38000002,1#57
+[62.881] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[62.882] write():  <920> Tx: $5f#9b
+[62.912] read():  <920> Rx: $m38000002,1#57
+[62.912] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[62.918] write():  <920> Tx: $5f#9b
+[62.943] read():  <708> Rx: $qXfer:threads:read::0,1000#92
+[62.943] write():  <708> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="3" name="main"></thread></threads>#fa
+[62.943] read():  <920> Rx: $m38000003,1#58
+[62.943] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000003 
+[62.943] read():  <708> Rx: $qXfer:threads:read::0,1000#92
+[62.944] write():  <920> Tx: $a0#91
+[62.944] write():  <708> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="3" name="main"></thread></threads>#fa
+[62.974] read():  <920> Rx: $m38000004,1#59
+[62.974] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000004 
+[62.975] write():  <920> Tx: $01#61
+[63.004] read():  <920> Rx: $m38000005,1#5a
+[63.004] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[63.005] write():  <920> Tx: $00#60
+[63.020] read():  <920> Rx: $m38000000,1#55
+[63.020] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[63.021] write():  <920> Tx: $01#61
+[63.051] read():  <920> Rx: $m38000001,1#56
+[63.051] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000001 
+[63.052] write():  <920> Tx: $00#60
+[63.052] read():  <920> Rx: $m38000002,1#57
+[63.052] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[63.053] write():  <920> Tx: $5f#9b
+[63.082] read():  <920> Rx: $m38000003,2#59
+[63.082] handlePacket():  Reading 0x2 bytes of memory from addr 0x38000003 
+[63.086] write():  <920> Tx: $a001#f2
+[63.087] read():  <920> Rx: $m38000005,1#5a
+[63.087] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[63.089] write():  <920> Tx: $00#60
+[65.185] Device_GetStatus():  ST-LINK device status: RUN_MODE
+[65.946] read():  <708> Rx: $T1#85
+[65.946] write():  <708> Tx: $OK#9a
+[65.946] read():  <708> Rx: $ma05f0000,4#b9
+[65.946] handlePacket():  Reading 0x4 bytes of memory from addr 0xa05f0000 
+[65.964] write():  <708> Tx: $E31#a9
+[65.977] read():  <920> Rx: $m38000000,1#55
+[65.977] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[65.978] write():  <920> Tx: $00#60
+[65.994] read():  <920> Rx: $m38000002,1#57
+[65.994] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[65.995] write():  <920> Tx: $00#60
+[65.995] read():  <920> Rx: $m38000002,1#57
+[65.995] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[65.996] write():  <920> Tx: $00#60
+[66.009] read():  <920> Rx: $m38000003,1#58
+[66.009] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000003 
+[66.009] write():  <920> Tx: $00#60
+[66.056] read():  <920> Rx: $m38000004,1#59
+[66.056] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000004 
+[66.059] write():  <920> Tx: $00#60
+[66.072] read():  <920> Rx: $m38000005,1#5a
+[66.072] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[66.072] write():  <920> Tx: $00#60
+[66.089] read():  <920> Rx: $m38000000,1#55
+[66.089] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[66.091] write():  <920> Tx: $00#60
+[66.092] read():  <920> Rx: $m38000001,1#56
+[66.092] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000001 
+[66.093] write():  <920> Tx: $00#60
+[66.150] read():  <920> Rx: $m38000002,1#57
+[66.150] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[66.152] write():  <920> Tx: $00#60
+[66.167] read():  <920> Rx: $m38000003,2#59
+[66.167] handlePacket():  Reading 0x2 bytes of memory from addr 0x38000003 
+[66.183] write():  <920> Tx: $0000#c0
+[66.212] read():  <920> Rx: $m38000005,1#5a
+[66.212] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[66.213] write():  <920> Tx: $00#60
+[66.367] read():  <708> Rx: $T1#85
+[66.367] write():  <708> Tx: $OK#9a
+[66.367] read():  <708> Rx: $ma05f0000,4#b9
+[66.367] handlePacket():  Reading 0x4 bytes of memory from addr 0xa05f0000 
+[66.370] write():  <708> Tx: $E31#a9
+[67.690] read():  <708> Rx: $c#63
+[67.707] read():  <920> Rx: $m38000000,1#55
+[67.709] handleTargetDeviceEvent():  GDB session, device event: 3
+[67.709] handleTargetDeviceEvent():  GDB session, device event: 3
+[67.710] handleTargetDeviceEvent():  GDB session, device event: 1
+[67.710] handleTargetDeviceEvent():  GDB session, device event: 1
+[67.710] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[67.712] write():  <920> Tx: $00#60
+[67.723] read():  <920> Rx: $m38000002,1#57
+[67.723] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[67.726] write():  <920> Tx: $00#60
+[67.726] read():  <920> Rx: $m38000002,1#57
+[67.726] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[67.727] write():  <920> Tx: $00#60
+[67.737] read():  <920> Rx: $m38000003,1#58
+[67.737] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000003 
+[67.740] write():  <920> Tx: $00#60
+[67.741] read():  <920> Rx: $m38000004,1#59
+[67.741] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000004 
+[67.743] write():  <920> Tx: $00#60
+[67.768] read():  <920> Rx: $m38000005,1#5a
+[67.768] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[67.770] write():  <920> Tx: $00#60
+[67.770] read():  <920> Rx: $m38000000,1#55
+[67.771] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[67.772] write():  <920> Tx: $00#60
+[67.773] read():  <920> Rx: $m38000001,1#56
+[67.773] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000001 
+[67.774] write():  <920> Tx: $00#60
+[67.799] read():  <920> Rx: $m38000002,1#57
+[67.799] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[67.800] write():  <920> Tx: $00#60
+[67.801] read():  <920> Rx: $m38000003,2#59
+[67.801] handlePacket():  Reading 0x2 bytes of memory from addr 0x38000003 
+[67.804] write():  <920> Tx: $0000#c0
+[67.804] read():  <920> Rx: $m38000005,1#5a
+[67.804] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[67.805] write():  <920> Tx: $00#60
+[67.815] Device_GetStatus():  ST-LINK device status: HALT_MODE
+[67.815] handleTargetDeviceEvent():  GDB session, device event: 0
+[67.815] handleTargetDeviceEvent():  GDB session, device event: 0
+[67.830] read():  <920> Rx: $m38000000,1#55
+[67.830] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[67.832] Device_GetHaltReason():  NVIC_DFSR_REG = 0x00000011 
+[67.835] write():  <920> Tx: $00#60
+[67.836] read():  <920> Rx: $m38000002,1#57
+[67.836] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[67.839] write():  <920> Tx: $00#60
+[67.839] write():  <708> Tx: $T05#b9
+[67.839] read():  <708> Rx: $g#67
+[67.839] read():  <920> Rx: $m38000002,1#57
+[67.848] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[67.848] write():  <708> Tx: $3e0a0000004000006400000061000000b42700100000000000000000e87f04100000000000000000000000000000000000000000e87f041039ed100846ed10080000002100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000e87f041000000000#38
+[67.848] read():  <708> Rx: $qXfer:threads:read::0,1000#92
+[67.849] write():  <920> Tx: $00#60
+[67.849] write():  <708> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="3" name="main"></thread></threads>#fa
+[67.849] read():  <708> Rx: $m810ed46,4#99
+[67.849] handlePacket():  Reading 0x4 bytes of memory from addr 0x810ed46 
+[67.850] read():  <920> Rx: $m38000003,1#58
+[67.850] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000003 
+[67.850] write():  <708> Tx: $93428cbf#35
+[67.851] write():  <920> Tx: $00#60
+[67.851] read():  <920> Rx: $m38000004,1#59
+[67.851] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000004 
+[67.852] write():  <920> Tx: $00#60
+[67.877] read():  <920> Rx: $m38000005,1#5a
+[67.877] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[67.879] write():  <920> Tx: $00#60
+[67.893] read():  <920> Rx: $m38000000,1#55
+[67.893] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[67.894] write():  <920> Tx: $00#60
+[67.908] read():  <920> Rx: $m38000001,1#56
+[67.908] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000001 
+[67.908] write():  <920> Tx: $00#60
+[67.908] read():  <920> Rx: $m38000002,1#57
+[67.908] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[67.909] write():  <920> Tx: $00#60
+[67.923] read():  <920> Rx: $m38000003,2#59
+[67.923] handlePacket():  Reading 0x2 bytes of memory from addr 0x38000003 
+[67.925] write():  <920> Tx: $0000#c0
+[67.939] read():  <920> Rx: $m38000005,1#5a
+[67.939] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[67.940] write():  <920> Tx: $00#60
+[68.653] read():  <708> Rx: $T1#85
+[68.653] write():  <708> Tx: $OK#9a
+[68.653] read():  <708> Rx: $m810ed46,4#99
+[68.653] handlePacket():  Reading 0x4 bytes of memory from addr 0x810ed46 
+[68.657] write():  <708> Tx: $93428cbf#35
+[68.701] read():  <920> Rx: $m38000000,1#55
+[68.701] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[68.704] write():  <920> Tx: $00#60
+[68.704] read():  <920> Rx: $m38000002,1#57
+[68.704] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[68.710] write():  <920> Tx: $00#60
+[68.764] read():  <920> Rx: $m38000002,1#57
+[68.764] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[68.764] write():  <920> Tx: $00#60
+[68.810] read():  <920> Rx: $m38000003,1#58
+[68.810] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000003 
+[68.811] write():  <920> Tx: $00#60
+[68.841] read():  <920> Rx: $m38000004,1#59
+[68.841] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000004 
+[68.847] write():  <920> Tx: $00#60
+[68.904] read():  <920> Rx: $m38000005,1#5a
+[68.904] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[68.905] write():  <920> Tx: $00#60
+[68.967] read():  <920> Rx: $m38000000,1#55
+[68.967] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[68.970] write():  <920> Tx: $00#60
+[68.999] read():  <920> Rx: $m38000001,1#56
+[68.999] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000001 
+[69.001] write():  <920> Tx: $00#60
+[69.013] read():  <920> Rx: $m38000002,1#57
+[69.013] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[69.016] write():  <920> Tx: $00#60
+[69.060] read():  <920> Rx: $m38000003,2#59
+[69.060] handlePacket():  Reading 0x2 bytes of memory from addr 0x38000003 
+[69.063] write():  <920> Tx: $0000#c0
+[69.106] read():  <920> Rx: $m38000005,1#5a
+[69.106] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[69.108] write():  <920> Tx: $00#60
+[69.152] read():  <920> Rx: $m38000000,1#55
+[69.152] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[69.154] write():  <920> Tx: $00#60
+[69.168] read():  <920> Rx: $m38000002,1#57
+[69.168] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[69.172] write():  <920> Tx: $00#60
+[69.173] read():  <920> Rx: $m38000002,1#57
+[69.173] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[69.175] write():  <920> Tx: $00#60
+[69.176] read():  <920> Rx: $m38000003,1#58
+[69.176] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000003 
+[69.179] write():  <920> Tx: $00#60
+[69.199] read():  <920> Rx: $m38000004,1#59
+[69.199] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000004 
+[69.203] write():  <920> Tx: $00#60
+[69.215] read():  <920> Rx: $m38000005,1#5a
+[69.215] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[69.217] write():  <920> Tx: $00#60
+[69.217] read():  <920> Rx: $m38000000,1#55
+[69.218] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[69.220] write():  <920> Tx: $00#60
+[69.221] read():  <920> Rx: $m38000001,1#56
+[69.221] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000001 
+[69.222] write():  <920> Tx: $00#60
+[69.223] read():  <920> Rx: $m38000002,1#57
+[69.223] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[69.224] write():  <920> Tx: $00#60
+[69.247] read():  <920> Rx: $m38000003,2#59
+[69.247] handlePacket():  Reading 0x2 bytes of memory from addr 0x38000003 
+[69.251] write():  <920> Tx: $0000#c0
+[69.252] read():  <920> Rx: $m38000005,1#5a
+[69.252] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[69.253] write():  <920> Tx: $00#60
+[69.277] read():  <920> Rx: $m38000000,1#55
+[69.277] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[69.281] write():  <920> Tx: $00#60
+[69.282] read():  <920> Rx: $m38000002,1#57
+[69.282] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[69.283] write():  <920> Tx: $00#60
+[69.284] read():  <920> Rx: $m38000002,1#57
+[69.284] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[69.285] write():  <920> Tx: $00#60
+[69.285] read():  <920> Rx: $m38000003,1#58
+[69.285] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000003 
+[69.286] write():  <920> Tx: $00#60
+[69.287] read():  <920> Rx: $m38000004,1#59
+[69.287] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000004 
+[69.287] write():  <920> Tx: $00#60
+[69.309] read():  <920> Rx: $m38000005,1#5a
+[69.309] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[69.312] write():  <920> Tx: $00#60
+[69.312] read():  <920> Rx: $m38000000,1#55
+[69.312] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[69.315] write():  <920> Tx: $00#60
+[69.315] read():  <920> Rx: $m38000001,1#56
+[69.315] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000001 
+[69.317] write():  <920> Tx: $00#60
+[69.318] read():  <920> Rx: $m38000002,1#57
+[69.318] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[69.321] write():  <920> Tx: $00#60
+[69.321] read():  <920> Rx: $m38000003,2#59
+[69.321] handlePacket():  Reading 0x2 bytes of memory from addr 0x38000003 
+[69.324] write():  <920> Tx: $0000#c0
+[69.325] read():  <920> Rx: $m38000005,1#5a
+[69.325] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[69.326] write():  <920> Tx: $00#60
+[69.356] read():  <920> Rx: $m38000000,1#55
+[69.356] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[69.358] write():  <920> Tx: $00#60
+[69.359] read():  <920> Rx: $m38000002,1#57
+[69.359] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[69.361] write():  <920> Tx: $00#60
+[69.362] read():  <920> Rx: $m38000002,1#57
+[69.362] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[69.363] write():  <920> Tx: $00#60
+[69.364] read():  <920> Rx: $m38000003,1#58
+[69.364] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000003 
+[69.365] write():  <920> Tx: $00#60
+[69.366] read():  <920> Rx: $m38000004,1#59
+[69.366] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000004 
+[69.369] write():  <920> Tx: $00#60
+[69.388] read():  <920> Rx: $m38000005,1#5a
+[69.388] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[69.389] write():  <920> Tx: $00#60
+[69.390] read():  <920> Rx: $m38000000,1#55
+[69.390] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[69.392] write():  <920> Tx: $00#60
+[69.393] read():  <920> Rx: $m38000001,1#56
+[69.393] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000001 
+[69.394] write():  <920> Tx: $00#60
+[69.394] read():  <920> Rx: $m38000002,1#57
+[69.394] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[69.395] write():  <920> Tx: $00#60
+[69.396] read():  <920> Rx: $m38000003,2#59
+[69.396] handlePacket():  Reading 0x2 bytes of memory from addr 0x38000003 
+[69.398] write():  <920> Tx: $0000#c0
+[69.400] read():  <920> Rx: $m38000005,1#5a
+[69.400] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[69.401] write():  <920> Tx: $00#60
+[69.435] read():  <920> Rx: $m38000000,1#55
+[69.435] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[69.437] write():  <920> Tx: $00#60
+[69.438] read():  <920> Rx: $m38000002,1#57
+[69.438] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[69.440] write():  <920> Tx: $00#60
+[69.440] read():  <920> Rx: $m38000002,1#57
+[69.442] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[69.443] write():  <920> Tx: $00#60
+[69.443] read():  <920> Rx: $m38000003,1#58
+[69.443] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000003 
+[69.444] write():  <920> Tx: $00#60
+[69.445] read():  <920> Rx: $m38000004,1#59
+[69.445] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000004 
+[69.446] write():  <920> Tx: $00#60
+[69.467] read():  <920> Rx: $m38000005,1#5a
+[69.467] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[69.471] write():  <920> Tx: $00#60
+[69.471] read():  <920> Rx: $m38000000,1#55
+[69.471] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[69.472] write():  <920> Tx: $00#60
+[69.497] read():  <920> Rx: $m38000001,1#56
+[69.497] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000001 
+[69.500] write():  <920> Tx: $00#60
+[69.514] read():  <920> Rx: $m38000002,1#57
+[69.514] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[69.516] write():  <920> Tx: $00#60
+[69.517] read():  <920> Rx: $m38000003,2#59
+[69.517] handlePacket():  Reading 0x2 bytes of memory from addr 0x38000003 
+[69.520] write():  <920> Tx: $0000#c0
+[69.521] read():  <920> Rx: $m38000005,1#5a
+[69.521] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[69.522] write():  <920> Tx: $00#60
+[69.544] read():  <920> Rx: $m38000000,1#55
+[69.544] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[69.547] write():  <920> Tx: $00#60
+[69.548] read():  <920> Rx: $m38000002,1#57
+[69.548] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[69.550] write():  <920> Tx: $00#60
+[69.551] read():  <920> Rx: $m38000002,1#57
+[69.551] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[69.553] write():  <920> Tx: $00#60
+[69.575] read():  <920> Rx: $m38000003,1#58
+[69.575] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000003 
+[69.578] write():  <920> Tx: $00#60
+[69.579] read():  <920> Rx: $m38000004,1#59
+[69.579] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000004 
+[69.581] write():  <920> Tx: $00#60
+[69.581] read():  <920> Rx: $m38000005,1#5a
+[69.581] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[69.584] write():  <920> Tx: $00#60
+[69.605] read():  <920> Rx: $m38000000,1#55
+[69.605] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[69.608] write():  <920> Tx: $00#60
+[69.609] read():  <920> Rx: $m38000001,1#56
+[69.609] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000001 
+[69.610] write():  <920> Tx: $00#60
+[69.611] read():  <920> Rx: $m38000002,1#57
+[69.611] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[69.611] write():  <920> Tx: $00#60
+[69.612] read():  <920> Rx: $m38000003,2#59
+[69.612] handlePacket():  Reading 0x2 bytes of memory from addr 0x38000003 
+[69.613] write():  <920> Tx: $0000#c0
+[69.614] read():  <920> Rx: $m38000005,1#5a
+[69.614] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[69.615] write():  <920> Tx: $00#60
+[69.652] read():  <920> Rx: $m38000000,1#55
+[69.652] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[69.657] write():  <920> Tx: $00#60
+[69.658] read():  <920> Rx: $m38000002,1#57
+[69.658] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[69.661] write():  <920> Tx: $00#60
+[69.661] read():  <920> Rx: $m38000002,1#57
+[69.661] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[69.663] write():  <920> Tx: $00#60
+[69.664] read():  <920> Rx: $m38000003,1#58
+[69.664] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000003 
+[69.665] write():  <920> Tx: $00#60
+[69.666] read():  <920> Rx: $m38000004,1#59
+[69.666] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000004 
+[69.668] write():  <920> Tx: $00#60
+[69.669] read():  <920> Rx: $m38000005,1#5a
+[69.669] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[69.669] write():  <920> Tx: $00#60
+[69.670] read():  <920> Rx: $m38000000,1#55
+[69.670] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[69.671] write():  <920> Tx: $00#60
+[69.672] read():  <920> Rx: $m38000001,1#56
+[69.672] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000001 
+[69.673] write():  <920> Tx: $00#60
+[69.698] read():  <920> Rx: $m38000002,1#57
+[69.698] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[69.699] write():  <920> Tx: $00#60
+[69.713] read():  <920> Rx: $m38000003,2#59
+[69.713] handlePacket():  Reading 0x2 bytes of memory from addr 0x38000003 
+[69.718] write():  <920> Tx: $0000#c0
+[69.718] read():  <920> Rx: $m38000005,1#5a
+[69.718] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[69.721] write():  <920> Tx: $00#60
+[69.744] read():  <920> Rx: $m38000000,1#55
+[69.744] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[69.746] write():  <920> Tx: $00#60
+[69.746] read():  <920> Rx: $m38000002,1#57
+[69.746] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[69.749] write():  <920> Tx: $00#60
+[69.750] read():  <920> Rx: $m38000002,1#57
+[69.750] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[69.752] write():  <920> Tx: $00#60
+[69.752] read():  <920> Rx: $m38000003,1#58
+[69.752] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000003 
+[69.753] write():  <920> Tx: $00#60
+[69.754] read():  <920> Rx: $m38000004,1#59
+[69.754] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000004 
+[69.754] write():  <920> Tx: $00#60
+[69.755] read():  <920> Rx: $m38000005,1#5a
+[69.755] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[69.756] write():  <920> Tx: $00#60
+[69.775] read():  <920> Rx: $m38000000,1#55
+[69.775] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[69.777] write():  <920> Tx: $00#60
+[69.790] read():  <920> Rx: $m38000001,1#56
+[69.790] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000001 
+[69.792] write():  <920> Tx: $00#60
+[69.793] read():  <920> Rx: $m38000002,1#57
+[69.793] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[69.795] write():  <920> Tx: $00#60
+[69.795] read():  <920> Rx: $m38000003,2#59
+[69.795] handlePacket():  Reading 0x2 bytes of memory from addr 0x38000003 
+[69.798] write():  <920> Tx: $0000#c0
+[69.798] read():  <920> Rx: $m38000005,1#5a
+[69.798] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[69.799] write():  <920> Tx: $00#60
+[69.822] read():  <920> Rx: $m38000000,1#55
+[69.822] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[69.824] write():  <920> Tx: $00#60
+[69.837] read():  <920> Rx: $m38000002,1#57
+[69.837] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[69.840] write():  <920> Tx: $00#60
+[69.841] read():  <920> Rx: $m38000002,1#57
+[69.841] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[69.842] write():  <920> Tx: $00#60
+[69.843] read():  <920> Rx: $m38000003,1#58
+[69.843] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000003 
+[69.845] write():  <920> Tx: $00#60
+[69.845] read():  <920> Rx: $m38000004,1#59
+[69.845] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000004 
+[69.846] write():  <920> Tx: $00#60
+[69.846] read():  <920> Rx: $m38000005,1#5a
+[69.847] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[69.849] write():  <920> Tx: $00#60
+[69.868] read():  <920> Rx: $m38000000,1#55
+[69.868] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[69.870] write():  <920> Tx: $00#60
+[69.871] read():  <920> Rx: $m38000001,1#56
+[69.871] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000001 
+[69.873] write():  <920> Tx: $00#60
+[69.874] read():  <920> Rx: $m38000002,1#57
+[69.874] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[69.875] write():  <920> Tx: $00#60
+[69.876] read():  <920> Rx: $m38000003,2#59
+[69.876] handlePacket():  Reading 0x2 bytes of memory from addr 0x38000003 
+[69.878] write():  <920> Tx: $0000#c0
+[69.878] read():  <920> Rx: $m38000005,1#5a
+[69.878] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[69.880] write():  <920> Tx: $00#60
+[69.914] read():  <920> Rx: $m38000000,1#55
+[69.914] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[69.917] write():  <920> Tx: $00#60
+[69.917] read():  <920> Rx: $m38000002,1#57
+[69.917] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[69.919] write():  <920> Tx: $00#60
+[69.919] read():  <920> Rx: $m38000002,1#57
+[69.920] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[69.920] write():  <920> Tx: $00#60
+[69.922] read():  <920> Rx: $m38000003,1#58
+[69.922] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000003 
+[69.923] write():  <920> Tx: $00#60
+[69.923] read():  <920> Rx: $m38000004,1#59
+[69.923] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000004 
+[69.924] write():  <920> Tx: $00#60
+[69.926] read():  <920> Rx: $m38000005,1#5a
+[69.926] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[69.927] write():  <920> Tx: $00#60
+[69.927] read():  <920> Rx: $m38000000,1#55
+[69.927] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[69.928] write():  <920> Tx: $00#60
+[69.928] read():  <920> Rx: $m38000001,1#56
+[69.928] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000001 
+[69.930] write():  <920> Tx: $00#60
+[69.931] read():  <920> Rx: $m38000002,1#57
+[69.931] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[69.935] write():  <920> Tx: $00#60
+[69.960] read():  <920> Rx: $m38000003,2#59
+[69.960] handlePacket():  Reading 0x2 bytes of memory from addr 0x38000003 
+[69.963] write():  <920> Tx: $0000#c0
+[69.964] read():  <920> Rx: $m38000005,1#5a
+[69.964] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[69.964] write():  <920> Tx: $00#60
+[69.991] read():  <920> Rx: $m38000000,1#55
+[69.991] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[69.996] write():  <920> Tx: $00#60
+[69.997] read():  <920> Rx: $m38000002,1#57
+[69.997] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[69.998] write():  <920> Tx: $00#60
+[70.022] read():  <920> Rx: $m38000002,1#57
+[70.022] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[70.029] write():  <920> Tx: $00#60
+[70.054] read():  <920> Rx: $m38000003,1#58
+[70.054] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000003 
+[70.061] write():  <920> Tx: $00#60
+[70.061] read():  <920> Rx: $m38000004,1#59
+[70.061] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000004 
+[70.063] write():  <920> Tx: $00#60
+[70.063] read():  <920> Rx: $m38000005,1#5a
+[70.063] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[70.064] write():  <920> Tx: $00#60
+[70.084] read():  <920> Rx: $m38000000,1#55
+[70.084] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[70.087] write():  <920> Tx: $00#60
+[70.088] read():  <920> Rx: $m38000001,1#56
+[70.088] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000001 
+[70.089] write():  <920> Tx: $00#60
+[70.089] read():  <920> Rx: $m38000002,1#57
+[70.090] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[70.091] write():  <920> Tx: $00#60
+[70.092] read():  <920> Rx: $m38000003,2#59
+[70.092] handlePacket():  Reading 0x2 bytes of memory from addr 0x38000003 
+[70.094] write():  <920> Tx: $0000#c0
+[70.094] read():  <920> Rx: $m38000005,1#5a
+[70.094] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[70.095] write():  <920> Tx: $00#60
+[70.132] read():  <920> Rx: $m38000000,1#55
+[70.132] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[70.134] write():  <920> Tx: $00#60
+[70.147] read():  <920> Rx: $m38000002,1#57
+[70.147] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[70.157] write():  <920> Tx: $00#60
+[70.157] read():  <920> Rx: $m38000002,1#57
+[70.157] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[70.164] write():  <920> Tx: $00#60
+[70.178] read():  <920> Rx: $m38000003,1#58
+[70.178] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000003 
+[70.183] write():  <920> Tx: $00#60
+[70.194] read():  <920> Rx: $m38000004,1#59
+[70.194] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000004 
+[70.196] write():  <920> Tx: $00#60
+[70.210] read():  <920> Rx: $m38000005,1#5a
+[70.210] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[70.210] write():  <920> Tx: $00#60
+[70.211] read():  <920> Rx: $m38000000,1#55
+[70.211] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[70.211] write():  <920> Tx: $00#60
+[70.211] read():  <920> Rx: $m38000001,1#56
+[70.211] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000001 
+[70.212] write():  <920> Tx: $00#60
+[70.225] read():  <920> Rx: $m38000002,1#57
+[70.225] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[70.227] write():  <920> Tx: $00#60
+[70.240] read():  <920> Rx: $m38000003,2#59
+[70.240] handlePacket():  Reading 0x2 bytes of memory from addr 0x38000003 
+[70.243] write():  <920> Tx: $0000#c0
+[70.256] read():  <920> Rx: $m38000005,1#5a
+[70.256] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[70.263] write():  <920> Tx: $00#60
+[70.288] read():  <920> Rx: $m38000000,1#55
+[70.288] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[70.295] write():  <920> Tx: $00#60
+[70.296] read():  <920> Rx: $m38000002,1#57
+[70.296] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[70.297] write():  <920> Tx: $00#60
+[70.297] read():  <920> Rx: $m38000002,1#57
+[70.297] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[70.297] write():  <920> Tx: $00#60
+[70.319] read():  <920> Rx: $m38000003,1#58
+[70.319] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000003 
+[70.320] write():  <920> Tx: $00#60
+[70.334] read():  <920> Rx: $m38000004,1#59
+[70.334] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000004 
+[70.336] write():  <920> Tx: $00#60
+[70.350] read():  <920> Rx: $m38000005,1#5a
+[70.350] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[70.352] write():  <920> Tx: $00#60
+[70.352] read():  <920> Rx: $m38000000,1#55
+[70.352] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[70.353] write():  <920> Tx: $00#60
+[70.366] read():  <920> Rx: $m38000001,1#56
+[70.366] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000001 
+[70.367] write():  <920> Tx: $00#60
+[70.382] read():  <920> Rx: $m38000002,1#57
+[70.382] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[70.383] write():  <920> Tx: $00#60
+[70.384] read():  <920> Rx: $m38000003,2#59
+[70.384] handlePacket():  Reading 0x2 bytes of memory from addr 0x38000003 
+[70.387] write():  <920> Tx: $0000#c0
+[70.411] read():  <920> Rx: $m38000005,1#5a
+[70.411] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[70.413] write():  <920> Tx: $00#60
+[70.441] read():  <920> Rx: $m38000000,1#55
+[70.441] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[70.444] write():  <920> Tx: $00#60
+[70.444] read():  <920> Rx: $m38000002,1#57
+[70.444] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[70.446] write():  <920> Tx: $00#60
+[70.447] read():  <920> Rx: $m38000002,1#57
+[70.447] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[70.448] write():  <920> Tx: $00#60
+[70.472] read():  <920> Rx: $m38000003,1#58
+[70.472] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000003 
+[70.473] write():  <920> Tx: $00#60
+[70.475] read():  <920> Rx: $m38000004,1#59
+[70.475] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000004 
+[70.477] write():  <920> Tx: $00#60
+[70.478] read():  <920> Rx: $m38000005,1#5a
+[70.478] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[70.479] write():  <920> Tx: $00#60
+[70.480] read():  <920> Rx: $m38000000,1#55
+[70.480] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[70.481] write():  <920> Tx: $00#60
+[70.481] read():  <920> Rx: $m38000001,1#56
+[70.481] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000001 
+[70.482] write():  <920> Tx: $00#60
+[70.503] read():  <920> Rx: $m38000002,1#57
+[70.503] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[70.505] write():  <920> Tx: $00#60
+[70.520] read():  <920> Rx: $m38000003,2#59
+[70.520] handlePacket():  Reading 0x2 bytes of memory from addr 0x38000003 
+[70.523] write():  <920> Tx: $0000#c0
+[70.524] read():  <920> Rx: $m38000005,1#5a
+[70.524] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[70.525] write():  <920> Tx: $00#60
+[70.551] read():  <920> Rx: $m38000000,1#55
+[70.551] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[70.553] write():  <920> Tx: $00#60
+[70.554] read():  <920> Rx: $m38000002,1#57
+[70.554] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[70.556] write():  <920> Tx: $00#60
+[70.556] read():  <920> Rx: $m38000002,1#57
+[70.556] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[70.557] write():  <920> Tx: $00#60
+[70.558] read():  <920> Rx: $m38000003,1#58
+[70.558] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000003 
+[70.559] write():  <920> Tx: $00#60
+[70.559] read():  <920> Rx: $m38000004,1#59
+[70.559] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000004 
+[70.560] write():  <920> Tx: $00#60
+[70.561] read():  <920> Rx: $m38000005,1#5a
+[70.561] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[70.562] write():  <920> Tx: $00#60
+[70.564] read():  <920> Rx: $m38000000,1#55
+[70.564] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[70.565] write():  <920> Tx: $00#60
+[70.565] read():  <920> Rx: $m38000001,1#56
+[70.565] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000001 
+[70.566] write():  <920> Tx: $00#60
+[70.566] read():  <920> Rx: $m38000002,1#57
+[70.566] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[70.567] write():  <920> Tx: $00#60
+[70.568] read():  <920> Rx: $m38000003,2#59
+[70.568] handlePacket():  Reading 0x2 bytes of memory from addr 0x38000003 
+[70.570] write():  <920> Tx: $0000#c0
+[70.571] read():  <920> Rx: $m38000005,1#5a
+[70.571] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[70.572] write():  <920> Tx: $00#60
+[70.598] read():  <920> Rx: $m38000000,1#55
+[70.598] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[70.600] write():  <920> Tx: $00#60
+[70.601] read():  <920> Rx: $m38000002,1#57
+[70.601] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[70.602] write():  <920> Tx: $00#60
+[70.614] read():  <920> Rx: $m38000002,1#57
+[70.614] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[70.615] write():  <920> Tx: $00#60
+[70.629] read():  <920> Rx: $m38000003,1#58
+[70.629] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000003 
+[70.631] write():  <920> Tx: $00#60
+[70.632] read():  <920> Rx: $m38000004,1#59
+[70.632] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000004 
+[70.634] write():  <920> Tx: $00#60
+[70.645] read():  <920> Rx: $m38000005,1#5a
+[70.645] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[70.649] write():  <920> Tx: $00#60
+[70.649] read():  <920> Rx: $m38000000,1#55
+[70.649] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[70.651] write():  <920> Tx: $00#60
+[70.652] read():  <920> Rx: $m38000001,1#56
+[70.652] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000001 
+[70.653] write():  <920> Tx: $00#60
+[70.653] read():  <920> Rx: $m38000002,1#57
+[70.654] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[70.655] write():  <920> Tx: $00#60
+[70.655] read():  <920> Rx: $m38000003,2#59
+[70.655] handlePacket():  Reading 0x2 bytes of memory from addr 0x38000003 
+[70.659] write():  <920> Tx: $0000#c0
+[70.659] read():  <920> Rx: $m38000005,1#5a
+[70.659] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[70.660] write():  <920> Tx: $00#60
+[70.692] read():  <920> Rx: $m38000000,1#55
+[70.692] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[70.694] write():  <920> Tx: $00#60
+[70.695] read():  <920> Rx: $m38000002,1#57
+[70.695] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[70.697] write():  <920> Tx: $00#60
+[70.708] read():  <920> Rx: $m38000002,1#57
+[70.708] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[70.709] write():  <920> Tx: $00#60
+[70.723] read():  <920> Rx: $m38000003,1#58
+[70.723] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000003 
+[70.726] write():  <920> Tx: $00#60
+[70.739] read():  <920> Rx: $m38000004,1#59
+[70.739] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000004 
+[70.741] write():  <920> Tx: $00#60
+[70.742] read():  <920> Rx: $m38000005,1#5a
+[70.742] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[70.745] write():  <920> Tx: $00#60
+[70.745] read():  <920> Rx: $m38000000,1#55
+[70.745] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[70.747] write():  <920> Tx: $00#60
+[70.747] read():  <920> Rx: $m38000001,1#56
+[70.747] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000001 
+[70.748] write():  <920> Tx: $00#60
+[70.770] read():  <920> Rx: $m38000002,1#57
+[70.770] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[70.774] write():  <920> Tx: $00#60
+[70.775] read():  <920> Rx: $m38000003,2#59
+[70.775] handlePacket():  Reading 0x2 bytes of memory from addr 0x38000003 
+[70.778] write():  <920> Tx: $0000#c0
+[70.780] read():  <920> Rx: $m38000005,1#5a
+[70.780] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[70.781] write():  <920> Tx: $00#60
+[70.818] read():  <920> Rx: $m38000000,1#55
+[70.818] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[70.820] write():  <920> Tx: $00#60
+[70.834] read():  <920> Rx: $m38000002,1#57
+[70.834] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[70.837] write():  <920> Tx: $00#60
+[70.838] read():  <920> Rx: $m38000002,1#57
+[70.838] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[70.840] write():  <920> Tx: $00#60
+[70.842] read():  <920> Rx: $m38000003,1#58
+[70.842] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000003 
+[70.844] write():  <920> Tx: $00#60
+[70.844] read():  <920> Rx: $m38000004,1#59
+[70.844] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000004 
+[70.845] write():  <920> Tx: $00#60
+[70.864] read():  <920> Rx: $m38000005,1#5a
+[70.864] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[70.868] write():  <920> Tx: $00#60
+[70.869] read():  <920> Rx: $m38000000,1#55
+[70.869] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[70.870] write():  <920> Tx: $00#60
+[70.871] read():  <920> Rx: $m38000001,1#56
+[70.871] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000001 
+[70.871] write():  <920> Tx: $00#60
+[70.872] read():  <920> Rx: $m38000002,1#57
+[70.872] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[70.873] write():  <920> Tx: $00#60
+[70.895] read():  <920> Rx: $m38000003,2#59
+[70.895] handlePacket():  Reading 0x2 bytes of memory from addr 0x38000003 
+[70.905] write():  <920> Tx: $0000#c0
+[70.906] read():  <920> Rx: $m38000005,1#5a
+[70.906] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[70.915] write():  <920> Tx: $00#60
+[70.940] read():  <920> Rx: $m38000000,1#55
+[70.940] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[70.942] write():  <920> Tx: $00#60
+[70.956] read():  <920> Rx: $m38000002,1#57
+[70.956] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[70.957] write():  <920> Tx: $00#60
+[70.958] read():  <920> Rx: $m38000002,1#57
+[70.958] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[70.958] write():  <920> Tx: $00#60
+[70.958] read():  <920> Rx: $m38000003,1#58
+[70.958] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000003 
+[70.958] write():  <920> Tx: $00#60
+[70.971] read():  <920> Rx: $m38000004,1#59
+[70.971] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000004 
+[70.974] write():  <920> Tx: $00#60
+[70.987] read():  <920> Rx: $m38000005,1#5a
+[70.987] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[70.989] write():  <920> Tx: $00#60
+[71.002] read():  <920> Rx: $m38000000,1#55
+[71.002] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[71.002] write():  <920> Tx: $00#60
+[71.003] read():  <920> Rx: $m38000001,1#56
+[71.003] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000001 
+[71.003] write():  <920> Tx: $00#60
+[71.017] read():  <920> Rx: $m38000002,1#57
+[71.017] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[71.019] write():  <920> Tx: $00#60
+[71.019] read():  <920> Rx: $m38000003,2#59
+[71.019] handlePacket():  Reading 0x2 bytes of memory from addr 0x38000003 
+[71.020] write():  <920> Tx: $0000#c0
+[71.020] read():  <920> Rx: $m38000005,1#5a
+[71.020] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[71.020] write():  <920> Tx: $00#60
+[71.049] read():  <920> Rx: $m38000000,1#55
+[71.049] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[71.051] write():  <920> Tx: $00#60
+[71.064] read():  <920> Rx: $m38000002,1#57
+[71.064] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[71.067] write():  <920> Tx: $00#60
+[71.079] read():  <920> Rx: $m38000002,1#57
+[71.079] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[71.081] write():  <920> Tx: $00#60
+[71.083] read():  <920> Rx: $m38000003,1#58
+[71.083] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000003 
+[71.084] write():  <920> Tx: $00#60
+[71.110] read():  <920> Rx: $m38000004,1#59
+[71.110] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000004 
+[71.115] write():  <920> Tx: $00#60
+[71.116] read():  <920> Rx: $m38000005,1#5a
+[71.116] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[71.118] write():  <920> Tx: $00#60
+[71.119] read():  <920> Rx: $m38000000,1#55
+[71.119] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[71.122] write():  <920> Tx: $00#60
+[71.123] read():  <920> Rx: $m38000001,1#56
+[71.123] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000001 
+[71.123] write():  <920> Tx: $00#60
+[71.124] read():  <920> Rx: $m38000002,1#57
+[71.124] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[71.125] write():  <920> Tx: $00#60
+[71.140] read():  <920> Rx: $m38000003,2#59
+[71.140] handlePacket():  Reading 0x2 bytes of memory from addr 0x38000003 
+[71.143] write():  <920> Tx: $0000#c0
+[71.144] read():  <920> Rx: $m38000005,1#5a
+[71.144] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[71.146] write():  <920> Tx: $00#60
+[71.171] read():  <920> Rx: $m38000000,1#55
+[71.171] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[71.173] write():  <920> Tx: $00#60
+[71.175] read():  <920> Rx: $m38000002,1#57
+[71.175] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[71.176] write():  <920> Tx: $00#60
+[71.177] read():  <920> Rx: $m38000002,1#57
+[71.177] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[71.178] write():  <920> Tx: $00#60
+[71.202] read():  <920> Rx: $m38000003,1#58
+[71.202] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000003 
+[71.204] write():  <920> Tx: $00#60
+[71.218] read():  <920> Rx: $m38000004,1#59
+[71.218] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000004 
+[71.220] write():  <920> Tx: $00#60
+[71.233] read():  <920> Rx: $m38000005,1#5a
+[71.233] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[71.234] write():  <920> Tx: $00#60
+[71.249] read():  <920> Rx: $m38000000,1#55
+[71.249] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[71.250] write():  <920> Tx: $00#60
+[71.251] read():  <920> Rx: $m38000001,1#56
+[71.251] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000001 
+[71.252] write():  <920> Tx: $00#60
+[71.253] read():  <920> Rx: $m38000002,1#57
+[71.253] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[71.255] write():  <920> Tx: $00#60
+[71.256] read():  <920> Rx: $m38000003,2#59
+[71.256] handlePacket():  Reading 0x2 bytes of memory from addr 0x38000003 
+[71.258] write():  <920> Tx: $0000#c0
+[71.280] read():  <920> Rx: $m38000005,1#5a
+[71.280] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[71.281] write():  <920> Tx: $00#60
+[71.311] read():  <920> Rx: $m38000000,1#55
+[71.311] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[71.314] write():  <920> Tx: $00#60
+[71.315] read():  <920> Rx: $m38000002,1#57
+[71.315] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[71.317] write():  <920> Tx: $00#60
+[71.318] read():  <920> Rx: $m38000002,1#57
+[71.318] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[71.319] write():  <920> Tx: $00#60
+[71.342] read():  <920> Rx: $m38000003,1#58
+[71.342] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000003 
+[71.345] write():  <920> Tx: $00#60
+[71.345] read():  <920> Rx: $m38000004,1#59
+[71.345] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000004 
+[71.348] write():  <920> Tx: $00#60
+[71.348] read():  <920> Rx: $m38000005,1#5a
+[71.348] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[71.349] write():  <920> Tx: $00#60
+[71.350] read():  <920> Rx: $m38000000,1#55
+[71.350] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[71.351] write():  <920> Tx: $00#60
+[71.374] read():  <920> Rx: $m38000001,1#56
+[71.374] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000001 
+[71.375] write():  <920> Tx: $00#60
+[71.376] read():  <920> Rx: $m38000002,1#57
+[71.376] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[71.379] write():  <920> Tx: $00#60
+[71.380] read():  <920> Rx: $m38000003,2#59
+[71.380] handlePacket():  Reading 0x2 bytes of memory from addr 0x38000003 
+[71.382] write():  <920> Tx: $0000#c0
+[71.382] read():  <920> Rx: $m38000005,1#5a
+[71.382] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[71.383] write():  <920> Tx: $00#60
+[71.405] read():  <920> Rx: $m38000000,1#55
+[71.405] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[71.407] write():  <920> Tx: $00#60
+[71.420] read():  <920> Rx: $m38000002,1#57
+[71.420] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[71.424] write():  <920> Tx: $00#60
+[71.436] read():  <920> Rx: $m38000002,1#57
+[71.436] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[71.437] write():  <920> Tx: $00#60
+[71.452] read():  <920> Rx: $m38000003,1#58
+[71.452] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000003 
+[71.456] write():  <920> Tx: $00#60
+[71.456] read():  <920> Rx: $m38000004,1#59
+[71.456] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000004 
+[71.458] write():  <920> Tx: $00#60
+[71.458] read():  <920> Rx: $m38000005,1#5a
+[71.459] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[71.460] write():  <920> Tx: $00#60
+[71.461] read():  <920> Rx: $m38000000,1#55
+[71.461] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[71.462] write():  <920> Tx: $00#60
+[71.483] read():  <920> Rx: $m38000001,1#56
+[71.483] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000001 
+[71.488] write():  <920> Tx: $00#60
+[71.499] read():  <920> Rx: $m38000002,1#57
+[71.499] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[71.501] write():  <920> Tx: $00#60
+[71.501] read():  <920> Rx: $m38000003,2#59
+[71.501] handlePacket():  Reading 0x2 bytes of memory from addr 0x38000003 
+[71.505] write():  <920> Tx: $0000#c0
+[71.531] read():  <920> Rx: $m38000005,1#5a
+[71.531] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[71.540] write():  <920> Tx: $00#60
+[71.577] read():  <920> Rx: $m38000000,1#55
+[71.577] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[71.578] write():  <920> Tx: $00#60
+[71.593] read():  <920> Rx: $m38000002,1#57
+[71.593] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[71.595] write():  <920> Tx: $00#60
+[71.609] read():  <920> Rx: $m38000002,1#57
+[71.609] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[71.611] write():  <920> Tx: $00#60
+[71.611] read():  <920> Rx: $m38000003,1#58
+[71.611] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000003 
+[71.612] write():  <920> Tx: $00#60
+[71.624] read():  <920> Rx: $m38000004,1#59
+[71.624] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000004 
+[71.627] write():  <920> Tx: $00#60
+[71.628] read():  <920> Rx: $m38000005,1#5a
+[71.628] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[71.628] write():  <920> Tx: $00#60
+[71.629] read():  <920> Rx: $m38000000,1#55
+[71.629] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[71.631] write():  <920> Tx: $00#60
+[71.632] read():  <920> Rx: $m38000001,1#56
+[71.632] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000001 
+[71.633] write():  <920> Tx: $00#60
+[71.633] read():  <920> Rx: $m38000002,1#57
+[71.633] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[71.634] write():  <920> Tx: $00#60
+[71.655] read():  <920> Rx: $m38000003,2#59
+[71.655] handlePacket():  Reading 0x2 bytes of memory from addr 0x38000003 
+[71.659] write():  <920> Tx: $0000#c0
+[71.660] read():  <920> Rx: $m38000005,1#5a
+[71.660] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[71.661] write():  <920> Tx: $00#60
+[71.688] read():  <920> Rx: $m38000000,1#55
+[71.688] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[71.693] write():  <920> Tx: $00#60
+[71.694] read():  <920> Rx: $m38000002,1#57
+[71.694] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[71.699] write():  <920> Tx: $00#60
+[71.718] read():  <920> Rx: $m38000002,1#57
+[71.718] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[71.719] write():  <920> Tx: $00#60
+[71.734] read():  <920> Rx: $m38000003,1#58
+[71.734] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000003 
+[71.737] write():  <920> Tx: $00#60
+[71.737] read():  <920> Rx: $m38000004,1#59
+[71.737] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000004 
+[71.738] write():  <920> Tx: $00#60
+[71.738] read():  <920> Rx: $m38000005,1#5a
+[71.738] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[71.739] write():  <920> Tx: $00#60
+[71.750] read():  <920> Rx: $m38000000,1#55
+[71.750] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[71.754] write():  <920> Tx: $00#60
+[71.754] read():  <920> Rx: $m38000001,1#56
+[71.754] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000001 
+[71.755] write():  <920> Tx: $00#60
+[71.756] read():  <920> Rx: $m38000002,1#57
+[71.756] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[71.757] write():  <920> Tx: $00#60
+[71.781] read():  <920> Rx: $m38000003,2#59
+[71.781] handlePacket():  Reading 0x2 bytes of memory from addr 0x38000003 
+[71.788] write():  <920> Tx: $0000#c0
+[71.812] read():  <920> Rx: $m38000005,1#5a
+[71.812] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[71.815] write():  <920> Tx: $00#60
+[71.843] read():  <920> Rx: $m38000000,1#55
+[71.843] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[71.845] write():  <920> Tx: $00#60
+[71.858] read():  <920> Rx: $m38000002,1#57
+[71.858] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[71.861] write():  <920> Tx: $00#60
+[71.874] read():  <920> Rx: $m38000002,1#57
+[71.874] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[71.876] write():  <920> Tx: $00#60
+[71.876] read():  <920> Rx: $m38000003,1#58
+[71.876] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000003 
+[71.879] write():  <920> Tx: $00#60
+[71.879] read():  <920> Rx: $m38000004,1#59
+[71.879] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000004 
+[71.880] write():  <920> Tx: $00#60
+[71.881] read():  <920> Rx: $m38000005,1#5a
+[71.881] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[71.883] write():  <920> Tx: $00#60
+[71.883] read():  <920> Rx: $m38000000,1#55
+[71.883] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[71.884] write():  <920> Tx: $00#60
+[71.905] read():  <920> Rx: $m38000001,1#56
+[71.905] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000001 
+[71.909] write():  <920> Tx: $00#60
+[71.910] read():  <920> Rx: $m38000002,1#57
+[71.910] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[71.911] write():  <920> Tx: $00#60
+[71.936] read():  <920> Rx: $m38000003,2#59
+[71.936] handlePacket():  Reading 0x2 bytes of memory from addr 0x38000003 
+[71.939] write():  <920> Tx: $0000#c0
+[71.940] read():  <920> Rx: $m38000005,1#5a
+[71.940] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[71.942] write():  <920> Tx: $00#60
+[71.967] read():  <920> Rx: $m38000000,1#55
+[71.967] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[71.970] write():  <920> Tx: $00#60
+[71.970] read():  <920> Rx: $m38000002,1#57
+[71.970] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[71.971] write():  <920> Tx: $00#60
+[71.972] read():  <920> Rx: $m38000002,1#57
+[71.972] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[71.981] write():  <920> Tx: $00#60
+[71.981] read():  <920> Rx: $m38000003,1#58
+[71.981] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000003 
+[71.991] write():  <920> Tx: $00#60
+[72.014] read():  <920> Rx: $m38000004,1#59
+[72.014] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000004 
+[72.014] write():  <920> Tx: $00#60
+[72.030] read():  <920> Rx: $m38000005,1#5a
+[72.030] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[72.037] write():  <920> Tx: $00#60
+[72.062] read():  <920> Rx: $m38000000,1#55
+[72.062] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[72.068] write():  <920> Tx: $00#60
+[72.092] read():  <920> Rx: $m38000001,1#56
+[72.092] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000001 
+[72.094] write():  <920> Tx: $00#60
+[72.095] read():  <920> Rx: $m38000002,1#57
+[72.095] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[72.095] write():  <920> Tx: $00#60
+[72.108] read():  <920> Rx: $m38000003,2#59
+[72.109] handlePacket():  Reading 0x2 bytes of memory from addr 0x38000003 
+[72.111] write():  <920> Tx: $0000#c0
+[72.124] read():  <920> Rx: $m38000005,1#5a
+[72.124] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[72.128] write():  <920> Tx: $00#60
+[72.155] read():  <920> Rx: $m38000000,1#55
+[72.155] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[72.159] write():  <920> Tx: $00#60
+[72.171] read():  <920> Rx: $m38000002,1#57
+[72.171] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[72.174] write():  <920> Tx: $00#60
+[72.176] read():  <920> Rx: $m38000002,1#57
+[72.176] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[72.177] write():  <920> Tx: $00#60
+[72.178] read():  <920> Rx: $m38000003,1#58
+[72.178] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000003 
+[72.179] write():  <920> Tx: $00#60
+[72.179] read():  <920> Rx: $m38000004,1#59
+[72.179] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000004 
+[72.180] write():  <920> Tx: $00#60
+[72.181] read():  <920> Rx: $m38000005,1#5a
+[72.181] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[72.183] write():  <920> Tx: $00#60
+[72.183] read():  <920> Rx: $m38000000,1#55
+[72.183] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[72.184] write():  <920> Tx: $00#60
+[72.185] read():  <920> Rx: $m38000001,1#56
+[72.185] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000001 
+[72.188] write():  <920> Tx: $00#60
+[72.202] read():  <920> Rx: $m38000002,1#57
+[72.202] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[72.204] write():  <920> Tx: $00#60
+[72.204] read():  <920> Rx: $m38000003,2#59
+[72.204] handlePacket():  Reading 0x2 bytes of memory from addr 0x38000003 
+[72.207] write():  <920> Tx: $0000#c0
+[72.207] read():  <920> Rx: $m38000005,1#5a
+[72.207] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[72.209] write():  <920> Tx: $00#60
+[72.233] read():  <920> Rx: $m38000000,1#55
+[72.233] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[72.236] write():  <920> Tx: $00#60
+[72.236] read():  <920> Rx: $m38000002,1#57
+[72.236] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[72.238] write():  <920> Tx: $00#60
+[72.239] read():  <920> Rx: $m38000002,1#57
+[72.239] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[72.240] write():  <920> Tx: $00#60
+[72.241] read():  <920> Rx: $m38000003,1#58
+[72.241] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000003 
+[72.242] write():  <920> Tx: $00#60
+[72.242] read():  <920> Rx: $m38000004,1#59
+[72.242] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000004 
+[72.243] write():  <920> Tx: $00#60
+[72.264] read():  <920> Rx: $m38000005,1#5a
+[72.264] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[72.265] write():  <920> Tx: $00#60
+[72.267] read():  <920> Rx: $m38000000,1#55
+[72.267] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[72.268] write():  <920> Tx: $00#60
+[72.269] read():  <920> Rx: $m38000001,1#56
+[72.269] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000001 
+[72.270] write():  <920> Tx: $00#60
+[72.271] read():  <920> Rx: $m38000002,1#57
+[72.271] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[72.272] write():  <920> Tx: $00#60
+[72.273] read():  <920> Rx: $m38000003,2#59
+[72.273] handlePacket():  Reading 0x2 bytes of memory from addr 0x38000003 
+[72.274] write():  <920> Tx: $0000#c0
+[72.295] read():  <920> Rx: $m38000005,1#5a
+[72.295] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[72.297] write():  <920> Tx: $00#60
+[72.326] read():  <920> Rx: $m38000000,1#55
+[72.326] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[72.329] write():  <920> Tx: $00#60
+[72.330] read():  <920> Rx: $m38000002,1#57
+[72.330] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[72.332] write():  <920> Tx: $00#60
+[72.333] read():  <920> Rx: $m38000002,1#57
+[72.333] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[72.334] write():  <920> Tx: $00#60
+[72.357] read():  <920> Rx: $m38000003,1#58
+[72.357] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000003 
+[72.359] write():  <920> Tx: $00#60
+[72.359] read():  <920> Rx: $m38000004,1#59
+[72.359] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000004 
+[72.362] write():  <920> Tx: $00#60
+[72.363] read():  <920> Rx: $m38000005,1#5a
+[72.363] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[72.364] write():  <920> Tx: $00#60
+[72.365] read():  <920> Rx: $m38000000,1#55
+[72.365] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[72.366] write():  <920> Tx: $00#60
+[72.388] read():  <920> Rx: $m38000001,1#56
+[72.388] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000001 
+[72.390] write():  <920> Tx: $00#60
+[72.391] read():  <920> Rx: $m38000002,1#57
+[72.391] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[72.393] write():  <920> Tx: $00#60
+[72.393] read():  <920> Rx: $m38000003,2#59
+[72.393] handlePacket():  Reading 0x2 bytes of memory from addr 0x38000003 
+[72.395] write():  <920> Tx: $0000#c0
+[72.395] read():  <920> Rx: $m38000005,1#5a
+[72.396] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[72.396] write():  <920> Tx: $00#60
+[72.419] read():  <920> Rx: $m38000000,1#55
+[72.419] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[72.422] write():  <920> Tx: $00#60
+[72.422] read():  <920> Rx: $m38000002,1#57
+[72.422] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[72.425] write():  <920> Tx: $00#60
+[72.425] read():  <920> Rx: $m38000002,1#57
+[72.425] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[72.426] write():  <920> Tx: $00#60
+[72.427] read():  <920> Rx: $m38000003,1#58
+[72.427] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000003 
+[72.429] write():  <920> Tx: $00#60
+[72.429] read():  <920> Rx: $m38000004,1#59
+[72.429] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000004 
+[72.430] write():  <920> Tx: $00#60
+[72.450] read():  <920> Rx: $m38000005,1#5a
+[72.450] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[72.453] write():  <920> Tx: $00#60
+[72.454] read():  <920> Rx: $m38000000,1#55
+[72.454] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[72.457] write():  <920> Tx: $00#60
+[72.481] read():  <920> Rx: $m38000001,1#56
+[72.481] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000001 
+[72.483] write():  <920> Tx: $00#60
+[72.497] read():  <920> Rx: $m38000002,1#57
+[72.497] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[72.499] write():  <920> Tx: $00#60
+[72.500] read():  <920> Rx: $m38000003,2#59
+[72.500] handlePacket():  Reading 0x2 bytes of memory from addr 0x38000003 
+[72.502] write():  <920> Tx: $0000#c0
+[72.503] read():  <920> Rx: $m38000005,1#5a
+[72.503] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[72.505] write():  <920> Tx: $00#60
+[72.528] read():  <920> Rx: $m38000000,1#55
+[72.528] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[72.530] write():  <920> Tx: $00#60
+[72.544] read():  <920> Rx: $m38000002,1#57
+[72.544] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[72.545] write():  <920> Tx: $00#60
+[72.546] read():  <920> Rx: $m38000002,1#57
+[72.546] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[72.548] write():  <920> Tx: $00#60
+[72.549] read():  <920> Rx: $m38000003,1#58
+[72.549] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000003 
+[72.551] write():  <920> Tx: $00#60
+[72.575] read():  <920> Rx: $m38000004,1#59
+[72.575] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000004 
+[72.577] write():  <920> Tx: $00#60
+[72.578] read():  <920> Rx: $m38000005,1#5a
+[72.578] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[72.581] write():  <920> Tx: $00#60
+[72.581] read():  <920> Rx: $m38000000,1#55
+[72.581] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[72.583] write():  <920> Tx: $00#60
+[72.606] read():  <920> Rx: $m38000001,1#56
+[72.606] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000001 
+[72.610] write():  <920> Tx: $00#60
+[72.610] read():  <920> Rx: $m38000002,1#57
+[72.610] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[72.612] write():  <920> Tx: $00#60
+[72.612] read():  <920> Rx: $m38000003,2#59
+[72.612] handlePacket():  Reading 0x2 bytes of memory from addr 0x38000003 
+[72.615] write():  <920> Tx: $0000#c0
+[72.615] read():  <920> Rx: $m38000005,1#5a
+[72.615] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[72.616] write():  <920> Tx: $00#60
+[72.638] read():  <920> Rx: $m38000000,1#55
+[72.638] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[72.639] write():  <920> Tx: $00#60
+[72.654] read():  <920> Rx: $m38000002,1#57
+[72.654] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[72.656] write():  <920> Tx: $00#60
+[72.657] read():  <920> Rx: $m38000002,1#57
+[72.657] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[72.660] write():  <920> Tx: $00#60
+[72.661] read():  <920> Rx: $m38000003,1#58
+[72.661] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000003 
+[72.662] write():  <920> Tx: $00#60
+[72.662] read():  <920> Rx: $m38000004,1#59
+[72.662] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000004 
+[72.663] write():  <920> Tx: $00#60
+[72.664] read():  <920> Rx: $m38000005,1#5a
+[72.664] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[72.665] write():  <920> Tx: $00#60
+[72.666] read():  <920> Rx: $m38000000,1#55
+[72.666] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[72.667] write():  <920> Tx: $00#60
+[72.685] read():  <920> Rx: $m38000001,1#56
+[72.685] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000001 
+[72.687] write():  <920> Tx: $00#60
+[72.688] read():  <920> Rx: $m38000002,1#57
+[72.688] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[72.690] write():  <920> Tx: $00#60
+[72.691] read():  <920> Rx: $m38000003,2#59
+[72.691] handlePacket():  Reading 0x2 bytes of memory from addr 0x38000003 
+[72.693] write():  <920> Tx: $0000#c0
+[72.695] read():  <920> Rx: $m38000005,1#5a
+[72.695] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[72.696] write():  <920> Tx: $00#60
+[72.731] read():  <920> Rx: $m38000000,1#55
+[72.731] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[72.734] write():  <920> Tx: $00#60
+[72.746] read():  <920> Rx: $m38000002,1#57
+[72.746] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[72.748] write():  <920> Tx: $00#60
+[72.750] read():  <920> Rx: $m38000002,1#57
+[72.750] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[72.751] write():  <920> Tx: $00#60
+[72.752] read():  <920> Rx: $m38000003,1#58
+[72.752] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000003 
+[72.753] write():  <920> Tx: $00#60
+[72.754] read():  <920> Rx: $m38000004,1#59
+[72.754] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000004 
+[72.755] write():  <920> Tx: $00#60
+[72.755] read():  <920> Rx: $m38000005,1#5a
+[72.755] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[72.758] write():  <920> Tx: $00#60
+[72.759] read():  <920> Rx: $m38000000,1#55
+[72.759] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[72.760] write():  <920> Tx: $00#60
+[72.761] read():  <920> Rx: $m38000001,1#56
+[72.761] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000001 
+[72.762] write():  <920> Tx: $00#60
+[72.777] read():  <920> Rx: $m38000002,1#57
+[72.777] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[72.779] write():  <920> Tx: $00#60
+[72.780] read():  <920> Rx: $m38000003,2#59
+[72.780] handlePacket():  Reading 0x2 bytes of memory from addr 0x38000003 
+[72.783] write():  <920> Tx: $0000#c0
+[72.783] read():  <920> Rx: $m38000005,1#5a
+[72.783] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[72.784] write():  <920> Tx: $00#60
+[72.809] read():  <920> Rx: $m38000000,1#55
+[72.809] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[72.811] write():  <920> Tx: $00#60
+[72.812] read():  <920> Rx: $m38000002,1#57
+[72.812] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[72.814] write():  <920> Tx: $00#60
+[72.814] read():  <920> Rx: $m38000002,1#57
+[72.814] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[72.815] write():  <920> Tx: $00#60
+[72.816] read():  <920> Rx: $m38000003,1#58
+[72.816] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000003 
+[72.817] write():  <920> Tx: $00#60
+[72.817] read():  <920> Rx: $m38000004,1#59
+[72.817] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000004 
+[72.820] write():  <920> Tx: $00#60
+[72.820] read():  <920> Rx: $m38000005,1#5a
+[72.820] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[72.821] write():  <920> Tx: $00#60
+[72.839] read():  <920> Rx: $m38000000,1#55
+[72.839] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[72.841] write():  <920> Tx: $00#60
+[72.843] read():  <920> Rx: $m38000001,1#56
+[72.843] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000001 
+[72.845] write():  <920> Tx: $00#60
+[72.870] read():  <920> Rx: $m38000002,1#57
+[72.870] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[72.872] write():  <920> Tx: $00#60
+[72.872] read():  <920> Rx: $m38000003,2#59
+[72.873] handlePacket():  Reading 0x2 bytes of memory from addr 0x38000003 
+[72.877] write():  <920> Tx: $0000#c0
+[72.878] read():  <920> Rx: $m38000005,1#5a
+[72.878] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[72.879] write():  <920> Tx: $00#60
+[72.901] read():  <920> Rx: $m38000000,1#55
+[72.901] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[72.904] write():  <920> Tx: $00#60
+[72.905] read():  <920> Rx: $m38000002,1#57
+[72.905] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[72.907] write():  <920> Tx: $00#60
+[72.907] read():  <920> Rx: $m38000002,1#57
+[72.907] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[72.908] write():  <920> Tx: $00#60
+[72.932] read():  <920> Rx: $m38000003,1#58
+[72.932] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000003 
+[72.938] write():  <920> Tx: $00#60
+[72.940] read():  <920> Rx: $m38000004,1#59
+[72.940] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000004 
+[72.941] write():  <920> Tx: $00#60
+[72.963] read():  <920> Rx: $m38000005,1#5a
+[72.963] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[72.966] write():  <920> Tx: $00#60
+[72.979] read():  <920> Rx: $m38000000,1#55
+[72.979] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[72.980] write():  <920> Tx: $00#60
+[72.994] read():  <920> Rx: $m38000001,1#56
+[72.994] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000001 
+[72.994] write():  <920> Tx: $00#60
+[73.010] read():  <920> Rx: $m38000002,1#57
+[73.010] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[73.012] write():  <920> Tx: $00#60
+[73.026] read():  <920> Rx: $m38000003,2#59
+[73.026] handlePacket():  Reading 0x2 bytes of memory from addr 0x38000003 
+[73.027] write():  <920> Tx: $0000#c0
+[73.042] read():  <920> Rx: $m38000005,1#5a
+[73.042] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[73.042] write():  <920> Tx: $00#60
+[73.072] read():  <920> Rx: $m38000000,1#55
+[73.072] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[73.073] write():  <920> Tx: $00#60
+[73.087] read():  <920> Rx: $m38000002,1#57
+[73.087] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[73.088] write():  <920> Tx: $00#60
+[73.102] read():  <920> Rx: $m38000002,1#57
+[73.102] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[73.103] write():  <920> Tx: $00#60
+[73.118] read():  <920> Rx: $m38000003,1#58
+[73.118] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000003 
+[73.122] write():  <920> Tx: $00#60
+[73.133] read():  <920> Rx: $m38000004,1#59
+[73.133] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000004 
+[73.139] write():  <920> Tx: $00#60
+[73.165] read():  <920> Rx: $m38000005,1#5a
+[73.165] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[73.167] write():  <920> Tx: $00#60
+[73.181] read():  <920> Rx: $m38000000,1#55
+[73.181] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[73.182] write():  <920> Tx: $00#60
+[73.183] read():  <920> Rx: $m38000001,1#56
+[73.183] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000001 
+[73.183] write():  <920> Tx: $00#60
+[73.184] read():  <920> Rx: $m38000002,1#57
+[73.184] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[73.184] write():  <920> Tx: $00#60
+[73.185] read():  <920> Rx: $m38000003,2#59
+[73.185] handlePacket():  Reading 0x2 bytes of memory from addr 0x38000003 
+[73.187] write():  <920> Tx: $0000#c0
+[73.211] read():  <920> Rx: $m38000005,1#5a
+[73.211] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[73.211] write():  <920> Tx: $00#60
+[73.243] read():  <920> Rx: $m38000000,1#55
+[73.243] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[73.247] write():  <920> Tx: $00#60
+[73.247] read():  <920> Rx: $m38000002,1#57
+[73.247] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[73.250] write():  <920> Tx: $00#60
+[73.251] read():  <920> Rx: $m38000002,1#57
+[73.251] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[73.253] write():  <920> Tx: $00#60
+[73.254] read():  <920> Rx: $m38000003,1#58
+[73.254] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000003 
+[73.255] write():  <920> Tx: $00#60
+[73.255] read():  <920> Rx: $m38000004,1#59
+[73.255] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000004 
+[73.256] write():  <920> Tx: $00#60
+[73.274] read():  <920> Rx: $m38000005,1#5a
+[73.274] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[73.275] write():  <920> Tx: $00#60
+[73.276] read():  <920> Rx: $m38000000,1#55
+[73.276] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[73.278] write():  <920> Tx: $00#60
+[73.289] read():  <920> Rx: $m38000001,1#56
+[73.289] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000001 
+[73.291] write():  <920> Tx: $00#60
+[73.292] read():  <920> Rx: $m38000002,1#57
+[73.292] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[73.295] write():  <920> Tx: $00#60
+[73.321] read():  <920> Rx: $m38000003,2#59
+[73.321] handlePacket():  Reading 0x2 bytes of memory from addr 0x38000003 
+[73.325] write():  <920> Tx: $0000#c0
+[73.325] read():  <920> Rx: $m38000005,1#5a
+[73.325] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[73.327] write():  <920> Tx: $00#60
+[73.352] read():  <920> Rx: $m38000000,1#55
+[73.352] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[73.367] write():  <920> Tx: $00#60
+[73.383] read():  <920> Rx: $m38000002,1#57
+[73.383] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[73.385] write():  <920> Tx: $00#60
+[73.398] read():  <920> Rx: $m38000002,1#57
+[73.398] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[73.401] write():  <920> Tx: $00#60
+[73.401] read():  <920> Rx: $m38000003,1#58
+[73.401] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000003 
+[73.403] write():  <920> Tx: $00#60
+[73.403] read():  <920> Rx: $m38000004,1#59
+[73.403] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000004 
+[73.406] write():  <920> Tx: $00#60
+[73.429] read():  <920> Rx: $m38000005,1#5a
+[73.429] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[73.432] write():  <920> Tx: $00#60
+[73.445] read():  <920> Rx: $m38000000,1#55
+[73.445] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[73.447] write():  <920> Tx: $00#60
+[73.460] read():  <920> Rx: $m38000001,1#56
+[73.460] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000001 
+[73.461] write():  <920> Tx: $00#60
+[73.462] read():  <920> Rx: $m38000002,1#57
+[73.462] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[73.464] write():  <920> Tx: $00#60
+[73.475] read():  <920> Rx: $m38000003,2#59
+[73.475] handlePacket():  Reading 0x2 bytes of memory from addr 0x38000003 
+[73.481] write():  <920> Tx: $0000#c0
+[73.482] read():  <920> Rx: $m38000005,1#5a
+[73.482] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[73.483] write():  <920> Tx: $00#60
+[73.506] read():  <920> Rx: $m38000000,1#55
+[73.506] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[73.508] write():  <920> Tx: $00#60
+[73.508] read():  <920> Rx: $m38000002,1#57
+[73.509] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[73.510] write():  <920> Tx: $00#60
+[73.510] read():  <920> Rx: $m38000002,1#57
+[73.510] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[73.512] write():  <920> Tx: $00#60
+[73.513] read():  <920> Rx: $m38000003,1#58
+[73.513] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000003 
+[73.514] write():  <920> Tx: $00#60
+[73.514] read():  <920> Rx: $m38000004,1#59
+[73.514] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000004 
+[73.516] write():  <920> Tx: $00#60
+[73.516] read():  <920> Rx: $m38000005,1#5a
+[73.516] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[73.518] write():  <920> Tx: $00#60
+[73.519] read():  <920> Rx: $m38000000,1#55
+[73.519] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[73.520] write():  <920> Tx: $00#60
+[73.522] read():  <920> Rx: $m38000001,1#56
+[73.522] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000001 
+[73.524] write():  <920> Tx: $00#60
+[73.525] read():  <920> Rx: $m38000002,1#57
+[73.525] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[73.526] write():  <920> Tx: $00#60
+[73.538] read():  <920> Rx: $m38000003,2#59
+[73.538] handlePacket():  Reading 0x2 bytes of memory from addr 0x38000003 
+[73.542] write():  <920> Tx: $0000#c0
+[73.542] read():  <920> Rx: $m38000005,1#5a
+[73.542] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[73.544] write():  <920> Tx: $00#60
+[73.569] read():  <920> Rx: $m38000000,1#55
+[73.569] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[73.582] write():  <920> Tx: $00#60
+[73.600] read():  <920> Rx: $m38000002,1#57
+[73.600] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[73.600] write():  <920> Tx: $00#60
+[73.615] read():  <920> Rx: $m38000002,1#57
+[73.615] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[73.616] write():  <920> Tx: $00#60
+[73.630] read():  <920> Rx: $m38000003,1#58
+[73.630] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000003 
+[73.633] write():  <920> Tx: $00#60
+[73.634] read():  <920> Rx: $m38000004,1#59
+[73.634] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000004 
+[73.635] write():  <920> Tx: $00#60
+[73.635] read():  <920> Rx: $m38000005,1#5a
+[73.635] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[73.636] write():  <920> Tx: $00#60
+[73.637] read():  <920> Rx: $m38000000,1#55
+[73.637] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[73.637] write():  <920> Tx: $00#60
+[73.639] read():  <920> Rx: $m38000001,1#56
+[73.639] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000001 
+[73.640] write():  <920> Tx: $00#60
+[73.661] read():  <920> Rx: $m38000002,1#57
+[73.661] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[73.662] write():  <920> Tx: $00#60
+[73.663] read():  <920> Rx: $m38000003,2#59
+[73.663] handlePacket():  Reading 0x2 bytes of memory from addr 0x38000003 
+[73.666] write():  <920> Tx: $0000#c0
+[73.667] read():  <920> Rx: $m38000005,1#5a
+[73.667] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[73.668] write():  <920> Tx: $00#60
+[73.693] read():  <920> Rx: $m38000000,1#55
+[73.693] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[73.695] write():  <920> Tx: $00#60
+[73.696] read():  <920> Rx: $m38000002,1#57
+[73.696] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[73.698] write():  <920> Tx: $00#60
+[73.698] read():  <920> Rx: $m38000002,1#57
+[73.698] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[73.701] write():  <920> Tx: $00#60
+[73.723] read():  <920> Rx: $m38000003,1#58
+[73.723] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000003 
+[73.725] write():  <920> Tx: $00#60
+[73.726] read():  <920> Rx: $m38000004,1#59
+[73.726] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000004 
+[73.728] write():  <920> Tx: $00#60
+[73.739] read():  <920> Rx: $m38000005,1#5a
+[73.739] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[73.742] write():  <920> Tx: $00#60
+[73.742] read():  <920> Rx: $m38000000,1#55
+[73.742] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[73.744] write():  <920> Tx: $00#60
+[73.745] read():  <920> Rx: $m38000001,1#56
+[73.745] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000001 
+[73.746] write():  <920> Tx: $00#60
+[73.770] read():  <920> Rx: $m38000002,1#57
+[73.770] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[73.772] write():  <920> Tx: $00#60
+[73.785] read():  <920> Rx: $m38000003,2#59
+[73.785] handlePacket():  Reading 0x2 bytes of memory from addr 0x38000003 
+[73.788] write():  <920> Tx: $0000#c0
+[73.800] read():  <920> Rx: $m38000005,1#5a
+[73.800] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[73.805] write():  <920> Tx: $00#60
+[73.832] read():  <920> Rx: $m38000000,1#55
+[73.832] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[73.835] write():  <920> Tx: $00#60
+[73.835] read():  <920> Rx: $m38000002,1#57
+[73.835] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[73.837] write():  <920> Tx: $00#60
+[73.847] read():  <920> Rx: $m38000002,1#57
+[73.847] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[73.849] write():  <920> Tx: $00#60
+[73.862] read():  <920> Rx: $m38000003,1#58
+[73.862] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000003 
+[73.865] write():  <920> Tx: $00#60
+[73.866] read():  <920> Rx: $m38000004,1#59
+[73.866] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000004 
+[73.868] write():  <920> Tx: $00#60
+[73.868] read():  <920> Rx: $m38000005,1#5a
+[73.869] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[73.871] write():  <920> Tx: $00#60
+[73.872] read():  <920> Rx: $m38000000,1#55
+[73.872] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000000 
+[73.873] write():  <920> Tx: $00#60
+[73.894] read():  <920> Rx: $m38000001,1#56
+[73.894] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000001 
+[73.896] write():  <920> Tx: $00#60
+[73.897] read():  <920> Rx: $m38000002,1#57
+[73.897] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000002 
+[73.899] write():  <920> Tx: $00#60
+[73.900] read():  <920> Rx: $m38000003,2#59
+[73.900] handlePacket():  Reading 0x2 bytes of memory from addr 0x38000003 
+[73.902] write():  <920> Tx: $0000#c0
+[73.902] read():  <920> Rx: $m38000005,1#5a
+[73.903] handlePacket():  Reading 0x1 bytes of memory from addr 0x38000005 
+[73.905] write():  <920> Tx: $00#60
+[93.730] read():  <708> Rx: $vKill;a410#33
+[93.730] handlePacket():  Hidden/Unsupported v-command 'vKill', see RSP for details
+[93.730] write():  <708> Tx: $#00
+[93.730] read():  <708> Rx: $k#6b
+[93.731] run():  GDB session terminated: Client connection lost
+[93.731] handleSessionEvent():  GdbSessionManager, session terminated: 1
+[93.745] read():  <920> Rx: $vKill;a410#33
+[93.745] handlePacket():  Hidden/Unsupported v-command 'vKill', see RSP for details
+[93.745] write():  <920> Tx: $#00
+[93.745] read():  <920> Rx: $k#6b
+[93.745] run():  GDB session terminated: Client connection lost
+[93.745] handleSessionEvent():  GdbSessionManager, session terminated: 2
+[93.745] handleSessionEvent():  GdbSrv, last session terminated, signal dispose
+[93.745] stop():  Stopping port 61238
+[93.776] cleanup():  Cleanup session: 1
+[93.776] cleanup():  Cleanup session: 2
+[93.776] ~GdbSession():  GDB session disposed: 1
+[93.776] ~GdbSession():  GDB session disposed: 2
+[93.792] WaitConnection():  Received stop for port 61238, not accepting new connections.
+[93.792] deInit():  GdbSrv, deInit entry.
+[93.792] deInit():  GdbSessionManager, deInit entry.
+[93.885] deInit():  GdbSessionManager, deInit exit
+[93.885] deInit():  SwvSrv deInit entry
+[93.885] stop():  Stopping port 61239
+[93.887] stop():  Stopping port 61238
+[93.994] WaitConnection():  Received stop for port 61239, not accepting new connections.
+[93.994] deInit():  SwvSrv deInit exit
+[93.994] closeDevice():  Stm32Device, closeDevice() entry
+[94.042] pollAndNotifyRun():  Stm32Device, pollAndNotify stopped
+[94.052] closeDevice():  Stm32Device, closeDevice() exit
+[94.052] deInit():  Stm32Device, deInit success
+[94.052] deInit():  GdbSrv, deInit exit.
